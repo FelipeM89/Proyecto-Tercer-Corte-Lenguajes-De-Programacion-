@@ -6,7 +6,7 @@ Funcionalidades simples de graficado sin usar librerías externas:
 - transformación de datos para visualización
 """
 
-from libs.mylib_archivos import escribir_archivo_texto  # interno al paquete libs
+from LibreriaArchivoGestion import escribir_archivo_texto  # interno al paquete libs
 
 def _normalizar_lista(vals, max_width):
     if not vals:
@@ -71,6 +71,15 @@ def guardar_puntos(path, xs, ys):
     escribir_archivo_texto(path, "\n".join(lines))
     return True
 
+def GenerarGrafica (vals):
+    if not vals :
+        print("NO HAY DATOS PARA GRAFICAR")
+        return
+    else :
+        graficar_barras_ascii(vals)
+        print("\n")
+        graficar_linea_ascii(vals, width=40, height=10)    
+        
 if __name__ == "__main__":
     print("Pruebas mylib_graficas:")
     data = [1, 5, 3, 8, 7, 2, 10, 6]
