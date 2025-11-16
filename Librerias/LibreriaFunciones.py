@@ -4,7 +4,7 @@ Funciones estadísticas y de aprendizaje básicas:
 - regresion_lineal (OLS) con salida (m, b)
 - metrics: MSE, MAE
 - normalizacion: min-max y z-score
-- utilidades: mean, variance, dot
+- utilidades: mean, variance, dot, sqrt
 """
 
 # Utilidades
@@ -28,6 +28,10 @@ def dot(a, b):
     for x, y in zip(a, b):
         s += x * y
     return s
+
+def sqrt(x):
+    """Raíz cuadrada"""
+    return x ** 0.5
 
 # -----------------------
 # Regresion Lineal Simple (y = m * x + b)
