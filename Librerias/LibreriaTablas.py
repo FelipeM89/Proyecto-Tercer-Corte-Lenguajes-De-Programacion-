@@ -285,8 +285,8 @@ if __name__ == "__main__":
     ]
 
     # Headers para las columnas
-    headers = ["ID", "Nombre", "Nota", "Calificación","hola"]
+    #headers = ["ID", "Nombre", "Nota", "Calificación","hola"]
 
     # Renderizar tabla
-    tabla = ascii_table(data, headers=headers)
+    tabla = ascii_table(data, headers=None)
     print(tabla)
