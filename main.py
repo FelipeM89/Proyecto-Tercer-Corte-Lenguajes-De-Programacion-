@@ -1,4 +1,4 @@
-from antlr4 import *
+
 from Visitor.lenguajeDominiEspecificoLexer import lenguajeDominiEspecificoLexer
 from Visitor.lenguajeDominiEspecificoParser import lenguajeDominiEspecificoParser
 from Visitor.Visitor import Visitor
