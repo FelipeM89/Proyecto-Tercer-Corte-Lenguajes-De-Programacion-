@@ -1,13 +1,12 @@
 """
-mylib_funciones.py
-Funciones estadísticas y de aprendizaje básicas:
-- regresion_lineal (OLS) con salida (m, b)
-- metrics: MSE, MAE
-- normalizacion: min-max y z-score
-- utilidades: mean, variance, dot, sqrt
+LibreriaFunciones.py
+Funciones estadísticas y utilidades:
+ - mean, variance, std, dot
+ - min_max_normalize, z_score
+ - mse, mae, rmse, r2
+ - regresion_lineal (simple OLS), predict_linear
 """
 
-# Utilidades
 def mean(xs):
     if not xs:
         return 0.0
@@ -21,65 +20,21 @@ def variance(xs, ddof=0):
     s = sum((x - m) ** 2 for x in xs)
     return s / (n - ddof) if n - ddof > 0 else 0.0
 
-def dot(a, b):
+def std(xs):
+    return variance(xs) ** 0.5
+
+def dot(a,b):
     if len(a) != len(b):
         raise ValueError("dot: vectores distintas longitudes")
     s = 0.0
-    for x, y in zip(a, b):
-        s += x * y
+    for x,y in zip(a,b):
+        s += x*y
     return s
 
-def sqrt(x):
-    """Raíz cuadrada"""
-    return x ** 0.5
-
-# -----------------------
-# Regresion Lineal Simple (y = m * x + b)
-# -----------------------
-def regresion_lineal(x, y):
-    """
-    Retorna (m, b) donde m = slope, b = intercept usando mínimos cuadrados ordinarios.
-    x, y: listas del mismo tamaño.
-    """
-    if not x or not y or len(x) != len(y):
-        raise ValueError("regresion_lineal: listas vacías o distintas longitudes")
-    n = len(x)
-    mx = mean(x)
-    my = mean(y)
-    numer = sum((x[i] - mx) * (y[i] - my) for i in range(n))
-    denom = sum((x[i] - mx) ** 2 for i in range(n))
-    if denom == 0:
-        raise ValueError("regresion_lineal: varianza de x es cero")
-    m = numer / denom
-    b = my - m * mx
-    return (m, b)
-
-def predict_linear(x, m, b):
-    return [m * xi + b for xi in x]
-
-# -----------------------
-# Métricas
-# -----------------------
-def mse(y_true, y_pred):
-    if len(y_true) != len(y_pred):
-        raise ValueError("mse: listas distintas longitudes")
-    n = len(y_true)
-    return sum((yt - yp) ** 2 for yt, yp in zip(y_true, y_pred)) / n
-
-def mae(y_true, y_pred):
-    if len(y_true) != len(y_pred):
-        raise ValueError("mae: listas distintas longitudes")
-    n = len(y_true)
-    return sum(abs(yt - yp) for yt, yp in zip(y_true, y_pred)) / n
-
-# -----------------------
-# Normalizaciones
-# -----------------------
 def min_max_normalize(xs):
     if not xs:
         return []
-    mn = min(xs)
-    mx = max(xs)
+    mn = min(xs); mx = max(xs)
     if mx == mn:
         return [0.5 for _ in xs]
     return [(x - mn) / (mx - mn) for x in xs]
@@ -88,21 +43,60 @@ def z_score(xs):
     if not xs:
         return []
     m = mean(xs)
-    var = variance(xs)
-    sd = var ** 0.5
+    sd = std(xs)
     if sd == 0:
         return [0.0 for _ in xs]
     return [(x - m) / sd for x in xs]
 
+# --------- metrics ----------
+def mse(y_true, y_pred):
+    if len(y_true) != len(y_pred):
+        raise ValueError("mse: longitudes difieren")
+    n = len(y_true)
+    return sum((yt - yp) ** 2 for yt, yp in zip(y_true, y_pred)) / n
+
+def mae(y_true, y_pred):
+    if len(y_true) != len(y_pred):
+        raise ValueError("mae: longitudes difieren")
+    n = len(y_true)
+    return sum(abs(yt - yp) for yt, yp in zip(y_true, y_pred)) / n
+
+def rmse(y_true, y_pred):
+    return mse(y_true, y_pred) ** 0.5
+
+def r2(y_true, y_pred):
+    m = mean(y_true)
+    ss_res = sum((yt - yp) ** 2 for yt, yp in zip(y_true, y_pred))
+    ss_tot = sum((yt - m) ** 2 for yt in y_true)
+    return 1.0 - ss_res / ss_tot if ss_tot != 0 else 0.0
+
+# --------- regresion lineal simple ----------
+def regresion_lineal(x, y):
+    if not x or not y or len(x) != len(y):
+        raise ValueError("regresion_lineal: listas vacías o distintas longitudes")
+    n = len(x)
+    mx = mean(x)
+    my = mean(y)
+    numer = sum((x[i] - mx) * (y[i] - my) for i in range(n))
+    denom = sum((x[i] - mx) ** 2 for i in range(n))
+    if denom == 0:
+        raise ValueError("regresion_lineal: varianza x = 0")
+    m = numer / denom
+    b = my - m * mx
+    return (m, b)
+
+def predict_linear(X, m, b):
+    if isinstance(X, list) and (not X or not isinstance(X[0], list)):
+        # 1D list
+        return [m * xi + b for xi in X]
+    elif isinstance(X, list):
+        # list of lists -> apply on first feature only
+        return [m * xi[0] + b for xi in X]
+    else:
+        return m * X + b
+
 if __name__ == "__main__":
-    print("Pruebas mylib_funciones:")
-    x = [1,2,3,4,5]
-    y = [2,4,5,4,5]
+    x=[1,2,3,4]; y=[2,4,5,4]
     m,b = regresion_lineal(x,y)
-    print("m,b =", m, b)
-    preds = predict_linear(x,m,b)
-    print("preds =", preds)
-    print("MSE =", mse(y, preds))
-    print("MAE =", mae(y, preds))
-    print("minmax =", min_max_normalize([10,20,30]))
-    print("zscore =", z_score([10,20,30]))
+    print("m,b",m,b)
+    print("mse", mse(y, predict_linear(x,m,b)))

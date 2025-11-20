@@ -1,50 +1,68 @@
 """
-mylib_archivos.py
-Funciones para lectura/escritura de archivos de texto (UTF-8),
-y utilidades de manejo de datos (guardar listas, cargar listas numéricas).
+LibreriaArchivoGestion.py
+Lectura/escritura básica de archivos y CSV sin dependencias externas.
+Funciones:
+ - leer_txt, escribir_txt, append_txt
+ - guardar_csv, cargar_csv
+ - guardar_matriz_csv, cargar_matriz_csv
 """
 
-def leer_archivo_texto(path):
-    """Lee todo el archivo y devuelve una cadena."""
+def leer_txt(path):
     with open(path, "r", encoding="utf-8") as f:
         return f.read()
 
-def escribir_archivo_texto(path, contenido):
-    """Escribe contenido (string) en archivo (sobrescribe)."""
+def escribir_txt(path, contenido):
     with open(path, "w", encoding="utf-8") as f:
-        f.write(contenido)
+        f.write(str(contenido))
     return True
 
-def append_archivo_texto(path, contenido):
-    """Agrega una línea o texto al final del archivo."""
+def append_txt(path, contenido):
     with open(path, "a", encoding="utf-8") as f:
-        f.write(contenido)
+        f.write(str(contenido))
     return True
 
-def guardar_lista_como_csv(path, lista, separador=","):
-    """
-    Guarda una lista de listas como CSV simple.
-    lista = [[a,b,c], [d,e,f], ...]
-    """
+def _split_csv_line(line, sep=','):
+    parts = []
+    cur = ""
+    in_quote = False
+    quotechar = None
+    for ch in line:
+        if ch in ('"', "'"):
+            if not in_quote:
+                in_quote = True
+                quotechar = ch
+                continue
+            else:
+                if ch == quotechar:
+                    in_quote = False
+                    quotechar = None
+                    continue
+        if ch == sep and not in_quote:
+            parts.append(cur)
+            cur = ""
+        else:
+            cur += ch
+    parts.append(cur)
+    return [p.strip() for p in parts]
+
+def guardar_csv(path, rows, sep=','):
     lines = []
-    for row in lista:
-        lines.append(separador.join(str(x) for x in row))
-    escribir_archivo_texto(path, "\n".join(lines))
+    for row in rows:
+        lines.append(sep.join(str(x) for x in row))
+    escribir_txt(path, "\n".join(lines))
     return True
 
-def cargar_lista_de_csv(path, separador=",", tipo=float):
-    """Carga archivo CSV simple y retorna lista de listas (tipo por elemento)."""
-    text = leer_archivo_texto(path)
-    lines = [ln for ln in text.splitlines() if ln.strip() != ""]
-    result = []
+def cargar_csv(path, sep=',', tipo=float):
+    txt = leer_txt(path)
+    lines = [ln for ln in txt.splitlines() if ln.strip() != ""]
+    res = []
     for ln in lines:
-        parts = [p.strip() for p in ln.split(separador)]
-        result.append([tipo(p) for p in parts])
-    return result
+        parts = _split_csv_line(ln, sep)
+        res.append([tipo(p) for p in parts])
+    return res
 
-if __name__ == "__main__":
-    print("Pruebas mylib_archivos:")
-    escribir_archivo_texto("test_archivo.txt", "hola\n1,2,3\n")
-    print("Contenido:", leer_archivo_texto("test_archivo.txt"))
-    guardar_lista_como_csv("test_matriz.csv", [[1,2,3],[4,5,6]])
-    print("CSV cargado:", cargar_lista_de_csv("test_matriz.csv"))
+def guardar_matriz_csv(path, M):
+    return guardar_csv(path, M)
+
+def cargar_matriz_csv(path):
+    return cargar_csv(path)
