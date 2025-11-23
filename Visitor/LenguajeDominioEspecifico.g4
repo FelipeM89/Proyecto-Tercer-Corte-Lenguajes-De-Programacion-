@@ -16,7 +16,8 @@ instruccion
     ;
 // buclefor
 buclefor: 'for' ID 'in' 'range' '(' INT ',' INT ')' ':' NEWLINE INDENT instruccion+ DEDENT
-
+//buclewhile
+buclewhile: 'while' ID expresion ':' NEWLINE INDENT instruccion+ DEDENT
 suite: 
 // Comentarios
 comentario: COMENTARIO;
