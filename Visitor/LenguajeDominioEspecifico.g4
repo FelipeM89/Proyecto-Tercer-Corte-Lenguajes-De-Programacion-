@@ -11,8 +11,13 @@ instruccion
     | perceptronMulticapa
     | impresion
     | comentario
+    | buclefor
+    | buclewhile
     ;
+// buclefor
+buclefor: 'for' ID 'in' 'range' '(' INT ',' INT ')' ':' NEWLINE INDENT instruccion+ DEDENT
 
+suite: 
 // Comentarios
 comentario: COMENTARIO;
 
@@ -132,3 +137,7 @@ COMENTARIO: '#' ~[\r\n]* -> skip;
 
 // Espacios en blanco
 WS: [ \t\r\n]+ -> skip;
+
+NEWLINE: '\r'? '\n';
+INDENT : '<INDENT>';
+DEDENT : '<DEDENT>';

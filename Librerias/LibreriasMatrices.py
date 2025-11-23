@@ -24,6 +24,7 @@ def zeros(r,c):
     return [[0.0 for _ in range(c)] for _ in range(r)]
 
 def identity(n):
+    """ Devuelve la matriz identidad de tamaño n x n """
     I = zeros(n,n)
     for i in range(n):
         I[i][i] = 1.0
@@ -58,6 +59,7 @@ def multiplicar_matrices(A,B):
     return C
 
 def transpuesta(A):
+    """ Devuelve la transpuesta de la matriz A"""
     _check_matrix(A)
     r,c = shape(A)
     return [[A[i][j] for i in range(r)] for j in range(c)]
@@ -67,10 +69,11 @@ def _minor(A,i,j):
     return [row[:j] + row[j+1:] for k,row in enumerate(A) if k != i]
 
 def determinante(A):
+    """ Calcula el determinante de la matriz A de forma recursiva. Lanza ValueError si la matriz no es cuadrada."""
     _check_matrix(A)
     r,c = shape(A)
     if r != c:
-        raise ValueError("Determinante sólo para cuadradas")
+        raise ValueError("Determinante solo para cuadradas")
     n = r
     if n == 1:
         return A[0][0]
@@ -83,6 +86,7 @@ def determinante(A):
 
 # inversa por Gauss-Jordan
 def inversa(A, tol=1e-12):
+    """ Calcula la inversa de la matriz A usando el metodo de Gauss-Jordan. Lanza ValueError si la matriz es singular o no cuadrada."""
     _check_matrix(A)
     n,m = shape(A)
     if n != m:

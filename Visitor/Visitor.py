@@ -2,7 +2,6 @@ from antlr4 import *
 from Visitor.lenguajeDominiEspecificoVisitor import lenguajeDominiEspecificoVisitor
 from Visitor.lenguajeDominiEspecificoParser import lenguajeDominiEspecificoParser
 
-# === IMPORTACIÓN DE TUS LIBRERÍAS ===
 from Librerias.LibreriaAritmentica import *
 from Librerias.LibreriasMatrices import *
 from Librerias.LibreriaArchivoGestion import *

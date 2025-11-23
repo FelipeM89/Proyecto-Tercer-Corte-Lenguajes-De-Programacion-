@@ -1,12 +1,9 @@
 from typing import List, Optional
-
+""" Genera una grafica de puntos en ASCII dado un conjunto de datos (x,y) """
 
 
 def _map_to_grid(x_val, y_val, xmin, xmax, ymin, ymax, width, height):
-    """
-    Mapear coordenadas (x_val, y_val) a (col, row) en grid de tamaño width x height.
-    col in [0, width-1], row in [0, height-1] con row=0 arriba.
-    """
+
     # Evitar división por cero
     if xmax == xmin:
         col = width // 2
