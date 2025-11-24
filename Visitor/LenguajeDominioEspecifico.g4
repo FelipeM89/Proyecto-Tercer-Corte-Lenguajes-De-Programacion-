@@ -1,12 +1,12 @@
-grammar lenguajeDominiEspecifico;
+grammar LenguajeDominioEspecifico;
 
 // Regla principal del programa
-programa: instruccion+ EOF;
+programa: NEWLINE* instruccion (NEWLINE+ instruccion)* NEWLINE* EOF;
+
 
 // Instrucciones principales
 instruccion
     : asignacion
-    | operacionMatriz
     | regresionLineal
     | perceptronMulticapa
     | impresion
@@ -15,10 +15,9 @@ instruccion
     | buclewhile
     ;
 // buclefor
-buclefor: 'for' ID 'in' 'range' '(' INT ',' INT ')' ':' NEWLINE INDENT instruccion+ DEDENT
+buclefor: FOR ID IN RANGE '(' ENTERO ',' ENTERO ')' ':' NEWLINE instruccion+;
 //buclewhile
-buclewhile: 'while' ID expresion ':' NEWLINE INDENT instruccion+ DEDENT
-suite: 
+buclewhile: WHILE expresion ':' NEWLINE instruccion+;
 // Comentarios
 comentario: COMENTARIO;
 
@@ -30,6 +29,7 @@ expresion
     : expresion ('*' | '/' | '%') expresion    # OperacionMultDiv
     | expresion ('+' | '-') expresion          # OperacionSumaResta
     | '(' expresion ')'                        # ExpresionParentesis
+    | MATRIZ '.' operacion=('suma' | 'resta' | 'multiplicar' | 'transpuesta' | 'determinante' |'inversa') '(' parametrosMatriz ')'        # OperacionMatrizExpr
     | matriz                                   # ExpresionMatriz
     | lista                                    # ExpresionLista
     | NUMBER                                   # ExpresionNumero
@@ -48,13 +48,6 @@ fila: '[' expresion (',' expresion)* ']';
 // Listas
 lista: '[' (expresion (',' expresion)*)? ']';
 
-// Operaciones con matrices
-operacionMatriz
-    : 'matriz' '.' operacion=('suma' | 'resta' | 'multiplicar' | 'transpuesta' | 'determinante' | 'inversa') 
-      '(' parametrosMatriz ')'                                        # OperacionMatrizBasica
-    | ID '=' 'matriz' '.' operacion=('suma' | 'resta' | 'multiplicar' | 'transpuesta' | 'determinante' | 'inversa') 
-      '(' parametrosMatriz ')'                                        # AsignacionOperacionMatriz
-    ;
 
 parametrosMatriz
     : expresion (',' expresion)*
@@ -116,20 +109,33 @@ parametroEntrenamiento
 
 // Impresión
 impresion
-    : 'print' '(' expresion ')'
-    | 'print' '(' STRING (',' expresion)* ')'
+    : PRINT '(' expresion ')'
+    | PRINT '(' STRING (',' expresion)* ')'
     ;
-
 // Tokens léxicos
 
-// Palabras reservadas (ya definidas en las reglas)
-
+// Palabras reservadas 
+MATRIZ: 'matriz';
+FOR: 'for';
+WHILE: 'while';
+IN: 'in';
+RANGE: 'range';
+REGRESION: 'regresion';
+MLP: 'mlp';
+PRINT: 'print';
+TRUE: 'True';
+FALSE: 'False';
 // Identificadores
 ID: [a-zA-Z_][a-zA-Z0-9_]*;
 
 // Números (enteros y flotantes)
-NUMBER: [0-9]+ ('.' [0-9]+)? ([eE] [+-]? [0-9]+)?;
 
+NUMBER
+    : ENTERO
+    | DECIMAL
+    ;
+ENTERO: [0-9]+;
+DECIMAL: [0-9]+ ('.' [0-9]+)? ([eE] [+-]? [0-9]+)?;
 // Cadenas de texto
 STRING: '"' (~["\r\n])* '"' | '\'' (~['\r\n])* '\'';
 
@@ -137,8 +143,6 @@ STRING: '"' (~["\r\n])* '"' | '\'' (~['\r\n])* '\'';
 COMENTARIO: '#' ~[\r\n]* -> skip;
 
 // Espacios en blanco
-WS: [ \t\r\n]+ -> skip;
+WS: [ \t]+ -> skip;
 
 NEWLINE: '\r'? '\n';
-INDENT : '<INDENT>';
-DEDENT : '<DEDENT>';

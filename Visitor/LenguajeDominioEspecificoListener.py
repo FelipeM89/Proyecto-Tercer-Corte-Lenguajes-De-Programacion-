@@ -1,4 +1,4 @@
-# Generated from Proyecto/LenguajeDominioEspecifico.g4 by ANTLR 4.13.2
+# Generated from ./visitor/LenguajeDominioEspecifico.g4 by ANTLR 4.13.2
 from antlr4 import *
 if "." in __name__:
     from .LenguajeDominioEspecificoParser import LenguajeDominioEspecificoParser
@@ -23,6 +23,24 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
 
     # Exit a parse tree produced by LenguajeDominioEspecificoParser#instruccion.
     def exitInstruccion(self, ctx:LenguajeDominioEspecificoParser.InstruccionContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#buclefor.
+    def enterBuclefor(self, ctx:LenguajeDominioEspecificoParser.BucleforContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#buclefor.
+    def exitBuclefor(self, ctx:LenguajeDominioEspecificoParser.BucleforContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#buclewhile.
+    def enterBuclewhile(self, ctx:LenguajeDominioEspecificoParser.BuclewhileContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#buclewhile.
+    def exitBuclewhile(self, ctx:LenguajeDominioEspecificoParser.BuclewhileContext):
         pass
 
 
@@ -89,6 +107,15 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#OperacionMatrizExpr.
+    def enterOperacionMatrizExpr(self, ctx:LenguajeDominioEspecificoParser.OperacionMatrizExprContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#OperacionMatrizExpr.
+    def exitOperacionMatrizExpr(self, ctx:LenguajeDominioEspecificoParser.OperacionMatrizExprContext):
+        pass
+
+
     # Enter a parse tree produced by LenguajeDominioEspecificoParser#ExpresionString.
     def enterExpresionString(self, ctx:LenguajeDominioEspecificoParser.ExpresionStringContext):
         pass
@@ -149,24 +176,6 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
 
     # Exit a parse tree produced by LenguajeDominioEspecificoParser#lista.
     def exitLista(self, ctx:LenguajeDominioEspecificoParser.ListaContext):
-        pass
-
-
-    # Enter a parse tree produced by LenguajeDominioEspecificoParser#OperacionMatrizBasica.
-    def enterOperacionMatrizBasica(self, ctx:LenguajeDominioEspecificoParser.OperacionMatrizBasicaContext):
-        pass
-
-    # Exit a parse tree produced by LenguajeDominioEspecificoParser#OperacionMatrizBasica.
-    def exitOperacionMatrizBasica(self, ctx:LenguajeDominioEspecificoParser.OperacionMatrizBasicaContext):
-        pass
-
-
-    # Enter a parse tree produced by LenguajeDominioEspecificoParser#AsignacionOperacionMatriz.
-    def enterAsignacionOperacionMatriz(self, ctx:LenguajeDominioEspecificoParser.AsignacionOperacionMatrizContext):
-        pass
-
-    # Exit a parse tree produced by LenguajeDominioEspecificoParser#AsignacionOperacionMatriz.
-    def exitAsignacionOperacionMatriz(self, ctx:LenguajeDominioEspecificoParser.AsignacionOperacionMatrizContext):
         pass
 
 

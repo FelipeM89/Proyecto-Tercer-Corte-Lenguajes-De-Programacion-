@@ -1,6 +1,6 @@
 from antlr4 import *
-from Visitor.lenguajeDominiEspecificoVisitor import lenguajeDominiEspecificoVisitor
-from Visitor.lenguajeDominiEspecificoParser import lenguajeDominiEspecificoParser
+from Visitor.LenguajeDominioEspecificoVisitor import LenguajeDominioEspecificoVisitor
+from Visitor.LenguajeDominioEspecificoParser import LenguajeDominioEspecificoParser
 
 from Librerias.LibreriaAritmentica import *
 from Librerias.LibreriasMatrices import *
@@ -13,7 +13,7 @@ from Librerias.LibreriaPerceptronMC import *
 from Librerias.LibreriaTablas import *
 
 
-class Visitor(lenguajeDominiEspecificoVisitor):
+class Visitor(LenguajeDominioEspecificoVisitor):
 
     def __init__(self):
         self.memoria = {}                 # Variables normales
@@ -63,6 +63,7 @@ class Visitor(lenguajeDominiEspecificoVisitor):
         elif op == "%":
             return modulo(izq, der)
 
+
     def visitExpresionParentesis(self, ctx):
         return self.visit(ctx.expresion())
 
@@ -85,8 +86,7 @@ class Visitor(lenguajeDominiEspecificoVisitor):
 
     def visitMatrizUnidimensional(self, ctx):
         return [self.visit(e) for e in ctx.expresion()]
-
-    def visitOperacionMatrizBasica(self, ctx):
+    def visitOperacionMatrizExpr(self, ctx):
         oper = ctx.operacion.text
         params = [self.visit(p) for p in ctx.parametrosMatriz().expresion()]
 
@@ -103,18 +103,14 @@ class Visitor(lenguajeDominiEspecificoVisitor):
         elif oper == "inversa":
             return inversa(params[0])
 
-    def visitAsignacionOperacionMatriz(self, ctx):
-        nombre = ctx.ID().getText()
-        resultado = self.visitOperacionMatrizBasica(ctx)
-        self.memoria[nombre] = resultado
-        return resultado
+
 
 
     # ----------------------------
     #       REGRESIÓN LINEAL
     # ----------------------------
     def visitCrearRegresion(self, ctx):
-        self.regresion = RegresionLineal()
+        self.regresion = regresion_lineal_model()
         return self.regresion
 
     def visitEntrenarRegresion(self, ctx):
@@ -230,3 +226,24 @@ class Visitor(lenguajeDominiEspecificoVisitor):
         else:
             print(self.visit(ctx.expresion()))
         return None
+    # Simbolos de los tokens
+    def mostrar_tabla_simbolos(self):
+        
+        print("\n tabla")
+        
+        if not self.memoria:
+            print("  (vacía)")
+        else:
+            for i, (nombre, valor) in enumerate(self.memoria.items(), 1):
+                tipo = type(valor).__name__
+                
+                # Si es una matriz (lista de listas), muestra dimensiones
+                if isinstance(valor, list):
+                    if valor and isinstance(valor[0], list):
+                        filas = len(valor)
+                        cols = len(valor[0]) if valor else 0
+                        print(f"  [{i}] {nombre}: matriz {filas}x{cols}")
+                    else:
+                        print(f"  [{i}] {nombre}: lista de {len(valor)} elementos")
+                else:
+                    print(f"  [{i}] {nombre}: {tipo} = {valor}")

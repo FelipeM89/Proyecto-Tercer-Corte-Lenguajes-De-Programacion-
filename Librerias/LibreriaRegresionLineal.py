@@ -1,5 +1,6 @@
 from typing import List, Optional
-from LibreriaFunciones import mean, sqrt, mse, mae, regresion_lineal, predict_linear
+from Librerias.LibreriaAritmentica import sqrt
+from Librerias.LibreriaFunciones import mean, mse, mae, regresion_lineal, predict_linear
 
 
 
@@ -20,7 +21,7 @@ def _map_to_grid(x_val, y_val, xmin, xmax, ymin, ymax, width, height):
 
 
 
-class regresion_lineal_ascii:
+class regresion_lineal_model:
     def __init__(self):
         self.m=None
         self.b=None
@@ -241,7 +242,7 @@ def main():
     y = [15, 28, 42, 55, 68, 82, 95, 108, 122, 135]
 
     # Crear instancia y ajustar el modelo
-    modelo = regresion_lineal_ascii()
+    modelo = regresion_lineal_model()
     modelo.fit(x, y)
     
     # Calcular métricas
