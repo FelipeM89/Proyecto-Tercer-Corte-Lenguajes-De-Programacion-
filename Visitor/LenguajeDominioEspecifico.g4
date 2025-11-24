@@ -15,7 +15,7 @@ instruccion
     | buclewhile
     ;
 // buclefor
-buclefor: FOR ID IN RANGE '(' ENTERO ',' ENTERO ')' ':' NEWLINE instruccion+;
+buclefor: FOR ID IN RANGE '(' NUMBER ',' NUMBER ')' ':' NEWLINE instruccion+;
 //buclewhile
 buclewhile: WHILE expresion ':' NEWLINE instruccion+;
 // Comentarios

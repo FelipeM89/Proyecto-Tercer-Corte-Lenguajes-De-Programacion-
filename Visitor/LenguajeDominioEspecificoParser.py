@@ -56,8 +56,8 @@ def serializedATN():
         14,0,69,74,3,38,19,0,70,74,3,8,4,0,71,74,3,4,2,0,72,74,3,6,3,0,73,
         66,1,0,0,0,73,67,1,0,0,0,73,68,1,0,0,0,73,69,1,0,0,0,73,70,1,0,0,
         0,73,71,1,0,0,0,73,72,1,0,0,0,74,3,1,0,0,0,75,76,5,47,0,0,76,77,
-        5,56,0,0,77,78,5,49,0,0,78,79,5,50,0,0,79,80,5,1,0,0,80,81,5,58,
-        0,0,81,82,5,2,0,0,82,83,5,58,0,0,83,84,5,3,0,0,84,85,5,4,0,0,85,
+        5,56,0,0,77,78,5,49,0,0,78,79,5,50,0,0,79,80,5,1,0,0,80,81,5,57,
+        0,0,81,82,5,2,0,0,82,83,5,57,0,0,83,84,5,3,0,0,84,85,5,4,0,0,85,
         87,5,63,0,0,86,88,3,2,1,0,87,86,1,0,0,0,88,89,1,0,0,0,89,87,1,0,
         0,0,89,90,1,0,0,0,90,5,1,0,0,0,91,92,5,48,0,0,92,93,3,12,6,0,93,
         94,5,4,0,0,94,96,5,63,0,0,95,97,3,2,1,0,96,95,1,0,0,0,97,98,1,0,
@@ -526,11 +526,11 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def RANGE(self):
             return self.getToken(LenguajeDominioEspecificoParser.RANGE, 0)
 
-        def ENTERO(self, i:int=None):
+        def NUMBER(self, i:int=None):
             if i is None:
-                return self.getTokens(LenguajeDominioEspecificoParser.ENTERO)
+                return self.getTokens(LenguajeDominioEspecificoParser.NUMBER)
             else:
-                return self.getToken(LenguajeDominioEspecificoParser.ENTERO, i)
+                return self.getToken(LenguajeDominioEspecificoParser.NUMBER, i)
 
         def NEWLINE(self):
             return self.getToken(LenguajeDominioEspecificoParser.NEWLINE, 0)
@@ -579,11 +579,11 @@ class LenguajeDominioEspecificoParser ( Parser ):
             self.state = 79
             self.match(LenguajeDominioEspecificoParser.T__0)
             self.state = 80
-            self.match(LenguajeDominioEspecificoParser.ENTERO)
+            self.match(LenguajeDominioEspecificoParser.NUMBER)
             self.state = 81
             self.match(LenguajeDominioEspecificoParser.T__1)
             self.state = 82
-            self.match(LenguajeDominioEspecificoParser.ENTERO)
+            self.match(LenguajeDominioEspecificoParser.NUMBER)
             self.state = 83
             self.match(LenguajeDominioEspecificoParser.T__2)
             self.state = 84
