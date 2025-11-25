@@ -1,60 +1,12 @@
 """
 LibreriaGraficas.py
 Gráficas ASCII simples:
- - graficar_barras_ascii(vals, max_width, simbolo)
- - graficar_linea_ascii(vals, width, height)
  - guardar_puntos(path, xs, ys)
+ - print_hist(vals, bins)
 """
 
-from Librerias.LibreriaArchivoGestion import escribir_txt
+from LibreriaArchivoGestion import escribir_txt
 
-def _normalizar_lista(vals, max_width):
-    if not vals:
-        return []
-    mn = min(vals); mx = max(vals)
-    if mx == mn:
-        return [max_width//2 for _ in vals]
-    return [int((v - mn)/(mx-mn) * max_width) for v in vals]
-
-def graficar_barras_ascii(vals, max_width=50, simbolo="█"):
-    bars = _normalizar_lista(vals, max_width)
-    out = []
-    for i,b in enumerate(bars):
-        line = f"{i:>3}: {simbolo * b} ({vals[i]})"
-        print(line)
-        out.append(line)
-    return out
-
-def graficar_linea_ascii(vals, width=60, height=20):
-    if not vals:
-        print("(sin datos)")
-        return []
-    n = len(vals)
-    if n <= width:
-        sampled = vals[:]
-    else:
-        block = n / width
-        sampled = []
-        for i in range(width):
-            start = int(i*block)
-            end = int((i+1)*block)
-            if end <= start:
-                end = start + 1
-                if end > n: end = n
-            block_vals = vals[start:end]
-            sampled.append(sum(block_vals) / len(block_vals))
-    mn = min(sampled); mx = max(sampled)
-    if mx == mn:
-        rows = [height//2 for _ in sampled]
-    else:
-        rows = [int((v - mn)/(mx - mn) * (height-1)) for v in sampled]
-    canvas = [[" " for _ in range(len(sampled))] for _ in range(height)]
-    for col, r in enumerate(rows):
-        row_idx = height - 1 - r
-        canvas[row_idx][col] = "*"
-    for row in canvas:
-        print("".join(row))
-    return canvas
 
 def guardar_puntos(path, xs, ys):
     lines = []
@@ -63,3 +15,27 @@ def guardar_puntos(path, xs, ys):
         lines.append(f"{xs[i]},{ys[i]}")
     escribir_txt(path, "\n".join(lines))
     return True
+
+def print_hist(vals, bins=10):
+    if not vals:
+        print("(sin datos)")
+        return
+    mn = min(vals); mx = max(vals)
+    if mx == mn: mx = mn + 1
+    width = 50
+    counts = [0]*bins
+    step = (mx - mn) / bins
+    for v in vals:
+        idx = int((v - mn) / (mx - mn) * bins)
+        if idx == bins: idx = bins - 1
+        counts[idx] += 1
+    for i,c in enumerate(counts):
+        bar = "#" * int(c / max(1, max(counts)) * width)
+        print(f"{i:02d}: {bar} ({c})")
+    return counts
+
+if __name__ == "__main__":
+
+    print("\nHistograma ASCII:")
+    print_hist([1,2,2,3,3,3,4,4,4,4,5,5,5,5,5], bins=5)
+    guardar_puntos("puntos.csv", [1,2,3,4], [2,4,6,8])

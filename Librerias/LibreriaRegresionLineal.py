@@ -1,5 +1,5 @@
 from typing import List, Optional
-from Librerias.LibreriaAritmentica import sqrt
+from Librerias.LibreriaAritmetica import sqrt
 from Librerias.LibreriaFunciones import mean, mse, mae, regresion_lineal, predict_linear
 
 

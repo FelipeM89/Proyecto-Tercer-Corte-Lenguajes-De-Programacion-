@@ -1,6 +1,6 @@
 """
 LibreriaPerceptronMC.py
-Implementación de un perceptrón multicapa (MLP) sin dependencias.
+Implementación de un perceptron multicapa
 Clase: PerceptronMulticapa
  - __init__(layers, lr, seed)
  - fit(X, Y, epochs, batch_size, verbose)
@@ -9,7 +9,7 @@ Clase: PerceptronMulticapa
  - loss_history
 """
 
-from Librerias.LibreriaAritmentica import LCG, exp
+from Librerias.LibreriaAritmetica import  LCG, exp
 
 def sigmoid(x):
     return 1.0 / (1.0 + exp(-x))

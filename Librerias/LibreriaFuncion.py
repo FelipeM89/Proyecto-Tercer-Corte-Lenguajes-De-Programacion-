@@ -4,7 +4,6 @@ from typing import List, Optional
 
 def _map_to_grid(x_val, y_val, xmin, xmax, ymin, ymax, width, height):
 
-    # Evitar división por cero
     if xmax == xmin:
         col = width // 2
     else:
@@ -13,7 +12,7 @@ def _map_to_grid(x_val, y_val, xmin, xmax, ymin, ymax, width, height):
     if ymax == ymin:
         row = height // 2
     else:
-        # invertimos Y porque row=0 es arriba en la representación de texto
+
         row = int((ymax - y_val) / (ymax - ymin) * (height - 1))
         row = max(0, min(height - 1, row))
     return col, row
@@ -37,13 +36,11 @@ def render_ascii(x, y,
     if width < 10 or height < 4:
         raise ValueError("width o height demasiado pequeño para renderizar")
 
-    # Determinar rangos con un pequeño padding
     xmin = min(x)
     xmax = max(x)
     ymin = min(y)
     ymax = max(y)
 
-    # Añadir margen si rango es cero
     if xmax == xmin:
         xmin -= 0.5
         xmax += 0.5
@@ -51,7 +48,7 @@ def render_ascii(x, y,
         ymin -= 0.5
         ymax += 0.5
 
-    # Expande rangos un poco para que puntos no queden pegados a los bordes
+
     xpad = (xmax - xmin) * 0.04
     ypad = (ymax - ymin) * 0.08
     xmin -= xpad
@@ -62,54 +59,48 @@ def render_ascii(x, y,
     W = width
     H = height
 
-    # Grid de caracteres (H filas, W columnas)
     grid = [[' ' for _ in range(W)] for _ in range(H)]
 
-    # Dibujar eje X (en la fila correspondiente a y=0 si está en rango, si no en borde inferior)
+
     x0_in_range = ymin <= 0 <= ymax
     if x0_in_range:
         x_axis_row = _map_to_grid(0, 0, xmin, xmax, ymin, ymax, W, H)[1]
     else:
         x_axis_row = H - 1
 
-    # Dibujar eje Y (columna correspondiente a x=0 si está en rango, si no en borde izquierdo)
     y0_in_range = xmin <= 0 <= xmax
     if y0_in_range:
         y_axis_col = _map_to_grid(0, 0, xmin, xmax, ymin, ymax, W, H)[0]
     else:
         y_axis_col = 0
 
-    # Dibujar ejes en grid
+
     for c in range(W):
-        # si hay eje X, marcar '-'
+
         if 0 <= x_axis_row < H:
             grid[x_axis_row][c] = '-' if grid[x_axis_row][c] == ' ' else grid[x_axis_row][c]
     for r in range(H):
-        # si hay eje Y, marcar '|'
+
         if 0 <= y_axis_col < W:
             grid[r][y_axis_col] = '|' if grid[r][y_axis_col] == ' ' else grid[r][y_axis_col]
 
-    # Cruce ejes
     if 0 <= x_axis_row < H and 0 <= y_axis_col < W:
         grid[x_axis_row][y_axis_col] = '+'
 
-    # Dibujar puntos
+
     for xi, yi in zip(x, y):
         col, row = _map_to_grid(xi, yi, xmin, xmax, ymin, ymax, W, H)
         grid[row][col] = point_char
 
-    # Construir líneas con etiquetas Y a la izquierda (left_margin)
-    # Elegir ticks Y (máximo 5)
+
     max_ticks = min(5, H)
     ticks = []
     for i in range(max_ticks):
         t = i / (max_ticks - 1) if max_ticks > 1 else 0.5
-        ytick_val = ymin + (1 - t) * (ymax - ymin)  # descendente (row 0 arriba)
-        # map to closest row
+        ytick_val = ymin + (1 - t) * (ymax - ymin)  
         _, row = _map_to_grid(xmin, ytick_val, xmin, xmax, ymin, ymax, W, H)
         ticks.append((row, ytick_val))
 
-    # Preparar líneas finales: combinar margin + '|' + grid row
     lines: List[str] = []
 
     header_lines: List[str] = []
@@ -127,7 +118,7 @@ def render_ascii(x, y,
             label = sval.rjust(left_margin - 1) + ' '
         else:
             label = ' ' * left_margin
-        # row string from grid
+
         row_str = ''.join(grid[row_idx])
         lines.append(label + row_str)
 
@@ -143,14 +134,13 @@ def render_ascii(x, y,
     for col, xv in x_tick_positions:
         s = f"{xv:.3g}"
         start = left_margin + col - len(s) // 2
-        # write s into footer respecting bounds
+
         for i, ch in enumerate(s):
             pos = start + i
             if 0 <= pos < len(footer):
                 footer[pos] = ch
     lines.append(''.join(footer))
 
-    # Stats summary line
     return '\n'.join(lines)
 
 def main():

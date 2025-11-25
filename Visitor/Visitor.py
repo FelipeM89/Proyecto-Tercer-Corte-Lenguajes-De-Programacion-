@@ -2,7 +2,7 @@ from antlr4 import *
 from Visitor.LenguajeDominioEspecificoVisitor import LenguajeDominioEspecificoVisitor
 from Visitor.LenguajeDominioEspecificoParser import LenguajeDominioEspecificoParser
 
-from Librerias.LibreriaAritmentica import *
+from Librerias.LibreriaAritmetica import *
 from Librerias.LibreriasMatrices import *
 from Librerias.LibreriaArchivoGestion import *
 from Librerias.LibreriaFunciones import *
@@ -49,7 +49,7 @@ class Visitor(LenguajeDominioEspecificoVisitor):
         izq = self.visit(ctx.expresion(0))
         der = self.visit(ctx.expresion(1))
         op = ctx.getChild(1).getText()
-        return suma(izq, der) if op == "+" else resta(izq, der)
+        return izq+der if op == "+" else izq-der
 
     def visitOperacionMultDiv(self, ctx):
         izq = self.visit(ctx.expresion(0))
@@ -57,7 +57,7 @@ class Visitor(LenguajeDominioEspecificoVisitor):
         op = ctx.getChild(1).getText()
 
         if op == "*":
-            return multiplicacion(izq, der)
+            return izq*der
         elif op == "/":
             return division(izq, der)
         elif op == "%":

@@ -1,5 +1,5 @@
 """
-LibreriaAritmentica.py
+LibreriaAritmetica.py
 Funciones numéricas básicas implementadas sin usar librerías externas.
 Incluye: abs_val, factorial, exp, ln, powf, sqrt, sin, cos, tan,
 operaciones aritméticas básicas y un LCG sencillo para números pseudoaleatorios.
@@ -173,9 +173,6 @@ def tan(x):
     return sin(x) / c
 
 # ---------- operaciones basicas ----------
-def suma(a,b): return a + b
-def resta(a,b): return a - b
-def multiplicacion(a,b): return a * b
 def division(a,b):
     if b == 0:
         raise ZeroDivisionError("division por cero")
@@ -185,7 +182,6 @@ def modulo(a,b):
         raise ZeroDivisionError("modulo por cero")
     return a - int(a / b) * b
 
-# ---------- LCG simple (semilla manejable) ----------
 class LCG:
     def __init__(self, seed=123456):
         self.state = int(seed) & 0x7fffffff
