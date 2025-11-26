@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # Generated from ./Visitor/LenguajeDominioEspecifico.g4 by ANTLR 4.13.2
+=======
+# Generated from LenguajeDominioEspecifico.g4 by ANTLR 4.13.2
+>>>>>>> 2933e4c (fixed regresion)
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -10,6 +14,7 @@ else:
 
 def serializedATN():
     return [
+<<<<<<< HEAD
         4,1,99,646,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
         6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
         2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
@@ -245,6 +250,184 @@ def serializedATN():
         124,133,135,151,160,190,204,206,215,226,231,239,250,253,262,300,
         303,310,337,355,384,387,394,412,419,431,468,471,478,490,501,510,
         522,541,545,602,613,622,643
+=======
+        4,1,86,490,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,2,11,7,11,2,12,7,12,2,13,7,13,
+        2,14,7,14,2,15,7,15,2,16,7,16,2,17,7,17,2,18,7,18,2,19,7,19,2,20,
+        7,20,2,21,7,21,2,22,7,22,2,23,7,23,2,24,7,24,1,0,5,0,52,8,0,10,0,
+        12,0,55,9,0,1,0,1,0,4,0,59,8,0,11,0,12,0,60,1,0,5,0,64,8,0,10,0,
+        12,0,67,9,0,1,0,5,0,70,8,0,10,0,12,0,73,9,0,1,0,1,0,1,1,1,1,1,1,
+        1,1,1,1,1,1,1,1,1,1,1,1,3,1,86,8,1,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,
+        2,1,2,1,2,1,2,1,2,4,2,100,8,2,11,2,12,2,101,1,3,1,3,1,3,1,3,1,3,
+        4,3,109,8,3,11,3,12,3,110,1,4,1,4,1,5,1,5,1,5,1,5,1,6,1,6,1,6,1,
+        6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,
+        6,1,6,3,6,140,8,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,1,6,5,6,151,8,
+        6,10,6,12,6,154,9,6,1,7,1,7,1,7,1,7,5,7,160,8,7,10,7,12,7,163,9,
+        7,1,7,1,7,1,7,1,7,1,7,1,7,5,7,171,8,7,10,7,12,7,174,9,7,1,7,1,7,
+        3,7,178,8,7,1,8,1,8,1,8,1,8,5,8,184,8,8,10,8,12,8,187,9,8,1,8,1,
+        8,1,9,1,9,1,9,1,9,5,9,195,8,9,10,9,12,9,198,9,9,3,9,200,8,9,1,9,
+        1,9,1,10,1,10,1,10,5,10,207,8,10,10,10,12,10,210,9,10,1,11,1,11,
+        1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,11,
+        1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,11,1,11,
+        1,11,1,11,3,11,242,8,11,1,11,3,11,245,8,11,1,12,1,12,1,12,5,12,250,
+        8,12,10,12,12,12,253,9,12,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,
+        1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,1,13,
+        3,13,276,8,13,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,
+        1,14,1,14,1,14,1,14,1,14,1,14,3,14,294,8,14,1,14,1,14,1,14,1,14,
+        1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,
+        1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,1,14,3,14,323,8,14,
+        1,15,1,15,1,15,5,15,328,8,15,10,15,12,15,331,9,15,1,16,1,16,1,16,
+        1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,1,16,3,16,
+        348,8,16,1,17,1,17,1,17,5,17,353,8,17,10,17,12,17,356,9,17,1,18,
+        1,18,1,18,1,18,1,18,1,18,1,18,1,18,1,18,3,18,367,8,18,1,19,1,19,
+        1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,1,19,
+        5,19,384,8,19,10,19,12,19,387,9,19,1,19,3,19,390,8,19,1,20,1,20,
+        1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,
+        1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,
+        1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,
+        1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,1,20,
+        1,20,3,20,447,8,20,1,21,1,21,1,21,1,21,1,22,1,22,1,22,1,22,1,22,
+        3,22,458,8,22,1,22,1,22,1,23,1,23,1,23,5,23,465,8,23,10,23,12,23,
+        468,9,23,1,24,1,24,1,24,1,24,1,24,1,24,1,24,1,24,1,24,1,24,1,24,
+        1,24,1,24,1,24,1,24,1,24,1,24,1,24,3,24,488,8,24,1,24,0,1,12,25,
+        0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,
+        46,48,0,6,1,0,18,23,1,0,6,8,1,0,9,14,1,0,15,16,1,0,29,32,1,0,77,
+        78,540,0,53,1,0,0,0,2,85,1,0,0,0,4,87,1,0,0,0,6,103,1,0,0,0,8,112,
+        1,0,0,0,10,114,1,0,0,0,12,139,1,0,0,0,14,177,1,0,0,0,16,179,1,0,
+        0,0,18,190,1,0,0,0,20,203,1,0,0,0,22,244,1,0,0,0,24,246,1,0,0,0,
+        26,275,1,0,0,0,28,322,1,0,0,0,30,324,1,0,0,0,32,347,1,0,0,0,34,349,
+        1,0,0,0,36,366,1,0,0,0,38,389,1,0,0,0,40,446,1,0,0,0,42,448,1,0,
+        0,0,44,452,1,0,0,0,46,461,1,0,0,0,48,487,1,0,0,0,50,52,5,86,0,0,
+        51,50,1,0,0,0,52,55,1,0,0,0,53,51,1,0,0,0,53,54,1,0,0,0,54,56,1,
+        0,0,0,55,53,1,0,0,0,56,65,3,2,1,0,57,59,5,86,0,0,58,57,1,0,0,0,59,
+        60,1,0,0,0,60,58,1,0,0,0,60,61,1,0,0,0,61,62,1,0,0,0,62,64,3,2,1,
+        0,63,58,1,0,0,0,64,67,1,0,0,0,65,63,1,0,0,0,65,66,1,0,0,0,66,71,
+        1,0,0,0,67,65,1,0,0,0,68,70,5,86,0,0,69,68,1,0,0,0,70,73,1,0,0,0,
+        71,69,1,0,0,0,71,72,1,0,0,0,72,74,1,0,0,0,73,71,1,0,0,0,74,75,5,
+        0,0,1,75,1,1,0,0,0,76,86,3,10,5,0,77,86,3,22,11,0,78,86,3,28,14,
+        0,79,86,3,38,19,0,80,86,3,8,4,0,81,86,3,4,2,0,82,86,3,6,3,0,83,86,
+        3,44,22,0,84,86,3,40,20,0,85,76,1,0,0,0,85,77,1,0,0,0,85,78,1,0,
+        0,0,85,79,1,0,0,0,85,80,1,0,0,0,85,81,1,0,0,0,85,82,1,0,0,0,85,83,
+        1,0,0,0,85,84,1,0,0,0,86,3,1,0,0,0,87,88,5,71,0,0,88,89,5,79,0,0,
+        89,90,5,73,0,0,90,91,5,74,0,0,91,92,5,1,0,0,92,93,5,80,0,0,93,94,
+        5,2,0,0,94,95,5,80,0,0,95,96,5,3,0,0,96,97,5,4,0,0,97,99,5,86,0,
+        0,98,100,3,2,1,0,99,98,1,0,0,0,100,101,1,0,0,0,101,99,1,0,0,0,101,
+        102,1,0,0,0,102,5,1,0,0,0,103,104,5,72,0,0,104,105,3,12,6,0,105,
+        106,5,4,0,0,106,108,5,86,0,0,107,109,3,2,1,0,108,107,1,0,0,0,109,
+        110,1,0,0,0,110,108,1,0,0,0,110,111,1,0,0,0,111,7,1,0,0,0,112,113,
+        5,84,0,0,113,9,1,0,0,0,114,115,5,79,0,0,115,116,5,5,0,0,116,117,
+        3,12,6,0,117,11,1,0,0,0,118,119,6,6,-1,0,119,120,5,1,0,0,120,121,
+        3,12,6,0,121,122,5,3,0,0,122,140,1,0,0,0,123,124,5,70,0,0,124,125,
+        5,17,0,0,125,126,7,0,0,0,126,127,5,1,0,0,127,128,3,20,10,0,128,129,
+        5,3,0,0,129,140,1,0,0,0,130,131,5,24,0,0,131,132,5,1,0,0,132,140,
+        5,3,0,0,133,140,3,40,20,0,134,140,3,14,7,0,135,140,3,18,9,0,136,
+        140,5,80,0,0,137,140,5,79,0,0,138,140,5,83,0,0,139,118,1,0,0,0,139,
+        123,1,0,0,0,139,130,1,0,0,0,139,133,1,0,0,0,139,134,1,0,0,0,139,
+        135,1,0,0,0,139,136,1,0,0,0,139,137,1,0,0,0,139,138,1,0,0,0,140,
+        152,1,0,0,0,141,142,10,12,0,0,142,143,7,1,0,0,143,151,3,12,6,13,
+        144,145,10,11,0,0,145,146,7,2,0,0,146,151,3,12,6,12,147,148,10,10,
+        0,0,148,149,7,3,0,0,149,151,3,12,6,11,150,141,1,0,0,0,150,144,1,
+        0,0,0,150,147,1,0,0,0,151,154,1,0,0,0,152,150,1,0,0,0,152,153,1,
+        0,0,0,153,13,1,0,0,0,154,152,1,0,0,0,155,156,5,25,0,0,156,161,3,
+        16,8,0,157,158,5,2,0,0,158,160,3,16,8,0,159,157,1,0,0,0,160,163,
+        1,0,0,0,161,159,1,0,0,0,161,162,1,0,0,0,162,164,1,0,0,0,163,161,
+        1,0,0,0,164,165,5,26,0,0,165,178,1,0,0,0,166,167,5,25,0,0,167,172,
+        3,12,6,0,168,169,5,2,0,0,169,171,3,12,6,0,170,168,1,0,0,0,171,174,
+        1,0,0,0,172,170,1,0,0,0,172,173,1,0,0,0,173,175,1,0,0,0,174,172,
+        1,0,0,0,175,176,5,26,0,0,176,178,1,0,0,0,177,155,1,0,0,0,177,166,
+        1,0,0,0,178,15,1,0,0,0,179,180,5,25,0,0,180,185,3,12,6,0,181,182,
+        5,2,0,0,182,184,3,12,6,0,183,181,1,0,0,0,184,187,1,0,0,0,185,183,
+        1,0,0,0,185,186,1,0,0,0,186,188,1,0,0,0,187,185,1,0,0,0,188,189,
+        5,26,0,0,189,17,1,0,0,0,190,199,5,25,0,0,191,196,3,12,6,0,192,193,
+        5,2,0,0,193,195,3,12,6,0,194,192,1,0,0,0,195,198,1,0,0,0,196,194,
+        1,0,0,0,196,197,1,0,0,0,197,200,1,0,0,0,198,196,1,0,0,0,199,191,
+        1,0,0,0,199,200,1,0,0,0,200,201,1,0,0,0,201,202,5,26,0,0,202,19,
+        1,0,0,0,203,208,3,12,6,0,204,205,5,2,0,0,205,207,3,12,6,0,206,204,
+        1,0,0,0,207,210,1,0,0,0,208,206,1,0,0,0,208,209,1,0,0,0,209,21,1,
+        0,0,0,210,208,1,0,0,0,211,212,5,79,0,0,212,213,5,17,0,0,213,214,
+        5,27,0,0,214,215,5,1,0,0,215,216,3,12,6,0,216,217,5,2,0,0,217,218,
+        3,12,6,0,218,219,5,3,0,0,219,245,1,0,0,0,220,221,5,79,0,0,221,222,
+        5,5,0,0,222,223,5,79,0,0,223,224,5,17,0,0,224,225,5,28,0,0,225,226,
+        5,1,0,0,226,227,3,12,6,0,227,228,5,3,0,0,228,245,1,0,0,0,229,230,
+        5,79,0,0,230,231,5,5,0,0,231,232,5,79,0,0,232,233,5,17,0,0,233,234,
+        7,4,0,0,234,235,5,1,0,0,235,245,5,3,0,0,236,237,5,79,0,0,237,238,
+        5,17,0,0,238,239,5,33,0,0,239,241,5,1,0,0,240,242,3,24,12,0,241,
+        240,1,0,0,0,241,242,1,0,0,0,242,243,1,0,0,0,243,245,5,3,0,0,244,
+        211,1,0,0,0,244,220,1,0,0,0,244,229,1,0,0,0,244,236,1,0,0,0,245,
+        23,1,0,0,0,246,251,3,26,13,0,247,248,5,2,0,0,248,250,3,26,13,0,249,
+        247,1,0,0,0,250,253,1,0,0,0,251,249,1,0,0,0,251,252,1,0,0,0,252,
+        25,1,0,0,0,253,251,1,0,0,0,254,255,5,34,0,0,255,256,5,5,0,0,256,
+        276,5,80,0,0,257,258,5,35,0,0,258,259,5,5,0,0,259,276,5,80,0,0,260,
+        261,5,36,0,0,261,262,5,5,0,0,262,276,5,80,0,0,263,264,5,37,0,0,264,
+        265,5,5,0,0,265,276,5,83,0,0,266,267,5,38,0,0,267,268,5,5,0,0,268,
+        276,5,83,0,0,269,270,5,39,0,0,270,271,5,5,0,0,271,276,5,83,0,0,272,
+        273,5,40,0,0,273,274,5,5,0,0,274,276,7,5,0,0,275,254,1,0,0,0,275,
+        257,1,0,0,0,275,260,1,0,0,0,275,263,1,0,0,0,275,266,1,0,0,0,275,
+        269,1,0,0,0,275,272,1,0,0,0,276,27,1,0,0,0,277,278,5,75,0,0,278,
+        279,5,5,0,0,279,280,5,41,0,0,280,281,5,1,0,0,281,282,3,30,15,0,282,
+        283,5,3,0,0,283,323,1,0,0,0,284,285,5,75,0,0,285,286,5,17,0,0,286,
+        287,5,27,0,0,287,288,5,1,0,0,288,289,3,12,6,0,289,290,5,2,0,0,290,
+        293,3,12,6,0,291,292,5,2,0,0,292,294,3,34,17,0,293,291,1,0,0,0,293,
+        294,1,0,0,0,294,295,1,0,0,0,295,296,5,3,0,0,296,323,1,0,0,0,297,
+        298,5,79,0,0,298,299,5,5,0,0,299,300,5,75,0,0,300,301,5,17,0,0,301,
+        302,5,28,0,0,302,303,5,1,0,0,303,304,3,12,6,0,304,305,5,3,0,0,305,
+        323,1,0,0,0,306,307,5,79,0,0,307,308,5,5,0,0,308,309,5,75,0,0,309,
+        310,5,17,0,0,310,311,5,42,0,0,311,312,5,1,0,0,312,313,3,12,6,0,313,
+        314,5,2,0,0,314,315,3,12,6,0,315,316,5,3,0,0,316,323,1,0,0,0,317,
+        318,5,75,0,0,318,319,5,17,0,0,319,320,5,43,0,0,320,321,5,1,0,0,321,
+        323,5,3,0,0,322,277,1,0,0,0,322,284,1,0,0,0,322,297,1,0,0,0,322,
+        306,1,0,0,0,322,317,1,0,0,0,323,29,1,0,0,0,324,329,3,32,16,0,325,
+        326,5,2,0,0,326,328,3,32,16,0,327,325,1,0,0,0,328,331,1,0,0,0,329,
+        327,1,0,0,0,329,330,1,0,0,0,330,31,1,0,0,0,331,329,1,0,0,0,332,333,
+        5,44,0,0,333,334,5,5,0,0,334,348,3,18,9,0,335,336,5,45,0,0,336,337,
+        5,5,0,0,337,348,5,83,0,0,338,339,5,46,0,0,339,340,5,5,0,0,340,348,
+        5,80,0,0,341,342,5,47,0,0,342,343,5,5,0,0,343,348,5,80,0,0,344,345,
+        5,48,0,0,345,346,5,5,0,0,346,348,5,80,0,0,347,332,1,0,0,0,347,335,
+        1,0,0,0,347,338,1,0,0,0,347,341,1,0,0,0,347,344,1,0,0,0,348,33,1,
+        0,0,0,349,354,3,36,18,0,350,351,5,2,0,0,351,353,3,36,18,0,352,350,
+        1,0,0,0,353,356,1,0,0,0,354,352,1,0,0,0,354,355,1,0,0,0,355,35,1,
+        0,0,0,356,354,1,0,0,0,357,358,5,49,0,0,358,359,5,5,0,0,359,367,5,
+        80,0,0,360,361,5,50,0,0,361,362,5,5,0,0,362,367,5,80,0,0,363,364,
+        5,51,0,0,364,365,5,5,0,0,365,367,7,5,0,0,366,357,1,0,0,0,366,360,
+        1,0,0,0,366,363,1,0,0,0,367,37,1,0,0,0,368,369,5,76,0,0,369,370,
+        5,1,0,0,370,371,3,12,6,0,371,372,5,3,0,0,372,390,1,0,0,0,373,374,
+        5,76,0,0,374,375,5,1,0,0,375,376,3,40,20,0,376,377,5,3,0,0,377,390,
+        1,0,0,0,378,379,5,76,0,0,379,380,5,1,0,0,380,385,5,83,0,0,381,382,
+        5,2,0,0,382,384,3,12,6,0,383,381,1,0,0,0,384,387,1,0,0,0,385,383,
+        1,0,0,0,385,386,1,0,0,0,386,388,1,0,0,0,387,385,1,0,0,0,388,390,
+        5,3,0,0,389,368,1,0,0,0,389,373,1,0,0,0,389,378,1,0,0,0,390,39,1,
+        0,0,0,391,392,5,52,0,0,392,393,5,1,0,0,393,394,3,12,6,0,394,395,
+        5,3,0,0,395,447,1,0,0,0,396,397,5,53,0,0,397,398,5,1,0,0,398,399,
+        3,12,6,0,399,400,5,3,0,0,400,447,1,0,0,0,401,402,5,54,0,0,402,403,
+        5,1,0,0,403,404,3,12,6,0,404,405,5,3,0,0,405,447,1,0,0,0,406,407,
+        5,55,0,0,407,408,5,1,0,0,408,409,3,12,6,0,409,410,5,3,0,0,410,447,
+        1,0,0,0,411,412,5,56,0,0,412,413,5,1,0,0,413,414,3,12,6,0,414,415,
+        5,3,0,0,415,447,1,0,0,0,416,417,5,57,0,0,417,418,5,1,0,0,418,419,
+        3,42,21,0,419,420,5,3,0,0,420,447,1,0,0,0,421,422,5,58,0,0,422,423,
+        5,1,0,0,423,424,3,12,6,0,424,425,5,3,0,0,425,447,1,0,0,0,426,427,
+        5,59,0,0,427,428,5,1,0,0,428,429,3,12,6,0,429,430,5,3,0,0,430,447,
+        1,0,0,0,431,432,5,60,0,0,432,433,5,1,0,0,433,434,3,12,6,0,434,435,
+        5,3,0,0,435,447,1,0,0,0,436,437,5,61,0,0,437,438,5,1,0,0,438,439,
+        3,42,21,0,439,440,5,3,0,0,440,447,1,0,0,0,441,442,5,62,0,0,442,443,
+        5,1,0,0,443,444,3,42,21,0,444,445,5,3,0,0,445,447,1,0,0,0,446,391,
+        1,0,0,0,446,396,1,0,0,0,446,401,1,0,0,0,446,406,1,0,0,0,446,411,
+        1,0,0,0,446,416,1,0,0,0,446,421,1,0,0,0,446,426,1,0,0,0,446,431,
+        1,0,0,0,446,436,1,0,0,0,446,441,1,0,0,0,447,41,1,0,0,0,448,449,3,
+        12,6,0,449,450,5,2,0,0,450,451,3,12,6,0,451,43,1,0,0,0,452,453,5,
+        63,0,0,453,454,5,1,0,0,454,457,3,12,6,0,455,456,5,2,0,0,456,458,
+        3,46,23,0,457,455,1,0,0,0,457,458,1,0,0,0,458,459,1,0,0,0,459,460,
+        5,3,0,0,460,45,1,0,0,0,461,466,3,48,24,0,462,463,5,2,0,0,463,465,
+        3,48,24,0,464,462,1,0,0,0,465,468,1,0,0,0,466,464,1,0,0,0,466,467,
+        1,0,0,0,467,47,1,0,0,0,468,466,1,0,0,0,469,470,5,64,0,0,470,471,
+        5,5,0,0,471,488,5,80,0,0,472,473,5,65,0,0,473,474,5,5,0,0,474,488,
+        5,80,0,0,475,476,5,66,0,0,476,477,5,5,0,0,477,488,5,80,0,0,478,479,
+        5,67,0,0,479,480,5,5,0,0,480,488,5,83,0,0,481,482,5,68,0,0,482,483,
+        5,5,0,0,483,488,7,5,0,0,484,485,5,69,0,0,485,486,5,5,0,0,486,488,
+        3,18,9,0,487,469,1,0,0,0,487,472,1,0,0,0,487,475,1,0,0,0,487,478,
+        1,0,0,0,487,481,1,0,0,0,487,484,1,0,0,0,488,49,1,0,0,0,33,53,60,
+        65,71,85,101,110,139,150,152,161,172,177,185,196,199,208,241,244,
+        251,275,293,322,329,347,354,366,385,389,446,457,466,487
+>>>>>>> 2933e4c (fixed regresion)
     ]
 
 class LenguajeDominioEspecificoParser ( Parser ):
@@ -259,6 +442,7 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
     literalNames = [ "<INVALID>", "':'", "'('", "','", "')'", "'='", "'*'", 
                      "'/'", "'%'", "'=='", "'!='", "'<'", "'>'", "'<='", 
+<<<<<<< HEAD
                      "'>='", "'+'", "'-'", "'and'", "'or'", "'not'", "'.'", 
                      "'suma'", "'resta'", "'multiplicar'", "'transpuesta'", 
                      "'determinante'", "'inversa'", "'['", "']'", "'RegresionLineal'", 
@@ -275,6 +459,21 @@ class LenguajeDominioEspecificoParser ( Parser ):
                      "'max_cols'", "'max_col_width'", "'floatfmt'", "'show_index'", 
                      "'headers'", "'matriz'", "'for'", "'while'", "'if'", 
                      "'elif'", "'else'", "'in'", "'range'", "'regresion'", 
+=======
+                     "'>='", "'+'", "'-'", "'.'", "'suma'", "'resta'", "'multiplicar'", 
+                     "'transpuesta'", "'determinante'", "'inversa'", "'RegresionLineal'", 
+                     "'['", "']'", "'fit'", "'predict'", "'mse'", "'mae'", 
+                     "'r2'", "'rmse'", "'plot'", "'width'", "'height'", 
+                     "'left_margin'", "'point_char'", "'line_char'", "'title'", 
+                     "'show_stats'", "'PerceptronMulticapa'", "'score'", 
+                     "'plot_loss'", "'hidden_layers'", "'activation'", "'learning_rate'", 
+                     "'max_iter'", "'random_state'", "'epochs'", "'batch_size'", 
+                     "'verbose'", "'abs'", "'factorial'", "'exp'", "'ln'", 
+                     "'sqrt'", "'powf'", "'sin'", "'cos'", "'tan'", "'div'", 
+                     "'mod'", "'mostrar_tabla'", "'max_rows'", "'max_cols'", 
+                     "'max_col_width'", "'floatfmt'", "'show_index'", "'headers'", 
+                     "'matriz'", "'for'", "'while'", "'in'", "'range'", 
+>>>>>>> 2933e4c (fixed regresion)
                      "'mlp'", "'print'", "'True'", "'False'" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
@@ -294,12 +493,19 @@ class LenguajeDominioEspecificoParser ( Parser ):
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+<<<<<<< HEAD
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "MATRIZ", "FOR", 
                       "WHILE", "IF", "ELIF", "ELSE", "IN", "RANGE", "REGRESION", 
                       "MLP", "PRINT", "TRUE", "FALSE", "ID", "NUMBER", "ENTERO", 
                       "DECIMAL", "STRING", "COMENTARIO", "WS", "NEWLINE" ]
+=======
+                      "<INVALID>", "<INVALID>", "MATRIZ", "FOR", "WHILE", 
+                      "IN", "RANGE", "MLP", "PRINT", "TRUE", "FALSE", "ID", 
+                      "NUMBER", "ENTERO", "DECIMAL", "STRING", "COMENTARIO", 
+                      "WS", "NEWLINE" ]
+>>>>>>> 2933e4c (fixed regresion)
 
     RULE_programa = 0
     RULE_instruccion = 1
@@ -414,6 +620,7 @@ class LenguajeDominioEspecificoParser ( Parser ):
     T__66=67
     T__67=68
     T__68=69
+<<<<<<< HEAD
     T__69=70
     T__70=71
     T__71=72
@@ -444,6 +651,25 @@ class LenguajeDominioEspecificoParser ( Parser ):
     COMENTARIO=97
     WS=98
     NEWLINE=99
+=======
+    MATRIZ=70
+    FOR=71
+    WHILE=72
+    IN=73
+    RANGE=74
+    MLP=75
+    PRINT=76
+    TRUE=77
+    FALSE=78
+    ID=79
+    NUMBER=80
+    ENTERO=81
+    DECIMAL=82
+    STRING=83
+    COMENTARIO=84
+    WS=85
+    NEWLINE=86
+>>>>>>> 2933e4c (fixed regresion)
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -480,14 +706,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_programa
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterPrograma" ):
-                listener.enterPrograma(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitPrograma" ):
-                listener.exitPrograma(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitPrograma" ):
                 return visitor.visitPrograma(self)
@@ -507,8 +725,13 @@ class LenguajeDominioEspecificoParser ( Parser ):
             self.state = 67
             self._errHandler.sync(self)
             _la = self._input.LA(1)
+<<<<<<< HEAD
             while _la==99:
                 self.state = 64
+=======
+            while _la==86:
+                self.state = 50
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.NEWLINE)
                 self.state = 69
                 self._errHandler.sync(self)
@@ -530,7 +753,11 @@ class LenguajeDominioEspecificoParser ( Parser ):
                         self.state = 74 
                         self._errHandler.sync(self)
                         _la = self._input.LA(1)
+<<<<<<< HEAD
                         if not (_la==99):
+=======
+                        if not (_la==86):
+>>>>>>> 2933e4c (fixed regresion)
                             break
 
                     self.state = 76
@@ -542,8 +769,13 @@ class LenguajeDominioEspecificoParser ( Parser ):
             self.state = 85
             self._errHandler.sync(self)
             _la = self._input.LA(1)
+<<<<<<< HEAD
             while _la==99:
                 self.state = 82
+=======
+            while _la==86:
+                self.state = 68
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.NEWLINE)
                 self.state = 87
                 self._errHandler.sync(self)
@@ -617,14 +849,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_instruccion
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterInstruccion" ):
-                listener.enterInstruccion(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitInstruccion" ):
-                listener.exitInstruccion(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitInstruccion" ):
@@ -916,14 +1140,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_buclefor
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterBuclefor" ):
-                listener.enterBuclefor(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitBuclefor" ):
-                listener.exitBuclefor(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitBuclefor" ):
                 return visitor.visitBuclefor(self)
@@ -1011,14 +1227,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_buclewhile
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterBuclewhile" ):
-                listener.enterBuclewhile(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitBuclewhile" ):
-                listener.exitBuclewhile(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitBuclewhile" ):
                 return visitor.visitBuclewhile(self)
@@ -1078,14 +1286,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_comentario
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterComentario" ):
-                listener.enterComentario(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitComentario" ):
-                listener.exitComentario(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitComentario" ):
                 return visitor.visitComentario(self)
@@ -1128,14 +1328,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_asignacion
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterAsignacion" ):
-                listener.enterAsignacion(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitAsignacion" ):
-                listener.exitAsignacion(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitAsignacion" ):
@@ -1193,14 +1385,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
             return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ListaContext,0)
 
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterExpresionLista" ):
-                listener.enterExpresionLista(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitExpresionLista" ):
-                listener.exitExpresionLista(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitExpresionLista" ):
                 return visitor.visitExpresionLista(self)
@@ -1241,14 +1425,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
         def NUMBER(self):
             return self.getToken(LenguajeDominioEspecificoParser.NUMBER, 0)
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterExpresionNumero" ):
-                listener.enterExpresionNumero(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitExpresionNumero" ):
-                listener.exitExpresionNumero(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitExpresionNumero" ):
@@ -1345,14 +1521,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
             return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ExpresionContext,0)
 
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterExpresionParentesis" ):
-                listener.enterExpresionParentesis(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitExpresionParentesis" ):
-                listener.exitExpresionParentesis(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitExpresionParentesis" ):
                 return visitor.visitExpresionParentesis(self)
@@ -1373,14 +1541,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ExpresionContext,i)
 
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterExpresionComparacion" ):
-                listener.enterExpresionComparacion(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitExpresionComparacion" ):
-                listener.exitExpresionComparacion(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitExpresionComparacion" ):
                 return visitor.visitExpresionComparacion(self)
@@ -1388,6 +1548,29 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 return visitor.visitChildren(self)
 
 
+<<<<<<< HEAD
+=======
+    class OperacionSumaRestaContext(ExpresionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a LenguajeDominioEspecificoParser.ExpresionContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def expresion(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(LenguajeDominioEspecificoParser.ExpresionContext)
+            else:
+                return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ExpresionContext,i)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitOperacionSumaResta" ):
+                return visitor.visitOperacionSumaResta(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+>>>>>>> 2933e4c (fixed regresion)
     class ExpresionVariableContext(ExpresionContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a LenguajeDominioEspecificoParser.ExpresionContext
@@ -1396,14 +1579,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
         def ID(self):
             return self.getToken(LenguajeDominioEspecificoParser.ID, 0)
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterExpresionVariable" ):
-                listener.enterExpresionVariable(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitExpresionVariable" ):
-                listener.exitExpresionVariable(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitExpresionVariable" ):
@@ -1453,14 +1628,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
             return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ParametrosMatrizContext,0)
 
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterOperacionMatrizExpr" ):
-                listener.enterOperacionMatrizExpr(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitOperacionMatrizExpr" ):
-                listener.exitOperacionMatrizExpr(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitOperacionMatrizExpr" ):
                 return visitor.visitOperacionMatrizExpr(self)
@@ -1468,6 +1635,25 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 return visitor.visitChildren(self)
 
 
+<<<<<<< HEAD
+=======
+    class ExpresionStringContext(ExpresionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a LenguajeDominioEspecificoParser.ExpresionContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def STRING(self):
+            return self.getToken(LenguajeDominioEspecificoParser.STRING, 0)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitExpresionString" ):
+                return visitor.visitExpresionString(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+>>>>>>> 2933e4c (fixed regresion)
     class ExpresionOperacionContext(ExpresionContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a LenguajeDominioEspecificoParser.ExpresionContext
@@ -1477,14 +1663,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def operaciones(self):
             return self.getTypedRuleContext(LenguajeDominioEspecificoParser.OperacionesContext,0)
 
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterExpresionOperacion" ):
-                listener.enterExpresionOperacion(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitExpresionOperacion" ):
-                listener.exitExpresionOperacion(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitExpresionOperacion" ):
@@ -1503,17 +1681,23 @@ class LenguajeDominioEspecificoParser ( Parser ):
             return self.getTypedRuleContext(LenguajeDominioEspecificoParser.MatrizContext,0)
 
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterExpresionMatriz" ):
-                listener.enterExpresionMatriz(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitExpresionMatriz" ):
-                listener.exitExpresionMatriz(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitExpresionMatriz" ):
                 return visitor.visitExpresionMatriz(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class CrearRegresionContext(ExpresionContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a LenguajeDominioEspecificoParser.ExpresionContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCrearRegresion" ):
+                return visitor.visitCrearRegresion(self)
             else:
                 return visitor.visitChildren(self)
 
@@ -1530,14 +1714,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
             else:
                 return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ExpresionContext,i)
 
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterOperacionMultDiv" ):
-                listener.enterOperacionMultDiv(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitOperacionMultDiv" ):
-                listener.exitOperacionMultDiv(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitOperacionMultDiv" ):
@@ -1557,7 +1733,11 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
             self.state = 190
+=======
+            self.state = 139
+>>>>>>> 2933e4c (fixed regresion)
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,12,self._ctx)
             if la_ == 1:
@@ -1603,12 +1783,30 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.match(LenguajeDominioEspecificoParser.T__1)
                 self.state = 179
                 self.parametrosMatriz()
+<<<<<<< HEAD
                 self.state = 180
                 self.match(LenguajeDominioEspecificoParser.T__3)
+=======
+                self.state = 128
+                self.match(LenguajeDominioEspecificoParser.T__2)
+                pass
+
+            elif la_ == 3:
+                localctx = LenguajeDominioEspecificoParser.CrearRegresionContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
+                self.state = 130
+                self.match(LenguajeDominioEspecificoParser.T__23)
+                self.state = 131
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 132
+                self.match(LenguajeDominioEspecificoParser.T__2)
+>>>>>>> 2933e4c (fixed regresion)
                 pass
 
             elif la_ == 4:
                 localctx = LenguajeDominioEspecificoParser.ExpresionOperacionContext(self, localctx)
+<<<<<<< HEAD
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 182
@@ -1652,6 +1850,51 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self._ctx = localctx
                 _prevctx = localctx
                 self.state = 187
+=======
+                self._ctx = localctx
+                _prevctx = localctx
+                self.state = 133
+                self.operaciones()
+                pass
+
+            elif la_ == 5:
+                localctx = LenguajeDominioEspecificoParser.ExpresionMatrizContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
+                self.state = 134
+                self.matriz()
+                pass
+
+            elif la_ == 6:
+                localctx = LenguajeDominioEspecificoParser.ExpresionListaContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
+                self.state = 135
+                self.lista()
+                pass
+
+            elif la_ == 7:
+                localctx = LenguajeDominioEspecificoParser.ExpresionNumeroContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
+                self.state = 136
+                self.match(LenguajeDominioEspecificoParser.NUMBER)
+                pass
+
+            elif la_ == 8:
+                localctx = LenguajeDominioEspecificoParser.ExpresionVariableContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
+                self.state = 137
+                self.match(LenguajeDominioEspecificoParser.ID)
+                pass
+
+            elif la_ == 9:
+                localctx = LenguajeDominioEspecificoParser.ExpresionStringContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
+                self.state = 138
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.STRING)
                 pass
 
@@ -1673,7 +1916,11 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
 
             self._ctx.stop = self._input.LT(-1)
+<<<<<<< HEAD
             self.state = 206
+=======
+            self.state = 152
+>>>>>>> 2933e4c (fixed regresion)
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,14,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
@@ -1681,59 +1928,98 @@ class LenguajeDominioEspecificoParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
+<<<<<<< HEAD
                     self.state = 204
+=======
+                    self.state = 150
+>>>>>>> 2933e4c (fixed regresion)
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,13,self._ctx)
                     if la_ == 1:
                         localctx = LenguajeDominioEspecificoParser.OperacionMultDivContext(self, LenguajeDominioEspecificoParser.ExpresionContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expresion)
+<<<<<<< HEAD
                         self.state = 192
                         if not self.precpred(self._ctx, 15):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 15)")
                         self.state = 193
+=======
+                        self.state = 141
+                        if not self.precpred(self._ctx, 12):
+                            from antlr4.error.Errors import FailedPredicateException
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 12)")
+                        self.state = 142
+>>>>>>> 2933e4c (fixed regresion)
                         _la = self._input.LA(1)
                         if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 448) != 0)):
                             self._errHandler.recoverInline(self)
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
+<<<<<<< HEAD
                         self.state = 194
                         self.expresion(16)
+=======
+                        self.state = 143
+                        self.expresion(13)
+>>>>>>> 2933e4c (fixed regresion)
                         pass
 
                     elif la_ == 2:
                         localctx = LenguajeDominioEspecificoParser.ExpresionComparacionContext(self, LenguajeDominioEspecificoParser.ExpresionContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expresion)
+<<<<<<< HEAD
                         self.state = 195
                         if not self.precpred(self._ctx, 14):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 14)")
                         self.state = 196
+=======
+                        self.state = 144
+                        if not self.precpred(self._ctx, 11):
+                            from antlr4.error.Errors import FailedPredicateException
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 11)")
+                        self.state = 145
+>>>>>>> 2933e4c (fixed regresion)
                         _la = self._input.LA(1)
                         if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 32256) != 0)):
                             self._errHandler.recoverInline(self)
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
+<<<<<<< HEAD
                         self.state = 197
                         self.expresion(15)
+=======
+                        self.state = 146
+                        self.expresion(12)
+>>>>>>> 2933e4c (fixed regresion)
                         pass
 
                     elif la_ == 3:
                         localctx = LenguajeDominioEspecificoParser.OperacionSumaRestaContext(self, LenguajeDominioEspecificoParser.ExpresionContext(self, _parentctx, _parentState))
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expresion)
+<<<<<<< HEAD
                         self.state = 198
                         if not self.precpred(self._ctx, 13):
                             from antlr4.error.Errors import FailedPredicateException
                             raise FailedPredicateException(self, "self.precpred(self._ctx, 13)")
                         self.state = 199
+=======
+                        self.state = 147
+                        if not self.precpred(self._ctx, 10):
+                            from antlr4.error.Errors import FailedPredicateException
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 10)")
+                        self.state = 148
+>>>>>>> 2933e4c (fixed regresion)
                         _la = self._input.LA(1)
                         if not(_la==15 or _la==16):
                             self._errHandler.recoverInline(self)
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
+<<<<<<< HEAD
                         self.state = 200
                         self.expresion(14)
                         pass
@@ -1758,6 +2044,14 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
              
                 self.state = 208
+=======
+                        self.state = 149
+                        self.expresion(11)
+                        pass
+
+             
+                self.state = 154
+>>>>>>> 2933e4c (fixed regresion)
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,14,self._ctx)
 
@@ -1800,14 +2094,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 return self.getTypedRuleContext(LenguajeDominioEspecificoParser.FilaContext,i)
 
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterMatrizMultiFila" ):
-                listener.enterMatrizMultiFila(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitMatrizMultiFila" ):
-                listener.exitMatrizMultiFila(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitMatrizMultiFila" ):
                 return visitor.visitMatrizMultiFila(self)
@@ -1828,14 +2114,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ExpresionContext,i)
 
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterMatrizUnidimensional" ):
-                listener.enterMatrizUnidimensional(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitMatrizUnidimensional" ):
-                listener.exitMatrizUnidimensional(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitMatrizUnidimensional" ):
                 return visitor.visitMatrizUnidimensional(self)
@@ -1850,12 +2128,17 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self.enterRule(localctx, 16, self.RULE_matriz)
         self._la = 0 # Token type
         try:
+<<<<<<< HEAD
             self.state = 231
+=======
+            self.state = 177
+>>>>>>> 2933e4c (fixed regresion)
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,17,self._ctx)
             if la_ == 1:
                 localctx = LenguajeDominioEspecificoParser.MatrizMultiFilaContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
                 self.state = 209
                 self.match(LenguajeDominioEspecificoParser.T__26)
                 self.state = 210
@@ -1874,11 +2157,32 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
                 self.state = 218
                 self.match(LenguajeDominioEspecificoParser.T__27)
+=======
+                self.state = 155
+                self.match(LenguajeDominioEspecificoParser.T__24)
+                self.state = 156
+                self.fila()
+                self.state = 161
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                while _la==2:
+                    self.state = 157
+                    self.match(LenguajeDominioEspecificoParser.T__1)
+                    self.state = 158
+                    self.fila()
+                    self.state = 163
+                    self._errHandler.sync(self)
+                    _la = self._input.LA(1)
+
+                self.state = 164
+                self.match(LenguajeDominioEspecificoParser.T__25)
+>>>>>>> 2933e4c (fixed regresion)
                 pass
 
             elif la_ == 2:
                 localctx = LenguajeDominioEspecificoParser.MatrizUnidimensionalContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
+<<<<<<< HEAD
                 self.state = 220
                 self.match(LenguajeDominioEspecificoParser.T__26)
                 self.state = 221
@@ -1897,6 +2201,26 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
                 self.state = 229
                 self.match(LenguajeDominioEspecificoParser.T__27)
+=======
+                self.state = 166
+                self.match(LenguajeDominioEspecificoParser.T__24)
+                self.state = 167
+                self.expresion(0)
+                self.state = 172
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                while _la==2:
+                    self.state = 168
+                    self.match(LenguajeDominioEspecificoParser.T__1)
+                    self.state = 169
+                    self.expresion(0)
+                    self.state = 174
+                    self._errHandler.sync(self)
+                    _la = self._input.LA(1)
+
+                self.state = 175
+                self.match(LenguajeDominioEspecificoParser.T__25)
+>>>>>>> 2933e4c (fixed regresion)
                 pass
 
 
@@ -1926,14 +2250,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_fila
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterFila" ):
-                listener.enterFila(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitFila" ):
-                listener.exitFila(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitFila" ):
                 return visitor.visitFila(self)
@@ -1950,6 +2266,7 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
             self.state = 233
             self.match(LenguajeDominioEspecificoParser.T__26)
             self.state = 234
@@ -1968,6 +2285,26 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
             self.state = 242
             self.match(LenguajeDominioEspecificoParser.T__27)
+=======
+            self.state = 179
+            self.match(LenguajeDominioEspecificoParser.T__24)
+            self.state = 180
+            self.expresion(0)
+            self.state = 185
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==2:
+                self.state = 181
+                self.match(LenguajeDominioEspecificoParser.T__1)
+                self.state = 182
+                self.expresion(0)
+                self.state = 187
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+
+            self.state = 188
+            self.match(LenguajeDominioEspecificoParser.T__25)
+>>>>>>> 2933e4c (fixed regresion)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -1994,14 +2331,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_lista
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterLista" ):
-                listener.enterLista(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitLista" ):
-                listener.exitLista(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitLista" ):
                 return visitor.visitLista(self)
@@ -2018,6 +2347,7 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
             self.state = 244
             self.match(LenguajeDominioEspecificoParser.T__26)
             self.state = 253
@@ -2035,13 +2365,37 @@ class LenguajeDominioEspecificoParser ( Parser ):
                     self.state = 247
                     self.expresion(0)
                     self.state = 252
+=======
+            self.state = 190
+            self.match(LenguajeDominioEspecificoParser.T__24)
+            self.state = 199
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if (((_la) & ~0x3f) == 0 and ((1 << _la) & 9218868437277736962) != 0) or ((((_la - 70)) & ~0x3f) == 0 and ((1 << (_la - 70)) & 9729) != 0):
+                self.state = 191
+                self.expresion(0)
+                self.state = 196
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                while _la==2:
+                    self.state = 192
+                    self.match(LenguajeDominioEspecificoParser.T__1)
+                    self.state = 193
+                    self.expresion(0)
+                    self.state = 198
+>>>>>>> 2933e4c (fixed regresion)
                     self._errHandler.sync(self)
                     _la = self._input.LA(1)
 
 
 
+<<<<<<< HEAD
             self.state = 255
             self.match(LenguajeDominioEspecificoParser.T__27)
+=======
+            self.state = 201
+            self.match(LenguajeDominioEspecificoParser.T__25)
+>>>>>>> 2933e4c (fixed regresion)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -2068,14 +2422,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_parametrosMatriz
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterParametrosMatriz" ):
-                listener.enterParametrosMatriz(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitParametrosMatriz" ):
-                listener.exitParametrosMatriz(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitParametrosMatriz" ):
                 return visitor.visitParametrosMatriz(self)
@@ -2092,6 +2438,7 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
             self.state = 257
             self.expresion(0)
             self.state = 262
@@ -2103,6 +2450,19 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.state = 259
                 self.expresion(0)
                 self.state = 264
+=======
+            self.state = 203
+            self.expresion(0)
+            self.state = 208
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==2:
+                self.state = 204
+                self.match(LenguajeDominioEspecificoParser.T__1)
+                self.state = 205
+                self.expresion(0)
+                self.state = 210
+>>>>>>> 2933e4c (fixed regresion)
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -2138,19 +2498,11 @@ class LenguajeDominioEspecificoParser ( Parser ):
             super().__init__(parser)
             self.copyFrom(ctx)
 
-        def REGRESION(self):
-            return self.getToken(LenguajeDominioEspecificoParser.REGRESION, 0)
+        def ID(self):
+            return self.getToken(LenguajeDominioEspecificoParser.ID, 0)
         def parametrosPlot(self):
             return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ParametrosPlotContext,0)
 
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterGraficarRegresion" ):
-                listener.enterGraficarRegresion(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitGraficarRegresion" ):
-                listener.exitGraficarRegresion(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitGraficarRegresion" ):
@@ -2167,22 +2519,14 @@ class LenguajeDominioEspecificoParser ( Parser ):
             self.y = None # ExpresionContext
             self.copyFrom(ctx)
 
-        def REGRESION(self):
-            return self.getToken(LenguajeDominioEspecificoParser.REGRESION, 0)
+        def ID(self):
+            return self.getToken(LenguajeDominioEspecificoParser.ID, 0)
         def expresion(self, i:int=None):
             if i is None:
                 return self.getTypedRuleContexts(LenguajeDominioEspecificoParser.ExpresionContext)
             else:
                 return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ExpresionContext,i)
 
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterEntrenarRegresion" ):
-                listener.enterEntrenarRegresion(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitEntrenarRegresion" ):
-                listener.exitEntrenarRegresion(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitEntrenarRegresion" ):
@@ -2195,23 +2539,18 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a LenguajeDominioEspecificoParser.RegresionLinealContext
             super().__init__(parser)
+            self.target = None # Token
+            self.modelo = None # Token
             self.copyFrom(ctx)
 
-        def ID(self):
-            return self.getToken(LenguajeDominioEspecificoParser.ID, 0)
-        def REGRESION(self):
-            return self.getToken(LenguajeDominioEspecificoParser.REGRESION, 0)
         def expresion(self):
             return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ExpresionContext,0)
 
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterPredecirRegresion" ):
-                listener.enterPredecirRegresion(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitPredecirRegresion" ):
-                listener.exitPredecirRegresion(self)
+        def ID(self, i:int=None):
+            if i is None:
+                return self.getTokens(LenguajeDominioEspecificoParser.ID)
+            else:
+                return self.getToken(LenguajeDominioEspecificoParser.ID, i)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitPredecirRegresion" ):
@@ -2224,49 +2563,20 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a LenguajeDominioEspecificoParser.RegresionLinealContext
             super().__init__(parser)
+            self.target = None # Token
+            self.modelo = None # Token
             self.metrica = None # Token
             self.copyFrom(ctx)
 
-        def ID(self):
-            return self.getToken(LenguajeDominioEspecificoParser.ID, 0)
-        def REGRESION(self):
-            return self.getToken(LenguajeDominioEspecificoParser.REGRESION, 0)
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterObtenerMetricaRegresion" ):
-                listener.enterObtenerMetricaRegresion(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitObtenerMetricaRegresion" ):
-                listener.exitObtenerMetricaRegresion(self)
+        def ID(self, i:int=None):
+            if i is None:
+                return self.getTokens(LenguajeDominioEspecificoParser.ID)
+            else:
+                return self.getToken(LenguajeDominioEspecificoParser.ID, i)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitObtenerMetricaRegresion" ):
                 return visitor.visitObtenerMetricaRegresion(self)
-            else:
-                return visitor.visitChildren(self)
-
-
-    class CrearRegresionContext(RegresionLinealContext):
-
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a LenguajeDominioEspecificoParser.RegresionLinealContext
-            super().__init__(parser)
-            self.copyFrom(ctx)
-
-        def ID(self):
-            return self.getToken(LenguajeDominioEspecificoParser.ID, 0)
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterCrearRegresion" ):
-                listener.enterCrearRegresion(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitCrearRegresion" ):
-                listener.exitCrearRegresion(self)
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitCrearRegresion" ):
-                return visitor.visitCrearRegresion(self)
             else:
                 return visitor.visitChildren(self)
 
@@ -2278,12 +2588,17 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self.enterRule(localctx, 24, self.RULE_regresionLineal)
         self._la = 0 # Token type
         try:
+<<<<<<< HEAD
             self.state = 303
+=======
+            self.state = 244
+>>>>>>> 2933e4c (fixed regresion)
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,23,self._ctx)
             if la_ == 1:
-                localctx = LenguajeDominioEspecificoParser.CrearRegresionContext(self, localctx)
+                localctx = LenguajeDominioEspecificoParser.EntrenarRegresionContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
                 self.state = 265
                 self.match(LenguajeDominioEspecificoParser.ID)
                 self.state = 266
@@ -2294,11 +2609,30 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.match(LenguajeDominioEspecificoParser.T__1)
                 self.state = 269
                 self.match(LenguajeDominioEspecificoParser.T__3)
+=======
+                self.state = 211
+                self.match(LenguajeDominioEspecificoParser.ID)
+                self.state = 212
+                self.match(LenguajeDominioEspecificoParser.T__16)
+                self.state = 213
+                self.match(LenguajeDominioEspecificoParser.T__26)
+                self.state = 214
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 215
+                localctx.x = self.expresion(0)
+                self.state = 216
+                self.match(LenguajeDominioEspecificoParser.T__1)
+                self.state = 217
+                localctx.y = self.expresion(0)
+                self.state = 218
+                self.match(LenguajeDominioEspecificoParser.T__2)
+>>>>>>> 2933e4c (fixed regresion)
                 pass
 
             elif la_ == 2:
-                localctx = LenguajeDominioEspecificoParser.EntrenarRegresionContext(self, localctx)
+                localctx = LenguajeDominioEspecificoParser.PredecirRegresionContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
+<<<<<<< HEAD
                 self.state = 270
                 self.match(LenguajeDominioEspecificoParser.REGRESION)
                 self.state = 271
@@ -2310,6 +2644,23 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.state = 274
                 localctx.x = self.expresion(0)
                 self.state = 275
+=======
+                self.state = 220
+                localctx.target = self.match(LenguajeDominioEspecificoParser.ID)
+                self.state = 221
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 222
+                localctx.modelo = self.match(LenguajeDominioEspecificoParser.ID)
+                self.state = 223
+                self.match(LenguajeDominioEspecificoParser.T__16)
+                self.state = 224
+                self.match(LenguajeDominioEspecificoParser.T__27)
+                self.state = 225
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 226
+                self.expresion(0)
+                self.state = 227
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.T__2)
                 self.state = 276
                 localctx.y = self.expresion(0)
@@ -2318,6 +2669,7 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 pass
 
             elif la_ == 3:
+<<<<<<< HEAD
                 localctx = LenguajeDominioEspecificoParser.PredecirRegresionContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
                 self.state = 279
@@ -2350,6 +2702,19 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.state = 291
                 self.match(LenguajeDominioEspecificoParser.T__19)
                 self.state = 292
+=======
+                localctx = LenguajeDominioEspecificoParser.ObtenerMetricaRegresionContext(self, localctx)
+                self.enterOuterAlt(localctx, 3)
+                self.state = 229
+                localctx.target = self.match(LenguajeDominioEspecificoParser.ID)
+                self.state = 230
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 231
+                localctx.modelo = self.match(LenguajeDominioEspecificoParser.ID)
+                self.state = 232
+                self.match(LenguajeDominioEspecificoParser.T__16)
+                self.state = 233
+>>>>>>> 2933e4c (fixed regresion)
                 localctx.metrica = self._input.LT(1)
                 _la = self._input.LA(1)
                 if not((((_la) & ~0x3f) == 0 and ((1 << _la) & 64424509440) != 0)):
@@ -2357,14 +2722,22 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 else:
                     self._errHandler.reportMatch(self)
                     self.consume()
+<<<<<<< HEAD
                 self.state = 293
                 self.match(LenguajeDominioEspecificoParser.T__1)
                 self.state = 294
                 self.match(LenguajeDominioEspecificoParser.T__3)
+=======
+                self.state = 234
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 235
+                self.match(LenguajeDominioEspecificoParser.T__2)
+>>>>>>> 2933e4c (fixed regresion)
                 pass
 
-            elif la_ == 5:
+            elif la_ == 4:
                 localctx = LenguajeDominioEspecificoParser.GraficarRegresionContext(self, localctx)
+<<<<<<< HEAD
                 self.enterOuterAlt(localctx, 5)
                 self.state = 295
                 self.match(LenguajeDominioEspecificoParser.REGRESION)
@@ -2384,6 +2757,27 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
                 self.state = 302
                 self.match(LenguajeDominioEspecificoParser.T__3)
+=======
+                self.enterOuterAlt(localctx, 4)
+                self.state = 236
+                self.match(LenguajeDominioEspecificoParser.ID)
+                self.state = 237
+                self.match(LenguajeDominioEspecificoParser.T__16)
+                self.state = 238
+                self.match(LenguajeDominioEspecificoParser.T__32)
+                self.state = 239
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 241
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                if (((_la) & ~0x3f) == 0 and ((1 << _la) & 2181843386368) != 0):
+                    self.state = 240
+                    self.parametrosPlot()
+
+
+                self.state = 243
+                self.match(LenguajeDominioEspecificoParser.T__2)
+>>>>>>> 2933e4c (fixed regresion)
                 pass
 
 
@@ -2413,14 +2807,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_parametrosPlot
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterParametrosPlot" ):
-                listener.enterParametrosPlot(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitParametrosPlot" ):
-                listener.exitParametrosPlot(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitParametrosPlot" ):
                 return visitor.visitParametrosPlot(self)
@@ -2437,6 +2823,7 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
             self.state = 305
             self.parametroPlot()
             self.state = 310
@@ -2448,6 +2835,19 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.state = 307
                 self.parametroPlot()
                 self.state = 312
+=======
+            self.state = 246
+            self.parametroPlot()
+            self.state = 251
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==2:
+                self.state = 247
+                self.match(LenguajeDominioEspecificoParser.T__1)
+                self.state = 248
+                self.parametroPlot()
+                self.state = 253
+>>>>>>> 2933e4c (fixed regresion)
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -2482,14 +2882,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_parametroPlot
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterParametroPlot" ):
-                listener.enterParametroPlot(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitParametroPlot" ):
-                listener.exitParametroPlot(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitParametroPlot" ):
                 return visitor.visitParametroPlot(self)
@@ -2505,11 +2897,16 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self.enterRule(localctx, 28, self.RULE_parametroPlot)
         self._la = 0 # Token type
         try:
+<<<<<<< HEAD
             self.state = 337
+=======
+            self.state = 275
+>>>>>>> 2933e4c (fixed regresion)
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [37]:
                 self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
                 self.state = 313
                 self.match(LenguajeDominioEspecificoParser.T__36)
                 self.state = 314
@@ -2571,6 +2968,69 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.state = 333
                 _la = self._input.LA(1)
                 if not(_la==90 or _la==91):
+=======
+                self.state = 254
+                self.match(LenguajeDominioEspecificoParser.T__33)
+                self.state = 255
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 256
+                self.match(LenguajeDominioEspecificoParser.NUMBER)
+                pass
+            elif token in [35]:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 257
+                self.match(LenguajeDominioEspecificoParser.T__34)
+                self.state = 258
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 259
+                self.match(LenguajeDominioEspecificoParser.NUMBER)
+                pass
+            elif token in [36]:
+                self.enterOuterAlt(localctx, 3)
+                self.state = 260
+                self.match(LenguajeDominioEspecificoParser.T__35)
+                self.state = 261
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 262
+                self.match(LenguajeDominioEspecificoParser.NUMBER)
+                pass
+            elif token in [37]:
+                self.enterOuterAlt(localctx, 4)
+                self.state = 263
+                self.match(LenguajeDominioEspecificoParser.T__36)
+                self.state = 264
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 265
+                self.match(LenguajeDominioEspecificoParser.STRING)
+                pass
+            elif token in [38]:
+                self.enterOuterAlt(localctx, 5)
+                self.state = 266
+                self.match(LenguajeDominioEspecificoParser.T__37)
+                self.state = 267
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 268
+                self.match(LenguajeDominioEspecificoParser.STRING)
+                pass
+            elif token in [39]:
+                self.enterOuterAlt(localctx, 6)
+                self.state = 269
+                self.match(LenguajeDominioEspecificoParser.T__38)
+                self.state = 270
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 271
+                self.match(LenguajeDominioEspecificoParser.STRING)
+                pass
+            elif token in [40]:
+                self.enterOuterAlt(localctx, 7)
+                self.state = 272
+                self.match(LenguajeDominioEspecificoParser.T__39)
+                self.state = 273
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 274
+                _la = self._input.LA(1)
+                if not(_la==77 or _la==78):
+>>>>>>> 2933e4c (fixed regresion)
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
@@ -2626,14 +3086,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
             return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ParametrosMLPContext,0)
 
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterCrearMLP" ):
-                listener.enterCrearMLP(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitCrearMLP" ):
-                listener.exitCrearMLP(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitCrearMLP" ):
                 return visitor.visitCrearMLP(self)
@@ -2661,14 +3113,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
             return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ParametrosEntrenamientoContext,0)
 
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterEntrenarMLP" ):
-                listener.enterEntrenarMLP(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitEntrenarMLP" ):
-                listener.exitEntrenarMLP(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitEntrenarMLP" ):
                 return visitor.visitEntrenarMLP(self)
@@ -2686,14 +3130,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
             return self.getToken(LenguajeDominioEspecificoParser.MLP, 0)
         def STRING(self):
             return self.getToken(LenguajeDominioEspecificoParser.STRING, 0)
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterGraficarPerdidaMLP" ):
-                listener.enterGraficarPerdidaMLP(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitGraficarPerdidaMLP" ):
-                listener.exitGraficarPerdidaMLP(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitGraficarPerdidaMLP" ):
@@ -2715,14 +3151,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def expresion(self):
             return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ExpresionContext,0)
 
-
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterPredecirMLP" ):
-                listener.enterPredecirMLP(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitPredecirMLP" ):
-                listener.exitPredecirMLP(self)
 
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitPredecirMLP" ):
@@ -2750,14 +3178,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ExpresionContext,i)
 
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterEvaluarMLP" ):
-                listener.enterEvaluarMLP(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitEvaluarMLP" ):
-                listener.exitEvaluarMLP(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitEvaluarMLP" ):
                 return visitor.visitEvaluarMLP(self)
@@ -2772,12 +3192,17 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self.enterRule(localctx, 30, self.RULE_perceptronMulticapa)
         self._la = 0 # Token type
         try:
+<<<<<<< HEAD
             self.state = 387
+=======
+            self.state = 322
+>>>>>>> 2933e4c (fixed regresion)
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,28,self._ctx)
             if la_ == 1:
                 localctx = LenguajeDominioEspecificoParser.CrearMLPContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
                 self.state = 339
                 self.match(LenguajeDominioEspecificoParser.MLP)
                 self.state = 340
@@ -2790,11 +3215,26 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.parametrosMLP()
                 self.state = 344
                 self.match(LenguajeDominioEspecificoParser.T__3)
+=======
+                self.state = 277
+                self.match(LenguajeDominioEspecificoParser.MLP)
+                self.state = 278
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 279
+                self.match(LenguajeDominioEspecificoParser.T__40)
+                self.state = 280
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 281
+                self.parametrosMLP()
+                self.state = 282
+                self.match(LenguajeDominioEspecificoParser.T__2)
+>>>>>>> 2933e4c (fixed regresion)
                 pass
 
             elif la_ == 2:
                 localctx = LenguajeDominioEspecificoParser.EntrenarMLPContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
+<<<<<<< HEAD
                 self.state = 346
                 self.match(LenguajeDominioEspecificoParser.MLP)
                 self.state = 347
@@ -2821,11 +3261,40 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
                 self.state = 357
                 self.match(LenguajeDominioEspecificoParser.T__3)
+=======
+                self.state = 284
+                self.match(LenguajeDominioEspecificoParser.MLP)
+                self.state = 285
+                self.match(LenguajeDominioEspecificoParser.T__16)
+                self.state = 286
+                self.match(LenguajeDominioEspecificoParser.T__26)
+                self.state = 287
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 288
+                localctx.x = self.expresion(0)
+                self.state = 289
+                self.match(LenguajeDominioEspecificoParser.T__1)
+                self.state = 290
+                localctx.y = self.expresion(0)
+                self.state = 293
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                if _la==2:
+                    self.state = 291
+                    self.match(LenguajeDominioEspecificoParser.T__1)
+                    self.state = 292
+                    self.parametrosEntrenamiento()
+
+
+                self.state = 295
+                self.match(LenguajeDominioEspecificoParser.T__2)
+>>>>>>> 2933e4c (fixed regresion)
                 pass
 
             elif la_ == 3:
                 localctx = LenguajeDominioEspecificoParser.PredecirMLPContext(self, localctx)
                 self.enterOuterAlt(localctx, 3)
+<<<<<<< HEAD
                 self.state = 359
                 self.match(LenguajeDominioEspecificoParser.ID)
                 self.state = 360
@@ -2842,11 +3311,30 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.expresion(0)
                 self.state = 366
                 self.match(LenguajeDominioEspecificoParser.T__3)
+=======
+                self.state = 297
+                self.match(LenguajeDominioEspecificoParser.ID)
+                self.state = 298
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 299
+                self.match(LenguajeDominioEspecificoParser.MLP)
+                self.state = 300
+                self.match(LenguajeDominioEspecificoParser.T__16)
+                self.state = 301
+                self.match(LenguajeDominioEspecificoParser.T__27)
+                self.state = 302
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 303
+                self.expresion(0)
+                self.state = 304
+                self.match(LenguajeDominioEspecificoParser.T__2)
+>>>>>>> 2933e4c (fixed regresion)
                 pass
 
             elif la_ == 4:
                 localctx = LenguajeDominioEspecificoParser.EvaluarMLPContext(self, localctx)
                 self.enterOuterAlt(localctx, 4)
+<<<<<<< HEAD
                 self.state = 368
                 self.match(LenguajeDominioEspecificoParser.ID)
                 self.state = 369
@@ -2862,6 +3350,27 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.state = 374
                 localctx.x = self.expresion(0)
                 self.state = 375
+=======
+                self.state = 306
+                self.match(LenguajeDominioEspecificoParser.ID)
+                self.state = 307
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 308
+                self.match(LenguajeDominioEspecificoParser.MLP)
+                self.state = 309
+                self.match(LenguajeDominioEspecificoParser.T__16)
+                self.state = 310
+                self.match(LenguajeDominioEspecificoParser.T__41)
+                self.state = 311
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 312
+                localctx.x = self.expresion(0)
+                self.state = 313
+                self.match(LenguajeDominioEspecificoParser.T__1)
+                self.state = 314
+                localctx.y = self.expresion(0)
+                self.state = 315
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.T__2)
                 self.state = 376
                 localctx.y = self.expresion(0)
@@ -2872,6 +3381,7 @@ class LenguajeDominioEspecificoParser ( Parser ):
             elif la_ == 5:
                 localctx = LenguajeDominioEspecificoParser.GraficarPerdidaMLPContext(self, localctx)
                 self.enterOuterAlt(localctx, 5)
+<<<<<<< HEAD
                 self.state = 379
                 self.match(LenguajeDominioEspecificoParser.MLP)
                 self.state = 380
@@ -2890,6 +3400,18 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
                 self.state = 386
                 self.match(LenguajeDominioEspecificoParser.T__3)
+=======
+                self.state = 317
+                self.match(LenguajeDominioEspecificoParser.MLP)
+                self.state = 318
+                self.match(LenguajeDominioEspecificoParser.T__16)
+                self.state = 319
+                self.match(LenguajeDominioEspecificoParser.T__42)
+                self.state = 320
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 321
+                self.match(LenguajeDominioEspecificoParser.T__2)
+>>>>>>> 2933e4c (fixed regresion)
                 pass
 
 
@@ -2919,14 +3441,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_parametrosMLP
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterParametrosMLP" ):
-                listener.enterParametrosMLP(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitParametrosMLP" ):
-                listener.exitParametrosMLP(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitParametrosMLP" ):
                 return visitor.visitParametrosMLP(self)
@@ -2943,6 +3457,7 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
             self.state = 389
             self.parametroMLP()
             self.state = 394
@@ -2954,6 +3469,19 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.state = 391
                 self.parametroMLP()
                 self.state = 396
+=======
+            self.state = 324
+            self.parametroMLP()
+            self.state = 329
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==2:
+                self.state = 325
+                self.match(LenguajeDominioEspecificoParser.T__1)
+                self.state = 326
+                self.parametroMLP()
+                self.state = 331
+>>>>>>> 2933e4c (fixed regresion)
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -2986,14 +3514,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_parametroMLP
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterParametroMLP" ):
-                listener.enterParametroMLP(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitParametroMLP" ):
-                listener.exitParametroMLP(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitParametroMLP" ):
                 return visitor.visitParametroMLP(self)
@@ -3008,52 +3528,96 @@ class LenguajeDominioEspecificoParser ( Parser ):
         localctx = LenguajeDominioEspecificoParser.ParametroMLPContext(self, self._ctx, self.state)
         self.enterRule(localctx, 34, self.RULE_parametroMLP)
         try:
+<<<<<<< HEAD
             self.state = 412
+=======
+            self.state = 347
+>>>>>>> 2933e4c (fixed regresion)
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [48]:
                 self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
                 self.state = 397
                 self.match(LenguajeDominioEspecificoParser.T__47)
                 self.state = 398
                 self.match(LenguajeDominioEspecificoParser.T__4)
                 self.state = 399
+=======
+                self.state = 332
+                self.match(LenguajeDominioEspecificoParser.T__43)
+                self.state = 333
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 334
+>>>>>>> 2933e4c (fixed regresion)
                 self.lista()
                 pass
             elif token in [49]:
                 self.enterOuterAlt(localctx, 2)
+<<<<<<< HEAD
                 self.state = 400
                 self.match(LenguajeDominioEspecificoParser.T__48)
                 self.state = 401
                 self.match(LenguajeDominioEspecificoParser.T__4)
                 self.state = 402
+=======
+                self.state = 335
+                self.match(LenguajeDominioEspecificoParser.T__44)
+                self.state = 336
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 337
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.STRING)
                 pass
             elif token in [50]:
                 self.enterOuterAlt(localctx, 3)
+<<<<<<< HEAD
                 self.state = 403
                 self.match(LenguajeDominioEspecificoParser.T__49)
                 self.state = 404
                 self.match(LenguajeDominioEspecificoParser.T__4)
                 self.state = 405
+=======
+                self.state = 338
+                self.match(LenguajeDominioEspecificoParser.T__45)
+                self.state = 339
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 340
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.NUMBER)
                 pass
             elif token in [51]:
                 self.enterOuterAlt(localctx, 4)
+<<<<<<< HEAD
                 self.state = 406
                 self.match(LenguajeDominioEspecificoParser.T__50)
                 self.state = 407
                 self.match(LenguajeDominioEspecificoParser.T__4)
                 self.state = 408
+=======
+                self.state = 341
+                self.match(LenguajeDominioEspecificoParser.T__46)
+                self.state = 342
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 343
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.NUMBER)
                 pass
             elif token in [52]:
                 self.enterOuterAlt(localctx, 5)
+<<<<<<< HEAD
                 self.state = 409
                 self.match(LenguajeDominioEspecificoParser.T__51)
                 self.state = 410
                 self.match(LenguajeDominioEspecificoParser.T__4)
                 self.state = 411
+=======
+                self.state = 344
+                self.match(LenguajeDominioEspecificoParser.T__47)
+                self.state = 345
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 346
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.NUMBER)
                 pass
             else:
@@ -3085,14 +3649,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_parametrosEntrenamiento
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterParametrosEntrenamiento" ):
-                listener.enterParametrosEntrenamiento(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitParametrosEntrenamiento" ):
-                listener.exitParametrosEntrenamiento(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitParametrosEntrenamiento" ):
                 return visitor.visitParametrosEntrenamiento(self)
@@ -3109,6 +3665,7 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
             self.state = 414
             self.parametroEntrenamiento()
             self.state = 419
@@ -3120,6 +3677,19 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.state = 416
                 self.parametroEntrenamiento()
                 self.state = 421
+=======
+            self.state = 349
+            self.parametroEntrenamiento()
+            self.state = 354
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==2:
+                self.state = 350
+                self.match(LenguajeDominioEspecificoParser.T__1)
+                self.state = 351
+                self.parametroEntrenamiento()
+                self.state = 356
+>>>>>>> 2933e4c (fixed regresion)
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -3151,14 +3721,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_parametroEntrenamiento
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterParametroEntrenamiento" ):
-                listener.enterParametroEntrenamiento(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitParametroEntrenamiento" ):
-                listener.exitParametroEntrenamiento(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitParametroEntrenamiento" ):
                 return visitor.visitParametroEntrenamiento(self)
@@ -3174,29 +3736,50 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self.enterRule(localctx, 38, self.RULE_parametroEntrenamiento)
         self._la = 0 # Token type
         try:
+<<<<<<< HEAD
             self.state = 431
+=======
+            self.state = 366
+>>>>>>> 2933e4c (fixed regresion)
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [53]:
                 self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
                 self.state = 422
                 self.match(LenguajeDominioEspecificoParser.T__52)
                 self.state = 423
                 self.match(LenguajeDominioEspecificoParser.T__4)
                 self.state = 424
+=======
+                self.state = 357
+                self.match(LenguajeDominioEspecificoParser.T__48)
+                self.state = 358
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 359
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.NUMBER)
                 pass
             elif token in [54]:
                 self.enterOuterAlt(localctx, 2)
+<<<<<<< HEAD
                 self.state = 425
                 self.match(LenguajeDominioEspecificoParser.T__53)
                 self.state = 426
                 self.match(LenguajeDominioEspecificoParser.T__4)
                 self.state = 427
+=======
+                self.state = 360
+                self.match(LenguajeDominioEspecificoParser.T__49)
+                self.state = 361
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 362
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.NUMBER)
                 pass
             elif token in [55]:
                 self.enterOuterAlt(localctx, 3)
+<<<<<<< HEAD
                 self.state = 428
                 self.match(LenguajeDominioEspecificoParser.T__54)
                 self.state = 429
@@ -3204,6 +3787,15 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.state = 430
                 _la = self._input.LA(1)
                 if not(_la==90 or _la==91):
+=======
+                self.state = 363
+                self.match(LenguajeDominioEspecificoParser.T__50)
+                self.state = 364
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 365
+                _la = self._input.LA(1)
+                if not(_la==77 or _la==78):
+>>>>>>> 2933e4c (fixed regresion)
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
@@ -3880,14 +4472,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_impresion
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterImpresion" ):
-                listener.enterImpresion(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitImpresion" ):
-                listener.exitImpresion(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitImpresion" ):
                 return visitor.visitImpresion(self)
@@ -3903,11 +4487,16 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self.enterRule(localctx, 52, self.RULE_impresion)
         self._la = 0 # Token type
         try:
+<<<<<<< HEAD
             self.state = 545
+=======
+            self.state = 389
+>>>>>>> 2933e4c (fixed regresion)
             self._errHandler.sync(self)
             la_ = self._interp.adaptivePredict(self._input,41,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
                 self.state = 524
                 self.match(LenguajeDominioEspecificoParser.PRINT)
                 self.state = 525
@@ -3916,10 +4505,21 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.expresion(0)
                 self.state = 527
                 self.match(LenguajeDominioEspecificoParser.T__3)
+=======
+                self.state = 368
+                self.match(LenguajeDominioEspecificoParser.PRINT)
+                self.state = 369
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 370
+                self.expresion(0)
+                self.state = 371
+                self.match(LenguajeDominioEspecificoParser.T__2)
+>>>>>>> 2933e4c (fixed regresion)
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
+<<<<<<< HEAD
                 self.state = 529
                 self.match(LenguajeDominioEspecificoParser.PRINT)
                 self.state = 530
@@ -3928,10 +4528,21 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.operaciones()
                 self.state = 532
                 self.match(LenguajeDominioEspecificoParser.T__3)
+=======
+                self.state = 373
+                self.match(LenguajeDominioEspecificoParser.PRINT)
+                self.state = 374
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 375
+                self.operaciones()
+                self.state = 376
+                self.match(LenguajeDominioEspecificoParser.T__2)
+>>>>>>> 2933e4c (fixed regresion)
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
+<<<<<<< HEAD
                 self.state = 534
                 self.match(LenguajeDominioEspecificoParser.PRINT)
                 self.state = 535
@@ -3952,6 +4563,28 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
                 self.state = 544
                 self.match(LenguajeDominioEspecificoParser.T__3)
+=======
+                self.state = 378
+                self.match(LenguajeDominioEspecificoParser.PRINT)
+                self.state = 379
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 380
+                self.match(LenguajeDominioEspecificoParser.STRING)
+                self.state = 385
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                while _la==2:
+                    self.state = 381
+                    self.match(LenguajeDominioEspecificoParser.T__1)
+                    self.state = 382
+                    self.expresion(0)
+                    self.state = 387
+                    self._errHandler.sync(self)
+                    _la = self._input.LA(1)
+
+                self.state = 388
+                self.match(LenguajeDominioEspecificoParser.T__2)
+>>>>>>> 2933e4c (fixed regresion)
                 pass
 
 
@@ -3982,14 +4615,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_operaciones
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterOperaciones" ):
-                listener.enterOperaciones(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitOperaciones" ):
-                listener.exitOperaciones(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitOperaciones" ):
                 return visitor.visitOperaciones(self)
@@ -4004,11 +4629,16 @@ class LenguajeDominioEspecificoParser ( Parser ):
         localctx = LenguajeDominioEspecificoParser.OperacionesContext(self, self._ctx, self.state)
         self.enterRule(localctx, 54, self.RULE_operaciones)
         try:
+<<<<<<< HEAD
             self.state = 602
+=======
+            self.state = 446
+>>>>>>> 2933e4c (fixed regresion)
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [61]:
                 self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
                 self.state = 547
                 self.match(LenguajeDominioEspecificoParser.T__60)
                 self.state = 548
@@ -4127,6 +4757,126 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.parametrosOp()
                 self.state = 600
                 self.match(LenguajeDominioEspecificoParser.T__3)
+=======
+                self.state = 391
+                self.match(LenguajeDominioEspecificoParser.T__51)
+                self.state = 392
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 393
+                self.expresion(0)
+                self.state = 394
+                self.match(LenguajeDominioEspecificoParser.T__2)
+                pass
+            elif token in [53]:
+                self.enterOuterAlt(localctx, 2)
+                self.state = 396
+                self.match(LenguajeDominioEspecificoParser.T__52)
+                self.state = 397
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 398
+                self.expresion(0)
+                self.state = 399
+                self.match(LenguajeDominioEspecificoParser.T__2)
+                pass
+            elif token in [54]:
+                self.enterOuterAlt(localctx, 3)
+                self.state = 401
+                self.match(LenguajeDominioEspecificoParser.T__53)
+                self.state = 402
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 403
+                self.expresion(0)
+                self.state = 404
+                self.match(LenguajeDominioEspecificoParser.T__2)
+                pass
+            elif token in [55]:
+                self.enterOuterAlt(localctx, 4)
+                self.state = 406
+                self.match(LenguajeDominioEspecificoParser.T__54)
+                self.state = 407
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 408
+                self.expresion(0)
+                self.state = 409
+                self.match(LenguajeDominioEspecificoParser.T__2)
+                pass
+            elif token in [56]:
+                self.enterOuterAlt(localctx, 5)
+                self.state = 411
+                self.match(LenguajeDominioEspecificoParser.T__55)
+                self.state = 412
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 413
+                self.expresion(0)
+                self.state = 414
+                self.match(LenguajeDominioEspecificoParser.T__2)
+                pass
+            elif token in [57]:
+                self.enterOuterAlt(localctx, 6)
+                self.state = 416
+                self.match(LenguajeDominioEspecificoParser.T__56)
+                self.state = 417
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 418
+                self.parametrosOp()
+                self.state = 419
+                self.match(LenguajeDominioEspecificoParser.T__2)
+                pass
+            elif token in [58]:
+                self.enterOuterAlt(localctx, 7)
+                self.state = 421
+                self.match(LenguajeDominioEspecificoParser.T__57)
+                self.state = 422
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 423
+                self.expresion(0)
+                self.state = 424
+                self.match(LenguajeDominioEspecificoParser.T__2)
+                pass
+            elif token in [59]:
+                self.enterOuterAlt(localctx, 8)
+                self.state = 426
+                self.match(LenguajeDominioEspecificoParser.T__58)
+                self.state = 427
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 428
+                self.expresion(0)
+                self.state = 429
+                self.match(LenguajeDominioEspecificoParser.T__2)
+                pass
+            elif token in [60]:
+                self.enterOuterAlt(localctx, 9)
+                self.state = 431
+                self.match(LenguajeDominioEspecificoParser.T__59)
+                self.state = 432
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 433
+                self.expresion(0)
+                self.state = 434
+                self.match(LenguajeDominioEspecificoParser.T__2)
+                pass
+            elif token in [61]:
+                self.enterOuterAlt(localctx, 10)
+                self.state = 436
+                self.match(LenguajeDominioEspecificoParser.T__60)
+                self.state = 437
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 438
+                self.parametrosOp()
+                self.state = 439
+                self.match(LenguajeDominioEspecificoParser.T__2)
+                pass
+            elif token in [62]:
+                self.enterOuterAlt(localctx, 11)
+                self.state = 441
+                self.match(LenguajeDominioEspecificoParser.T__61)
+                self.state = 442
+                self.match(LenguajeDominioEspecificoParser.T__0)
+                self.state = 443
+                self.parametrosOp()
+                self.state = 444
+                self.match(LenguajeDominioEspecificoParser.T__2)
+>>>>>>> 2933e4c (fixed regresion)
                 pass
             else:
                 raise NoViableAltException(self)
@@ -4157,14 +4907,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_parametrosOp
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterParametrosOp" ):
-                listener.enterParametrosOp(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitParametrosOp" ):
-                listener.exitParametrosOp(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitParametrosOp" ):
                 return visitor.visitParametrosOp(self)
@@ -4180,11 +4922,19 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self.enterRule(localctx, 56, self.RULE_parametrosOp)
         try:
             self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
             self.state = 604
             self.expresion(0)
             self.state = 605
             self.match(LenguajeDominioEspecificoParser.T__2)
             self.state = 606
+=======
+            self.state = 448
+            self.expresion(0)
+            self.state = 449
+            self.match(LenguajeDominioEspecificoParser.T__1)
+            self.state = 450
+>>>>>>> 2933e4c (fixed regresion)
             self.expresion(0)
         except RecognitionException as re:
             localctx.exception = re
@@ -4225,14 +4975,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
             return self.getTypedRuleContext(LenguajeDominioEspecificoParser.ParametrosTablaContext,0)
 
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterMostrarTablaASCII" ):
-                listener.enterMostrarTablaASCII(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitMostrarTablaASCII" ):
-                listener.exitMostrarTablaASCII(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitMostrarTablaASCII" ):
                 return visitor.visitMostrarTablaASCII(self)
@@ -4249,6 +4991,7 @@ class LenguajeDominioEspecificoParser ( Parser ):
         try:
             localctx = LenguajeDominioEspecificoParser.MostrarTablaASCIIContext(self, localctx)
             self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
             self.state = 608
             self.match(LenguajeDominioEspecificoParser.T__71)
             self.state = 609
@@ -4267,6 +5010,26 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
             self.state = 615
             self.match(LenguajeDominioEspecificoParser.T__3)
+=======
+            self.state = 452
+            self.match(LenguajeDominioEspecificoParser.T__62)
+            self.state = 453
+            self.match(LenguajeDominioEspecificoParser.T__0)
+            self.state = 454
+            self.expresion(0)
+            self.state = 457
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            if _la==2:
+                self.state = 455
+                self.match(LenguajeDominioEspecificoParser.T__1)
+                self.state = 456
+                self.parametrosTabla()
+
+
+            self.state = 459
+            self.match(LenguajeDominioEspecificoParser.T__2)
+>>>>>>> 2933e4c (fixed regresion)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -4293,14 +5056,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_parametrosTabla
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterParametrosTabla" ):
-                listener.enterParametrosTabla(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitParametrosTabla" ):
-                listener.exitParametrosTabla(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitParametrosTabla" ):
                 return visitor.visitParametrosTabla(self)
@@ -4317,6 +5072,7 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
             self.state = 617
             self.parametroTabla()
             self.state = 622
@@ -4328,6 +5084,19 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.state = 619
                 self.parametroTabla()
                 self.state = 624
+=======
+            self.state = 461
+            self.parametroTabla()
+            self.state = 466
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while _la==2:
+                self.state = 462
+                self.match(LenguajeDominioEspecificoParser.T__1)
+                self.state = 463
+                self.parametroTabla()
+                self.state = 468
+>>>>>>> 2933e4c (fixed regresion)
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
 
@@ -4366,14 +5135,6 @@ class LenguajeDominioEspecificoParser ( Parser ):
         def getRuleIndex(self):
             return LenguajeDominioEspecificoParser.RULE_parametroTabla
 
-        def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterParametroTabla" ):
-                listener.enterParametroTabla(self)
-
-        def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitParametroTabla" ):
-                listener.exitParametroTabla(self)
-
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitParametroTabla" ):
                 return visitor.visitParametroTabla(self)
@@ -4389,47 +5150,84 @@ class LenguajeDominioEspecificoParser ( Parser ):
         self.enterRule(localctx, 62, self.RULE_parametroTabla)
         self._la = 0 # Token type
         try:
+<<<<<<< HEAD
             self.state = 643
+=======
+            self.state = 487
+>>>>>>> 2933e4c (fixed regresion)
             self._errHandler.sync(self)
             token = self._input.LA(1)
             if token in [73]:
                 self.enterOuterAlt(localctx, 1)
+<<<<<<< HEAD
                 self.state = 625
                 self.match(LenguajeDominioEspecificoParser.T__72)
                 self.state = 626
                 self.match(LenguajeDominioEspecificoParser.T__4)
                 self.state = 627
+=======
+                self.state = 469
+                self.match(LenguajeDominioEspecificoParser.T__63)
+                self.state = 470
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 471
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.NUMBER)
                 pass
             elif token in [74]:
                 self.enterOuterAlt(localctx, 2)
+<<<<<<< HEAD
                 self.state = 628
                 self.match(LenguajeDominioEspecificoParser.T__73)
                 self.state = 629
                 self.match(LenguajeDominioEspecificoParser.T__4)
                 self.state = 630
+=======
+                self.state = 472
+                self.match(LenguajeDominioEspecificoParser.T__64)
+                self.state = 473
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 474
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.NUMBER)
                 pass
             elif token in [75]:
                 self.enterOuterAlt(localctx, 3)
+<<<<<<< HEAD
                 self.state = 631
                 self.match(LenguajeDominioEspecificoParser.T__74)
                 self.state = 632
                 self.match(LenguajeDominioEspecificoParser.T__4)
                 self.state = 633
+=======
+                self.state = 475
+                self.match(LenguajeDominioEspecificoParser.T__65)
+                self.state = 476
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 477
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.NUMBER)
                 pass
             elif token in [76]:
                 self.enterOuterAlt(localctx, 4)
+<<<<<<< HEAD
                 self.state = 634
                 self.match(LenguajeDominioEspecificoParser.T__75)
                 self.state = 635
                 self.match(LenguajeDominioEspecificoParser.T__4)
                 self.state = 636
+=======
+                self.state = 478
+                self.match(LenguajeDominioEspecificoParser.T__66)
+                self.state = 479
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 480
+>>>>>>> 2933e4c (fixed regresion)
                 self.match(LenguajeDominioEspecificoParser.STRING)
                 pass
             elif token in [77]:
                 self.enterOuterAlt(localctx, 5)
+<<<<<<< HEAD
                 self.state = 637
                 self.match(LenguajeDominioEspecificoParser.T__76)
                 self.state = 638
@@ -4437,6 +5235,15 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 self.state = 639
                 _la = self._input.LA(1)
                 if not(_la==90 or _la==91):
+=======
+                self.state = 481
+                self.match(LenguajeDominioEspecificoParser.T__67)
+                self.state = 482
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 483
+                _la = self._input.LA(1)
+                if not(_la==77 or _la==78):
+>>>>>>> 2933e4c (fixed regresion)
                     self._errHandler.recoverInline(self)
                 else:
                     self._errHandler.reportMatch(self)
@@ -4444,11 +5251,19 @@ class LenguajeDominioEspecificoParser ( Parser ):
                 pass
             elif token in [78]:
                 self.enterOuterAlt(localctx, 6)
+<<<<<<< HEAD
                 self.state = 640
                 self.match(LenguajeDominioEspecificoParser.T__77)
                 self.state = 641
                 self.match(LenguajeDominioEspecificoParser.T__4)
                 self.state = 642
+=======
+                self.state = 484
+                self.match(LenguajeDominioEspecificoParser.T__68)
+                self.state = 485
+                self.match(LenguajeDominioEspecificoParser.T__4)
+                self.state = 486
+>>>>>>> 2933e4c (fixed regresion)
                 self.lista()
                 pass
             else:
@@ -4476,6 +5291,7 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
     def expresion_sempred(self, localctx:ExpresionContext, predIndex:int):
             if predIndex == 0:
+<<<<<<< HEAD
                 return self.precpred(self._ctx, 15)
          
 
@@ -4489,6 +5305,17 @@ class LenguajeDominioEspecificoParser ( Parser ):
 
             if predIndex == 3:
                 return self.precpred(self._ctx, 12)
+=======
+                return self.precpred(self._ctx, 12)
+         
+
+            if predIndex == 1:
+                return self.precpred(self._ctx, 11)
+         
+
+            if predIndex == 2:
+                return self.precpred(self._ctx, 10)
+>>>>>>> 2933e4c (fixed regresion)
          
 
 

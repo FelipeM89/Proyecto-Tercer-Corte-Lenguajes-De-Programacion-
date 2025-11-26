@@ -46,6 +46,7 @@ expresion
     | 'not' expresion                          # ExpresionNot
     | '(' expresion ')'                        # ExpresionParentesis
     | MATRIZ '.' operacion=('suma' | 'resta' | 'multiplicar' | 'transpuesta' | 'determinante' |'inversa') '(' parametrosMatriz ')'        # OperacionMatrizExpr
+    | 'RegresionLineal' '(' ')'                # CrearRegresion
     | operaciones                              # ExpresionOperacion
     | matriz                                   # ExpresionMatriz
     | lista                                    # ExpresionLista
@@ -74,11 +75,10 @@ parametrosMatriz
 
 // Regresión lineal
 regresionLineal
-    : ID '=' 'RegresionLineal' '(' ')'                                          # CrearRegresion
-    | 'regresion' '.' 'fit' '(' x=expresion ',' y=expresion ')'                          # EntrenarRegresion
-    | ID '=' 'regresion' '.' 'predict' '(' expresion ')'                                 # PredecirRegresion
-    | ID '=' 'regresion' '.' metrica=('mse' | 'mae' | 'r2' | 'rmse') '(' ')'           # ObtenerMetricaRegresion
-    | 'regresion' '.' 'plot' '(' (parametrosPlot)? ')'                                  # GraficarRegresion
+    : ID '.' 'fit' '(' x=expresion ',' y=expresion ')'                          # EntrenarRegresion
+    | target=ID '=' modelo=ID '.' 'predict' '(' expresion ')'                   # PredecirRegresion
+    | target=ID '=' modelo=ID '.' metrica=('mse' | 'mae' | 'r2' | 'rmse') '(' ')' # ObtenerMetricaRegresion
+    | ID '.' 'plot' '(' (parametrosPlot)? ')'                                   # GraficarRegresion
     ;
 
 parametrosPlot
@@ -212,7 +212,6 @@ ELIF: 'elif';
 ELSE: 'else';
 IN: 'in';
 RANGE: 'range';
-REGRESION: 'regresion';
 MLP: 'mlp';
 PRINT: 'print';
 TRUE: 'True';

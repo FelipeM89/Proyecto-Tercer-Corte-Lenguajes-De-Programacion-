@@ -246,39 +246,58 @@ class Visitor(LenguajeDominioEspecificoVisitor):
     #       REGRESIÓN LINEAL
     # ----------------------------
     def visitCrearRegresion(self, ctx):
-        self.regresion = regresion_lineal_model()
-        return self.regresion
+        return regresion_lineal_model()
 
     def visitEntrenarRegresion(self, ctx):
+        nombre_modelo = ctx.ID().getText()
+        modelo = self.memoria.get(nombre_modelo)
+        if not modelo:
+            raise ValueError(f"Modelo de regresión '{nombre_modelo}' no encontrado o no definido.")
+        
         X = self.visit(ctx.x)
         y = self.visit(ctx.y)
-        self.regresion.fit(X, y)
+        modelo.fit(X, y)
         return None
 
     def visitPredecirRegresion(self, ctx):
-        nombre = ctx.ID().getText()
+        target = ctx.target.text
+        nombre_modelo = ctx.modelo.text
+        modelo = self.memoria.get(nombre_modelo)
+        if not modelo:
+            raise ValueError(f"Modelo de regresión '{nombre_modelo}' no encontrado.")
+
         x = self.visit(ctx.expresion())
-        pred = self.regresion.predict(x)
-        self.memoria[nombre] = pred
+        pred = modelo.predict(x)
+        self.memoria[target] = pred
         return pred
 
     def visitObtenerMetricaRegresion(self, ctx):
-        nombre = ctx.ID().getText()
+        target = ctx.target.text
+        nombre_modelo = ctx.modelo.text
+        modelo = self.memoria.get(nombre_modelo)
+        if not modelo:
+            raise ValueError(f"Modelo de regresión '{nombre_modelo}' no encontrado.")
+            
         met = ctx.metrica.text
 
         if met == "mse":
-            val = self.regresion.mse()
+            val = modelo.mse()
         elif met == "mae":
-            val = self.regresion.mae()
+            val = modelo.mae()
         elif met == "r2":
-            val = self.regresion.r2()
+            val = modelo.r2()
         elif met == "rmse":
-            val = self.regresion.rmse()
+            val = modelo.rmse()
 
-        self.memoria[nombre] = val
+        self.memoria[target] = val
         return val
 
     def visitGraficarRegresion(self, ctx):
+        nombre_modelo = ctx.ID().getText()
+        modelo = self.memoria.get(nombre_modelo)
+        if not modelo:
+            raise ValueError(f"Modelo de regresión '{nombre_modelo}' no encontrado.")
+
         # Valores por defecto
         width = 80
         height = 20
@@ -313,8 +332,13 @@ class Visitor(LenguajeDominioEspecificoVisitor):
                 elif key == 'output_file':
                     output_file = txt.strip('"').strip("'")
 
+<<<<<<< HEAD
         # Generar gráfica
         output = self.regresion.render_ascii_regression(
+=======
+        # Usar el método render_ascii_regression del modelo
+        output = modelo.render_ascii_regression(
+>>>>>>> 2933e4c (fixed regresion)
             width=width,
             height=height,
             left_margin=left_margin,
