@@ -1,0 +1,46 @@
+# Ejemplo de uso de K-means para clustering
+
+# Datos de ejemplo: 3 grupos claramente separados
+# Grupo 1: alrededor de (2, 2)
+# Grupo 2: alrededor de (8, 8)
+# Grupo 3: alrededor de (2, 8)
+
+datos = [
+[2, 2], [2.5, 2], [2, 2.5], [1.5, 2],
+[8, 8], [8.5, 8], [8, 8.5], [7.5, 8],
+[2, 8], [2.5, 8], [2, 8.5], [1.5, 8]
+]
+
+print("Datos de entrenamiento:")
+mostrar_tabla(datos, headers=["X", "Y"])
+
+# Crear modelo K-means con 3 clusters
+modelo_kmeans = KMeans(n_clusters=3, max_iter=100, random_state=42)
+
+# Entrenar el modelo
+kmeans.fit(datos)
+
+# Obtener centroides
+centroides = kmeans.centroids()
+print("\nCentroides encontrados:")
+mostrar_tabla(centroides, headers=["X", "Y"])
+
+# Predecir cluster para nuevos puntos
+nuevos_puntos = [[2, 2], [8, 8], [2, 8], [5, 5]]
+print("\nNuevos puntos a clasificar:")
+mostrar_tabla(nuevos_puntos, headers=["X", "Y"])
+
+clusters_predichos = kmeans.predict(nuevos_puntos)
+print("\nClusters asignados:")
+print(clusters_predichos)
+
+# Ejemplo con datos 1D
+print("\n--- Ejemplo con datos 1D ---")
+datos_1d = [1, 1.5, 2, 2.5, 8, 8.5, 9, 9.5]
+print("Datos 1D:", datos_1d)
+
+modelo_1d = KMeans(n_clusters=2, max_iter=50, random_state=123)
+kmeans.fit(datos_1d)
+
+centroides_1d = kmeans.centroids()
+print("Centroides:", centroides_1d)

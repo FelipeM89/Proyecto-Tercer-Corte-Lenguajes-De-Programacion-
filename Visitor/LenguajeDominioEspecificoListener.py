@@ -1,4 +1,4 @@
-# Generated from ./visitor/LenguajeDominioEspecifico.g4 by ANTLR 4.13.2
+# Generated from ./Visitor/LenguajeDominioEspecifico.g4 by ANTLR 4.13.2
 from antlr4 import *
 if "." in __name__:
     from .LenguajeDominioEspecificoParser import LenguajeDominioEspecificoParser
@@ -23,6 +23,15 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
 
     # Exit a parse tree produced by LenguajeDominioEspecificoParser#instruccion.
     def exitInstruccion(self, ctx:LenguajeDominioEspecificoParser.InstruccionContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#condicional.
+    def enterCondicional(self, ctx:LenguajeDominioEspecificoParser.CondicionalContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#condicional.
+    def exitCondicional(self, ctx:LenguajeDominioEspecificoParser.CondicionalContext):
         pass
 
 
@@ -71,12 +80,48 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#ExpresionNot.
+    def enterExpresionNot(self, ctx:LenguajeDominioEspecificoParser.ExpresionNotContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#ExpresionNot.
+    def exitExpresionNot(self, ctx:LenguajeDominioEspecificoParser.ExpresionNotContext):
+        pass
+
+
     # Enter a parse tree produced by LenguajeDominioEspecificoParser#ExpresionNumero.
     def enterExpresionNumero(self, ctx:LenguajeDominioEspecificoParser.ExpresionNumeroContext):
         pass
 
     # Exit a parse tree produced by LenguajeDominioEspecificoParser#ExpresionNumero.
     def exitExpresionNumero(self, ctx:LenguajeDominioEspecificoParser.ExpresionNumeroContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#OperacionSumaResta.
+    def enterOperacionSumaResta(self, ctx:LenguajeDominioEspecificoParser.OperacionSumaRestaContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#OperacionSumaResta.
+    def exitOperacionSumaResta(self, ctx:LenguajeDominioEspecificoParser.OperacionSumaRestaContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#ExpresionString.
+    def enterExpresionString(self, ctx:LenguajeDominioEspecificoParser.ExpresionStringContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#ExpresionString.
+    def exitExpresionString(self, ctx:LenguajeDominioEspecificoParser.ExpresionStringContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#ExpresionBooleano.
+    def enterExpresionBooleano(self, ctx:LenguajeDominioEspecificoParser.ExpresionBooleanoContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#ExpresionBooleano.
+    def exitExpresionBooleano(self, ctx:LenguajeDominioEspecificoParser.ExpresionBooleanoContext):
         pass
 
 
@@ -98,15 +143,6 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by LenguajeDominioEspecificoParser#OperacionSumaResta.
-    def enterOperacionSumaResta(self, ctx:LenguajeDominioEspecificoParser.OperacionSumaRestaContext):
-        pass
-
-    # Exit a parse tree produced by LenguajeDominioEspecificoParser#OperacionSumaResta.
-    def exitOperacionSumaResta(self, ctx:LenguajeDominioEspecificoParser.OperacionSumaRestaContext):
-        pass
-
-
     # Enter a parse tree produced by LenguajeDominioEspecificoParser#ExpresionVariable.
     def enterExpresionVariable(self, ctx:LenguajeDominioEspecificoParser.ExpresionVariableContext):
         pass
@@ -116,21 +152,21 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#ExpresionLogica.
+    def enterExpresionLogica(self, ctx:LenguajeDominioEspecificoParser.ExpresionLogicaContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#ExpresionLogica.
+    def exitExpresionLogica(self, ctx:LenguajeDominioEspecificoParser.ExpresionLogicaContext):
+        pass
+
+
     # Enter a parse tree produced by LenguajeDominioEspecificoParser#OperacionMatrizExpr.
     def enterOperacionMatrizExpr(self, ctx:LenguajeDominioEspecificoParser.OperacionMatrizExprContext):
         pass
 
     # Exit a parse tree produced by LenguajeDominioEspecificoParser#OperacionMatrizExpr.
     def exitOperacionMatrizExpr(self, ctx:LenguajeDominioEspecificoParser.OperacionMatrizExprContext):
-        pass
-
-
-    # Enter a parse tree produced by LenguajeDominioEspecificoParser#ExpresionString.
-    def enterExpresionString(self, ctx:LenguajeDominioEspecificoParser.ExpresionStringContext):
-        pass
-
-    # Exit a parse tree produced by LenguajeDominioEspecificoParser#ExpresionString.
-    def exitExpresionString(self, ctx:LenguajeDominioEspecificoParser.ExpresionStringContext):
         pass
 
 
@@ -347,6 +383,96 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
 
     # Exit a parse tree produced by LenguajeDominioEspecificoParser#parametroEntrenamiento.
     def exitParametroEntrenamiento(self, ctx:LenguajeDominioEspecificoParser.ParametroEntrenamientoContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#CrearKMeans.
+    def enterCrearKMeans(self, ctx:LenguajeDominioEspecificoParser.CrearKMeansContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#CrearKMeans.
+    def exitCrearKMeans(self, ctx:LenguajeDominioEspecificoParser.CrearKMeansContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#EntrenarKMeans.
+    def enterEntrenarKMeans(self, ctx:LenguajeDominioEspecificoParser.EntrenarKMeansContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#EntrenarKMeans.
+    def exitEntrenarKMeans(self, ctx:LenguajeDominioEspecificoParser.EntrenarKMeansContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#PredecirKMeans.
+    def enterPredecirKMeans(self, ctx:LenguajeDominioEspecificoParser.PredecirKMeansContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#PredecirKMeans.
+    def exitPredecirKMeans(self, ctx:LenguajeDominioEspecificoParser.PredecirKMeansContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#ObtenerCentroides.
+    def enterObtenerCentroides(self, ctx:LenguajeDominioEspecificoParser.ObtenerCentroidesContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#ObtenerCentroides.
+    def exitObtenerCentroides(self, ctx:LenguajeDominioEspecificoParser.ObtenerCentroidesContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#GraficarKMeans.
+    def enterGraficarKMeans(self, ctx:LenguajeDominioEspecificoParser.GraficarKMeansContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#GraficarKMeans.
+    def exitGraficarKMeans(self, ctx:LenguajeDominioEspecificoParser.GraficarKMeansContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#parametrosKMeans.
+    def enterParametrosKMeans(self, ctx:LenguajeDominioEspecificoParser.ParametrosKMeansContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#parametrosKMeans.
+    def exitParametrosKMeans(self, ctx:LenguajeDominioEspecificoParser.ParametrosKMeansContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#parametroKMeans.
+    def enterParametroKMeans(self, ctx:LenguajeDominioEspecificoParser.ParametroKMeansContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#parametroKMeans.
+    def exitParametroKMeans(self, ctx:LenguajeDominioEspecificoParser.ParametroKMeansContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#graficar.
+    def enterGraficar(self, ctx:LenguajeDominioEspecificoParser.GraficarContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#graficar.
+    def exitGraficar(self, ctx:LenguajeDominioEspecificoParser.GraficarContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#parametrosGraficar.
+    def enterParametrosGraficar(self, ctx:LenguajeDominioEspecificoParser.ParametrosGraficarContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#parametrosGraficar.
+    def exitParametrosGraficar(self, ctx:LenguajeDominioEspecificoParser.ParametrosGraficarContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#parametroGraficar.
+    def enterParametroGraficar(self, ctx:LenguajeDominioEspecificoParser.ParametroGraficarContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#parametroGraficar.
+    def exitParametroGraficar(self, ctx:LenguajeDominioEspecificoParser.ParametroGraficarContext):
         pass
 
 

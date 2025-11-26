@@ -1,0 +1,41 @@
+# Ejemplo de gráficas con guardado automático
+
+# Ejemplo 1: Gráfica simple de puntos
+x_datos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+y_datos = [2, 4, 3, 5, 6, 8, 7, 9, 10,  12]
+
+# Usar la función graficar que guarda automáticamente
+graficar(x_datos, y_datos, "grafica_simple.txt", title="Datos de ejemplo")
+
+# Ejemplo 2: Gráfica con parámetros personalizados
+x2 = [0, 1, 2, 3, 4, 5]
+y2 = [0, 1, 4, 9, 16, 25]
+
+graficar(x2, y2, "grafica_cuadratica.txt", width=50, height=15, title="y = x²")
+
+# Ejemplo 3: Regresión lineal con guardado automático
+X_train = [1, 2, 3, 4, 5]
+y_train = [2, 4, 6, 8, 10]
+
+modelo = RegresionLineal()
+regresion.fit(X_train, y_train)
+
+# Graficar y guardar automáticamente
+regresion.plot(output_file="regresion_lineal.txt", title="Regresión lineal", show_stats=True)
+
+# Ejemplo 4: MLP con guardado de gráfica de pérdida
+X_mlp = [[0, 0], [0, 1], [1, 0], [1, 1]]
+y_mlp = [0, 1, 1, 0]
+
+mlp = PerceptronMulticapa(hidden_layers=[4, 3], learning_rate=0.1, max_iter=500, random_state=42)
+mlp.fit(X_mlp, y_mlp, epochs=100, verbose=True)
+
+# Guardar gráfica de pérdida
+mlp.plot_loss("perdida_mlp.txt")
+
+print("\nTodas las gráficas han sido guardadas en archivos .tx!")
+print("Archivos generados:")
+print("  - grafica_simple.txt")
+print("  - grafica_cuadratica.txt")
+print("  - regresion_lineal.txt")
+print("  - perdida_mlp.txt")

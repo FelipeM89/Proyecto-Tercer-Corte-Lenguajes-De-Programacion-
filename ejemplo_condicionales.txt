@@ -1,0 +1,54 @@
+# Ejemplo de uso de condicionales IF/ELIF/ELSE
+
+x = 10
+y = 5
+
+# Ejemplo 1: IF simple
+if x > y:
+print("x es mayor que y")
+
+# Ejemplo 2: IF-ELSE
+if x < y:
+print("x es menor que y")
+
+else:
+print("x NO es menor que y")
+
+# Ejemplo 3: IF-ELIF-ELSE completo
+nota = 85
+
+if nota >= 90:
+print("Calificación: A")
+elif nota >= 80:
+print("Calificación: B")
+elif nota >= 70:
+print("Calificación: C")
+elif nota >= 60:
+print("Calificación: D")
+else:
+print("Calificación: F")
+
+# Ejemplo 4: Con operadores lógicos
+edad = 25
+tiene_licencia = True
+
+if edad >= 18 and tiene_licencia:
+print("Puede conducir")
+else:
+print("NO puede conducir")
+
+# Ejemplo 5: Comparaciones múltiples
+a = 15
+b = 15
+
+if a == b:
+print("a y b son iguales")
+suma = a + b
+print("La suma es:", suma)
+
+# Ejemplo 6: Uso con bucles
+for i in range(1, 11):
+if i % 2 == 0:
+print(i, "es par")
+else:
+print(i, "es impar")

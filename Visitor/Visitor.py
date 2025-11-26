@@ -10,6 +10,7 @@ from Librerias.LibreriaGraficas import *
 from Librerias.LibreriaRegresionLineal import *
 from Librerias.LibreriaPerceptronMC import *
 from Librerias.LibreriaTablas import *
+from Librerias.LibreriaKMeans import *
 
 
 class Visitor(LenguajeDominioEspecificoVisitor):
@@ -18,6 +19,7 @@ class Visitor(LenguajeDominioEspecificoVisitor):
         self.memoria = {}                 # Variables normales
         self.regresion = None             # Modelo de regresión lineal
         self.mlp = None                   # Perceptrón multicapa
+        self.kmeans = None                # K-means clustering
         self.loss_history = []            # Historial de pérdida del MLP
 
 
@@ -32,6 +34,105 @@ class Visitor(LenguajeDominioEspecificoVisitor):
 
 
     # ----------------------------
+    #  CONDICIONALES IF/ELIF/ELSE
+    # ----------------------------
+    def visitCondicional(self, ctx):
+        # Contar cuántas expresiones y grupos de instrucciones hay
+        num_expresiones = len(ctx.expresion())
+        idx_expr = 0
+        idx_instr_block = 0
+        
+        # Evaluar IF
+        condicion = self.visit(ctx.expresion(idx_expr))
+        if self._es_verdadero(condicion):
+            # Ejecutar instrucciones del IF
+            start_idx = 0
+            for i, child in enumerate(ctx.children):
+                if child.getText() == ':' and start_idx == 0:
+                    # Encontramos el primer ':'
+                    for j in range(i + 2, len(ctx.children)):  # +2 para saltar ':' y NEWLINE
+                        if ctx.children[j].__class__.__name__ == 'InstruccionContext':
+                            self.visit(ctx.children[j])
+                        elif ctx.children[j].getText() in ['elif', 'else']:
+                            break
+                    return None
+        idx_expr += 1
+        
+        # Evaluar ELIFs
+        elif_count = len([c for c in ctx.children if hasattr(c, 'getText') and c.getText() == 'elif'])
+        for _ in range(elif_count):
+            if idx_expr < num_expresiones:
+                condicion = self.visit(ctx.expresion(idx_expr))
+                if self._es_verdadero(condicion):
+                   # Ejecutar instrucciones de este ELIF
+                    in_elif = False
+                    for i, child in enumerate(ctx.children):
+                        if hasattr(child, 'getText'):
+                            if child.getText() == 'elif' and not in_elif:
+                                in_elif = True
+                                continue
+                            if in_elif and child.getText() == ':':
+                                for j in range(i + 2, len(ctx.children)):
+                                    if ctx.children[j].__class__.__name__ == 'InstruccionContext':
+                                        self.visit(ctx.children[j])
+                                    elif hasattr(ctx.children[j], 'getText') and ctx.children[j].getText() in ['elif', 'else']:
+                                        break
+                                return None
+                idx_expr += 1
+        
+        # Ejecutar ELSE si existe
+        if ctx.ELSE():
+            in_else = False
+            for i, child in enumerate(ctx.children):
+                if hasattr(child, 'getText'):
+                    if child.getText() == 'else':
+                        in_else = True
+                        continue
+                    if in_else and child.getText() == ':':
+                        for j in range(i + 2, len(ctx.children)):
+                            if ctx.children[j].__class__.__name__ == 'InstruccionContext':
+                                self.visit(ctx.children[j])
+                        return None
+        
+        return None
+
+    def _es_verdadero(self, valor):
+        """Evalúa si un valor es considerado verdadero"""
+        if isinstance(valor, bool):
+            return valor
+        if isinstance(valor, (int, float)):
+            return valor != 0
+        if valor is None:
+            return False
+        return True
+
+
+    # ----------------------------
+    #    BUCLES FOR Y WHILE
+    # ----------------------------
+    def visitBuclefor(self, ctx):
+        variable = ctx.ID().getText()
+        inicio = int(float(ctx.NUMBER(0).getText()))
+        fin = int(float(ctx.NUMBER(1).getText()))
+        
+        for i in range(inicio, fin):
+            self.memoria[variable] = i
+            for instr in ctx.instruccion():
+                self.visit(instr)
+        
+        return None
+
+    def visitBuclewhile(self, ctx):
+        while True:
+            condicion = self.visit(ctx.expresion())
+            if not self._es_verdadero(condicion):
+                break
+            for instr in ctx.instruccion():
+                self.visit(instr)
+        return None
+
+
+    # ----------------------------
     #         EXPRESIONES
     # ----------------------------
     def visitExpresionNumero(self, ctx):
@@ -43,6 +144,9 @@ class Visitor(LenguajeDominioEspecificoVisitor):
 
     def visitExpresionString(self, ctx):
         return ctx.STRING().getText().strip('"').strip("'")
+
+    def visitExpresionBooleano(self, ctx):
+        return ctx.getText() == 'True'
 
     def visitExpresionComparacion(self, ctx):
         izq = self.visit(ctx.expresion(0))
@@ -62,6 +166,20 @@ class Visitor(LenguajeDominioEspecificoVisitor):
         elif op == ">=":
             return izq >= der
 
+    def visitExpresionLogica(self, ctx):
+        izq = self.visit(ctx.expresion(0))
+        der = self.visit(ctx.expresion(1))
+        op = ctx.getChild(1).getText()
+        
+        if op == "and":
+            return self._es_verdadero(izq) and self._es_verdadero(der)
+        elif op == "or":
+            return self._es_verdadero(izq) or self._es_verdadero(der)
+
+    def visitExpresionNot(self, ctx):
+        valor = self.visit(ctx.expresion())
+        return not self._es_verdadero(valor)
+
     def visitOperacionSumaResta(self, ctx):
         izq = self.visit(ctx.expresion(0))
         der = self.visit(ctx.expresion(1))
@@ -79,7 +197,6 @@ class Visitor(LenguajeDominioEspecificoVisitor):
             return division(izq, der)
         elif op == "%":
             return modulo(izq, der)
-
 
     def visitExpresionParentesis(self, ctx):
         return self.visit(ctx.expresion())
@@ -106,6 +223,7 @@ class Visitor(LenguajeDominioEspecificoVisitor):
 
     def visitMatrizUnidimensional(self, ctx):
         return [self.visit(e) for e in ctx.expresion()]
+
     def visitOperacionMatrizExpr(self, ctx):
         oper = ctx.operacion.text
         params = [self.visit(p) for p in ctx.parametrosMatriz().expresion()]
@@ -122,8 +240,6 @@ class Visitor(LenguajeDominioEspecificoVisitor):
             return determinante(params[0])
         elif oper == "inversa":
             return inversa(params[0])
-
-
 
 
     # ----------------------------
@@ -171,6 +287,7 @@ class Visitor(LenguajeDominioEspecificoVisitor):
         line_char = '-'
         title = None
         show_stats = True
+        output_file = None
         
         # Procesar parámetros opcionales
         if ctx.parametrosPlot():
@@ -193,8 +310,10 @@ class Visitor(LenguajeDominioEspecificoVisitor):
                     title = txt.strip('"').strip("'")
                 elif key == 'show_stats':
                     show_stats = (txt == 'True')
+                elif key == 'output_file':
+                    output_file = txt.strip('"').strip("'")
 
-        # Usar el método render_ascii_regression del modelo
+        # Generar gráfica
         output = self.regresion.render_ascii_regression(
             width=width,
             height=height,
@@ -204,7 +323,13 @@ class Visitor(LenguajeDominioEspecificoVisitor):
             title=title,
             show_stats=show_stats
         )
-        print(output)
+        
+        # Guardar en archivo si se especifica
+        if output_file:
+            guardar_grafica_ascii(output, output_file)
+        else:
+            print(output)
+        
         return None
 
 
@@ -234,8 +359,8 @@ class Visitor(LenguajeDominioEspecificoVisitor):
             for p in ctx.parametrosEntrenamiento().parametroEntrenamiento():
                 key = p.getChild(0).getText()
                 value = float(p.getChild(2).getText())
-                if key == "epochs": epochs = value
-                elif key == "batch_size": batch = value
+                if key == "epochs": epochs = int(value)
+                elif key == "batch_size": batch = int(value)
                 elif key == "verbose": verbose = (p.getChild(2).getText() == "True")
 
         self.loss_history = self.mlp.fit(X, y, epochs, batch, verbose)
@@ -255,73 +380,138 @@ class Visitor(LenguajeDominioEspecificoVisitor):
         score = self.mlp.score(X, y)
         self.memoria[nombre] = score
         return score
-    def visitMostrarTablaASCII(self, ctx):
-        data = self.visit(ctx.expresion())
-        
-        # Parámetros opcionales con valores por defecto
-        params = {
-            'max_rows': 20,
-            'max_cols': 20,
-            'max_col_width': 30,
-            'floatfmt': '.6g',
-            'show_index': True,
-            'headers': None
-        }
-        
-        if ctx.parametrosTabla():
-            for p in ctx.parametrosTabla().parametroTabla():
-                key = p.getChild(0).getText()
-                val_node = p.getChild(2)
 
-                # Obtener texto del nodo (funciona tanto para terminales como para sub-árboles simples)
-                txt = val_node.getText() if hasattr(val_node, 'getText') else None
-
-                # Manejar diferentes tipos de valores
-                if key in ['max_rows', 'max_cols', 'max_col_width']:
-                    # txt debería ser un número (ej. '10'), convertir a int
-                    try:
-                        params[key] = int(float(txt))
-                    except Exception:
-                        # fallback: intentar evaluar la expresión si es una sub-expresión
-                        val = self.visit(val_node)
-                        if val is not None:
-                            params[key] = int(val)
-                elif key == 'show_index':
-                    params[key] = (txt == 'True')
-                elif key == 'floatfmt':
-                    params[key] = txt.strip('"').strip("'") if txt is not None else self.visit(val_node)
-                elif key == 'headers':
-                    # headers es una lista, usar visit para construirla
-                    params[key] = self.visit(val_node)
-        
-        # Renderizar tabla
-        tabla = ascii_table(data, **params)
-        print(tabla)
-        return None
     def visitGraficarPerdidaMLP(self, ctx):
-        # Graficar el historial de pérdida usando graficar_linea_ascii
-        if self.mlp and self.mlp.loss_history:
-            print("\nHistorial de pérdida del entrenamiento:")
-            graficar_linea_ascii(self.mlp.loss_history, width=60, height=15)
-        else:
-            print("No hay historial de pérdida disponible. Entrena el modelo primero.")
+        if not self.mlp or not self.mlp.loss_history:
+            print("No hay historial de pérdida. Entrena el modelo primero.")
+            return None
+        
+        output_file = None
+        if ctx.STRING():
+            output_file = ctx.STRING().getText().strip('"').strip("'")
+        
+        # Graficar usando graficar_linea_ascii
+        graficar_linea_ascii(
+            self.mlp.loss_history, 
+            width=60, 
+            height=15, 
+            title="Pérdida del MLP",
+            archivo=output_file
+        )
+        
         return None
 
+
+    # ----------------------------
+    #    K-MEANS CLUSTERING
+    # ----------------------------
+    def visitCrearKMeans(self, ctx):
+        n_clusters = 3
+        max_iter = 100
+        random_state = None
+        
+        for p in ctx.parametrosKMeans().parametroKMeans():
+            key = p.getChild(0).getText()
+            value = float(p.getChild(2).getText())
+            
+            if key == 'n_clusters':
+                n_clusters = int(value)
+            elif key == 'max_iter':
+                max_iter = int(value)
+            elif key == 'random_state':
+                random_state = int(value)
+        
+        self.kmeans = KMeans(n_clusters, max_iter, random_state)
+        nombre = ctx.ID().getText()
+        self.memoria[nombre] = self.kmeans
+        return self.kmeans
+
+    def visitEntrenarKMeans(self, ctx):
+        X = self.visit(ctx.expresion())
+        self.kmeans.fit(X)
+        print(f"K-means entrenado con {self.kmeans.n_clusters} clusters")
+        return None
+
+    def visitPredecirKMeans(self, ctx):
+        nombre = ctx.ID().getText()
+        X = self.visit(ctx.expresion())
+        labels = self.kmeans.predict(X)
+        self.memoria[nombre] = labels
+        print(f"Predicción: {labels}")
+        return labels
+
+    def visitObtenerCentroides(self, ctx):
+        nombre = ctx.ID().getText()
+        centroids = self.kmeans.get_centroids()
+        self.memoria[nombre] = centroids
+        print(f"Centroides:\n{centroids}")
+        return centroids
+
+    def visitGraficarKMeans(self, ctx):
+        
+        
+        output_file = None
+        if ctx.STRING():
+            output_file = ctx.STRING().getText().strip('"').strip("'")
+        
+        # Mostrar visualización en consola y opcionalmente guardar
+        if hasattr(self.kmeans, 'labels') and self.kmeans.labels:
+            # Necesitamos los datos originales - los guardamos durante fit
+            # Por ahora solo mostramos los centroides
+            print(f"\nCentroides del K-means:")
+            for i, centroid in enumerate(self.kmeans.centroids):
+                print(f"  Cluster {i}: {centroid}")
+        else:
+            print("Entrena el modelo primero con kmeans.fit()")
+        
+        return None
+
+
+    # ----------------------------
+    #   GRÁFICAS GENERALES
+    # ----------------------------
+    def visitGraficar(self, ctx):
+        x = self.visit(ctx.x)
+        y = self.visit(ctx.y)
+        archivo = ctx.archivo.text.strip('"').strip("'")
+        
+        width = 60
+        height = 20
+        title = None
+        
+        if ctx.parametrosGraficar():
+            for p in ctx.parametrosGraficar().parametroGraficar():
+                key = p.getChild(0).getText()
+                txt = p.getChild(2).getText()
+                
+                if key == 'width':
+                    width = int(float(txt))
+                elif key == 'height':
+                    height = int(float(txt))
+                elif key == 'title':
+                    title = txt.strip('"').strip("'")
+        
+        # Usar graficar_puntos_ascii con guardado automático
+        graficar_puntos_ascii(x, y, width=width, height=height, title=title, archivo=archivo)
+        
+        return None
+
+
+    # ----------------------------
+    #     OPERACIONES ARITMÉTICAS
+    # ----------------------------
     def visitOperaciones(self, ctx):
         oper = ctx.getChild(0).getText()
 
         def eval_expr_node(node):
-            
             val = self.visit(node)
             if val is None:
                 raise ValueError("Expresión no evaluable (valor None)")
             try:
-               
                 return float(val)
             except Exception:
                 raise ValueError(f"Valor no numérico en expresión: {val}")
 
-        
         if oper == "abs":
             val = eval_expr_node(ctx.expresion())
             return abs(val)
@@ -355,7 +545,7 @@ class Visitor(LenguajeDominioEspecificoVisitor):
             return tan(val)
 
         if oper == "factorial":
-            val = self.visit(ctx.expresion())  # queremos conservar posible entero
+            val = self.visit(ctx.expresion())
             if val is None:
                 raise ValueError("factorial: expresión no evaluable")
             try:
@@ -367,7 +557,6 @@ class Visitor(LenguajeDominioEspecificoVisitor):
             n = int(f)
             return factorial(n)
 
-        # Binarias: powf, div, mod
         if oper in ("powf", "div", "mod"):
             params = ctx.parametrosOp()
             if params is None or len(params.expresion()) < 2:
@@ -377,14 +566,14 @@ class Visitor(LenguajeDominioEspecificoVisitor):
 
             if oper == "powf":
                 return powf(a, b)
-
             if oper == "div":
                 return division(a, b)
-
             if oper == "mod":
                 return modulo(a, b)
 
         raise ValueError(f"Operación desconocida: {oper}")
+
+
     # ----------------------------
     #          PRINT
     # ----------------------------
@@ -398,19 +587,60 @@ class Visitor(LenguajeDominioEspecificoVisitor):
                 else:
                     print(base)
             elif ctx.operaciones():
-                # Si es una operación aritmética, visitarla
                 resultado = self.visit(ctx.operaciones())
                 print(resultado)
             elif ctx.expresion():
-                # Si es una expresión normal
                 print(self.visit(ctx.expresion(0)))
         except Exception as e:
-            print("\n Error de evaluacion:", str(e))
+            print("\nError de evaluación:", str(e))
         return None
-    # Simbolos de los tokens
-    def mostrar_tabla_simbolos(self):
+
+
+    # ----------------------------
+    #      TABLAS ASCII
+    # ----------------------------
+    def visitMostrarTablaASCII(self, ctx):
+        data = self.visit(ctx.expresion())
         
-        print("\n tabla")
+        params = {
+            'max_rows': 20,
+            'max_cols': 20,
+            'max_col_width': 30,
+            'floatfmt': '.6g',
+            'show_index': True,
+            'headers': None
+        }
+        
+        if ctx.parametrosTabla():
+            for p in ctx.parametrosTabla().parametroTabla():
+                key = p.getChild(0).getText()
+                val_node = p.getChild(2)
+                txt = val_node.getText() if hasattr(val_node, 'getText') else None
+
+                if key in ['max_rows', 'max_cols', 'max_col_width']:
+                    try:
+                        params[key] = int(float(txt))
+                    except Exception:
+                        val = self.visit(val_node)
+                        if val is not None:
+                            params[key] = int(val)
+                elif key == 'show_index':
+                    params[key] = (txt == 'True')
+                elif key == 'floatfmt':
+                    params[key] = txt.strip('"').strip("'") if txt is not None else self.visit(val_node)
+                elif key == 'headers':
+                    params[key] = self.visit(val_node)
+        
+        tabla = ascii_table(data, **params)
+        print(tabla)
+        return None
+
+
+    # ----------------------------
+    #    TABLA DE SÍMBOLOS
+    # ----------------------------
+    def mostrar_tabla_simbolos(self):
+        print("\n=== TABLA DE SÍMBOLOS ===")
         
         if not self.memoria:
             print("  (vacía)")
@@ -418,7 +648,6 @@ class Visitor(LenguajeDominioEspecificoVisitor):
             for i, (nombre, valor) in enumerate(self.memoria.items(), 1):
                 tipo = type(valor).__name__
                 
-                # Si es una matriz (lista de listas), muestra dimensiones
                 if isinstance(valor, list):
                     if valor and isinstance(valor[0], list):
                         filas = len(valor)

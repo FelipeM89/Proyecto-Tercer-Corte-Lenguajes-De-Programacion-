@@ -13,16 +13,22 @@ instruccion
     | comentario
     | buclefor
     | buclewhile
+    | condicional
     | mostrarTabla
     | operaciones
+    | kmeans
+    | graficar
+    ;
+
+// NUEVO: Condicionales IF/ELIF/ELSE (sin indentación compleja)
+condicional
+    : IF expresion ':' NEWLINE instruccion+ (ELIF expresion ':' NEWLINE instruccion+)* (ELSE ':' NEWLINE instruccion+)?
     ;
 
 // buclefor
-
 buclefor: FOR ID IN RANGE '(' NUMBER ',' NUMBER ')' ':' NEWLINE instruccion+;
 
 //buclewhile
-
 buclewhile: WHILE expresion ':' NEWLINE instruccion+;
 
 // Comentarios
@@ -36,6 +42,8 @@ expresion
     : expresion ('*' | '/' | '%') expresion    # OperacionMultDiv
     | expresion ('==' | '!=' | '<' | '>' | '<=' | '>=') expresion  # ExpresionComparacion
     | expresion ('+' | '-') expresion          # OperacionSumaResta
+    | expresion ('and' | 'or') expresion       # ExpresionLogica
+    | 'not' expresion                          # ExpresionNot
     | '(' expresion ')'                        # ExpresionParentesis
     | MATRIZ '.' operacion=('suma' | 'resta' | 'multiplicar' | 'transpuesta' | 'determinante' |'inversa') '(' parametrosMatriz ')'        # OperacionMatrizExpr
     | operaciones                              # ExpresionOperacion
@@ -44,6 +52,8 @@ expresion
     | NUMBER                                   # ExpresionNumero
     | ID                                       # ExpresionVariable
     | STRING                                   # ExpresionString
+    | TRUE                                     # ExpresionBooleano
+    | FALSE                                    # ExpresionBooleano
     ;
 
 // Definición de matrices
@@ -83,6 +93,7 @@ parametroPlot
     | 'line_char' '=' STRING
     | 'title' '=' STRING
     | 'show_stats' '=' ('True' | 'False')
+    | 'output_file' '=' STRING
     ;
 
 // Perceptrón multicapa
@@ -91,7 +102,7 @@ perceptronMulticapa
     | 'mlp' '.' 'fit' '(' x=expresion ',' y=expresion (',' parametrosEntrenamiento)? ')'      # EntrenarMLP
     | ID '=' 'mlp' '.' 'predict' '(' expresion ')'                                      # PredecirMLP
     | ID '=' 'mlp' '.' 'score' '(' x=expresion ',' y=expresion ')'                      # EvaluarMLP
-    | 'mlp' '.' 'plot_loss' '(' ')'                                                     # GraficarPerdidaMLP
+    | 'mlp' '.' 'plot_loss' '(' (STRING)? ')'                                           # GraficarPerdidaMLP
     ;
 
 parametrosMLP
@@ -114,6 +125,40 @@ parametroEntrenamiento
     : 'epochs' '=' NUMBER
     | 'batch_size' '=' NUMBER
     | 'verbose' '=' ('True' | 'False')
+    ;
+
+// NUEVO: K-means clustering
+kmeans
+    : ID '=' 'KMeans' '(' parametrosKMeans ')'                                  # CrearKMeans
+    | 'kmeans' '.' 'fit' '(' expresion ')'                                      # EntrenarKMeans
+    | ID '=' 'kmeans' '.' 'predict' '(' expresion ')'                           # PredecirKMeans
+    | ID '=' 'kmeans' '.' 'centroids' '(' ')'                                   # ObtenerCentroides
+    | 'kmeans' '.' 'plot' '(' (STRING)? ')'                                     # GraficarKMeans
+    ;
+
+parametrosKMeans
+    : parametroKMeans (',' parametroKMeans)*
+    ;
+
+parametroKMeans
+    : 'n_clusters' '=' NUMBER
+    | 'max_iter' '=' NUMBER
+    | 'random_state' '=' NUMBER
+    ;
+
+// NUEVO: Gráficas generales
+graficar
+    : 'graficar' '(' x=expresion ',' y=expresion ',' archivo=STRING (',' parametrosGraficar)? ')'
+    ;
+
+parametrosGraficar
+    : parametroGraficar (',' parametroGraficar)*
+    ;
+
+parametroGraficar
+    : 'width' '=' NUMBER
+    | 'height' '=' NUMBER
+    | 'title' '=' STRING
     ;
 
 // Impresión
@@ -162,6 +207,9 @@ parametroTabla
 MATRIZ: 'matriz';
 FOR: 'for';
 WHILE: 'while';
+IF: 'if';
+ELIF: 'elif';
+ELSE: 'else';
 IN: 'in';
 RANGE: 'range';
 REGRESION: 'regresion';
@@ -193,5 +241,3 @@ COMENTARIO: '#' ~[\r\n]* -> skip;
 WS: [ \t]+ -> skip;
 
 NEWLINE: '\r'? '\n';
-
-
