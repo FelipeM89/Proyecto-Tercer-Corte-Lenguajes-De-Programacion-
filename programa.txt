@@ -1,2 +1,34 @@
-alumnos = [[1, "Alice", 85.5], [2, "Bob", 92.3], [3, "Carlos", 78.0], [4, "Diana", 88.7]]
-mostrar_tabla(alumnos, headers=["ID", "Nombre", "Nota"], max_rows=10, max_cols=5, max_col_width=20, floatfmt=".1f",show_index=True)
+# Ejemplo completo de Regresión Lineal
+
+# Crear modelo de regresión
+regresion = RegresionLineal()
+
+# Datos de entrenamiento (listas)
+x = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+y = [15, 28, 42, 55, 68, 82, 95, 108, 122, 135]
+
+# Ajustar el modelo con los datos
+regresion.fit(x, y)
+
+# Predecir valores para nuevas x
+pred = regresion.predict([12, 25, 37, 85])
+print("Predicciones:", pred)
+
+# Obtener métricas del modelo
+mse_val = regresion.mse()
+mae_val = regresion.mae()
+rmse_val = regresion.rmse()
+r2_val = regresion.r2()
+
+# Imprimir métricas
+print("MSE:", mse_val)
+print("MAE:", mae_val)
+print("RMSE:", rmse_val)
+print("R2:", r2_val)
+
+# Graficar la regresión con parámetros personalizados
+regresion.plot(width=80, height=20, left_margin=10, point_char="*", line_char="-", title="Regresion Lineal - Ejemplo", show_stats=True)
+print("predicciones", pred)
+print("MSE", mse_val)
+print("RMSE", rmse_val)
+print("R2", r2_val)

@@ -18,7 +18,7 @@ instruccion
 
 // buclefor
 
-buclefor: FOR ID IN RANGE '(' NUMBER ',' NUMBER ')' ':' NEWLINE instruccion+;
+buclefor: FOR ID IN RANGE '(' NUMBER ',' NUMBER ')' ':' NEWLINE (INDENT instruccion+)*;
 
 //buclewhile
 
@@ -63,7 +63,7 @@ parametrosMatriz
 
 // Regresión lineal
 regresionLineal
-    : 'regresion' '=' 'RegresionLineal' '(' ')'                                          # CrearRegresion
+    : ID '=' 'RegresionLineal' '(' ')'                                          # CrearRegresion
     | 'regresion' '.' 'fit' '(' x=expresion ',' y=expresion ')'                          # EntrenarRegresion
     | ID '=' 'regresion' '.' 'predict' '(' expresion ')'                                 # PredecirRegresion
     | ID '=' 'regresion' '.' metrica=('mse' | 'mae' | 'r2' | 'rmse') '(' ')'           # ObtenerMetricaRegresion
@@ -160,9 +160,13 @@ NUMBER
     ;
 ENTERO: [0-9]+;
 DECIMAL: [0-9]+ ('.' [0-9]+)? ([eE] [+-]? [0-9]+)?;
+
 // Cadenas de texto
+
 STRING: '"' (~["\r\n])* '"' | '\'' (~['\r\n])* '\'';
 
+// Indentacion
+INDENT: '   '
 // Comentarios
 COMENTARIO: '#' ~[\r\n]* -> skip;
 
@@ -170,3 +174,5 @@ COMENTARIO: '#' ~[\r\n]* -> skip;
 WS: [ \t]+ -> skip;
 
 NEWLINE: '\r'? '\n';
+
+

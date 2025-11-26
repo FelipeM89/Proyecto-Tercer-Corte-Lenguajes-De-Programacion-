@@ -160,22 +160,46 @@ class Visitor(LenguajeDominioEspecificoVisitor):
         return val
 
     def visitGraficarRegresion(self, ctx):
-        parametros = {}
+        # Valores por defecto
+        width = 80
+        height = 20
+        left_margin = 9
+        point_char = '*'
+        line_char = '-'
+        title = None
+        show_stats = True
+        
+        # Procesar parámetros opcionales
         if ctx.parametrosPlot():
             for p in ctx.parametrosPlot().parametroPlot():
                 key = p.getChild(0).getText()
-                val = p.getChild(2).getText()
-                parametros[key] = val
+                val_node = p.getChild(2)
+                txt = val_node.getText()
+                
+                if key == 'width':
+                    width = int(float(txt))
+                elif key == 'height':
+                    height = int(float(txt))
+                elif key == 'left_margin':
+                    left_margin = int(float(txt))
+                elif key == 'point_char':
+                    point_char = txt.strip('"').strip("'")
+                elif key == 'line_char':
+                    line_char = txt.strip('"').strip("'")
+                elif key == 'title':
+                    title = txt.strip('"').strip("'")
+                elif key == 'show_stats':
+                    show_stats = (txt == 'True')
 
         # Usar el método render_ascii_regression del modelo
         output = self.regresion.render_ascii_regression(
-            width=parametros.get('width', 80),
-            height=parametros.get('height', 20),
-            left_margin=parametros.get('left_margin', 9),
-            point_char=parametros.get('point_char', '*'),
-            line_char=parametros.get('line_char', '-'),
-            title=parametros.get('title'),
-            show_stats=parametros.get('show_stats', True)
+            width=width,
+            height=height,
+            left_margin=left_margin,
+            point_char=point_char,
+            line_char=line_char,
+            title=title,
+            show_stats=show_stats
         )
         print(output)
         return None
