@@ -188,6 +188,15 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#CrearRegresion.
+    def enterCrearRegresion(self, ctx:LenguajeDominioEspecificoParser.CrearRegresionContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#CrearRegresion.
+    def exitCrearRegresion(self, ctx:LenguajeDominioEspecificoParser.CrearRegresionContext):
+        pass
+
+
     # Enter a parse tree produced by LenguajeDominioEspecificoParser#OperacionMultDiv.
     def enterOperacionMultDiv(self, ctx:LenguajeDominioEspecificoParser.OperacionMultDivContext):
         pass
@@ -239,15 +248,6 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
 
     # Exit a parse tree produced by LenguajeDominioEspecificoParser#parametrosMatriz.
     def exitParametrosMatriz(self, ctx:LenguajeDominioEspecificoParser.ParametrosMatrizContext):
-        pass
-
-
-    # Enter a parse tree produced by LenguajeDominioEspecificoParser#CrearRegresion.
-    def enterCrearRegresion(self, ctx:LenguajeDominioEspecificoParser.CrearRegresionContext):
-        pass
-
-    # Exit a parse tree produced by LenguajeDominioEspecificoParser#CrearRegresion.
-    def exitCrearRegresion(self, ctx:LenguajeDominioEspecificoParser.CrearRegresionContext):
         pass
 
 

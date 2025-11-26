@@ -332,13 +332,8 @@ class Visitor(LenguajeDominioEspecificoVisitor):
                 elif key == 'output_file':
                     output_file = txt.strip('"').strip("'")
 
-<<<<<<< HEAD
-        # Generar gráfica
-        output = self.regresion.render_ascii_regression(
-=======
         # Usar el método render_ascii_regression del modelo
         output = modelo.render_ascii_regression(
->>>>>>> 2933e4c (fixed regresion)
             width=width,
             height=height,
             left_margin=left_margin,

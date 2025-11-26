@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # Generated from ./Visitor/LenguajeDominioEspecifico.g4 by ANTLR 4.13.2
-=======
-# Generated from LenguajeDominioEspecifico.g4 by ANTLR 4.13.2
->>>>>>> 2933e4c (fixed regresion)
 from antlr4 import *
 if "." in __name__:
     from .LenguajeDominioEspecificoParser import LenguajeDominioEspecificoParser
