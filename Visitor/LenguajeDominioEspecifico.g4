@@ -14,10 +14,15 @@ instruccion
     | buclefor
     | buclewhile
     ;
+    
 // buclefor
+
 buclefor: FOR ID IN RANGE '(' NUMBER ',' NUMBER ')' ':' NEWLINE instruccion+;
+
 //buclewhile
+
 buclewhile: WHILE expresion ':' NEWLINE instruccion+;
+
 // Comentarios
 comentario: COMENTARIO;
 
@@ -27,8 +32,10 @@ asignacion: ID '=' expresion;
 // Expresiones
 expresion
     : expresion ('*' | '/' | '%') expresion    # OperacionMultDiv
+    | expresion ('==' | '!=' | '<' | '>' | '<=' | '>=') expresion  # ExpresionComparacion
     | expresion ('+' | '-') expresion          # OperacionSumaResta
     | '(' expresion ')'                        # ExpresionParentesis
+    
     | MATRIZ '.' operacion=('suma' | 'resta' | 'multiplicar' | 'transpuesta' | 'determinante' |'inversa') '(' parametrosMatriz ')'        # OperacionMatrizExpr
     | matriz                                   # ExpresionMatriz
     | lista                                    # ExpresionLista

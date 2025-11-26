@@ -54,6 +54,11 @@ class LenguajeDominioEspecificoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by LenguajeDominioEspecificoParser#ExpresionComparacion.
+    def visitExpresionComparacion(self, ctx:LenguajeDominioEspecificoParser.ExpresionComparacionContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by LenguajeDominioEspecificoParser#OperacionSumaResta.
     def visitOperacionSumaResta(self, ctx:LenguajeDominioEspecificoParser.OperacionSumaRestaContext):
         return self.visitChildren(ctx)

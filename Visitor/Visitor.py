@@ -44,6 +44,24 @@ class Visitor(LenguajeDominioEspecificoVisitor):
     def visitExpresionString(self, ctx):
         return ctx.STRING().getText().strip('"').strip("'")
 
+    def visitExpresionComparacion(self, ctx):
+        izq = self.visit(ctx.expresion(0))
+        der = self.visit(ctx.expresion(1))
+        op = ctx.getChild(1).getText()
+        
+        if op == "==":
+            return izq == der
+        elif op == "!=":
+            return izq != der
+        elif op == "<":
+            return izq < der
+        elif op == ">":
+            return izq > der
+        elif op == "<=":
+            return izq <= der
+        elif op == ">=":
+            return izq >= der
+
     def visitOperacionSumaResta(self, ctx):
         izq = self.visit(ctx.expresion(0))
         der = self.visit(ctx.expresion(1))
@@ -149,12 +167,17 @@ class Visitor(LenguajeDominioEspecificoVisitor):
                 val = p.getChild(2).getText()
                 parametros[key] = val
 
-        graficar_regresion_terminal(
-            self.regresion.X,
-            self.regresion.y,
-            self.regresion.m,
-            self.regresion.b
+        # Usar el método render_ascii_regression del modelo
+        output = self.regresion.render_ascii_regression(
+            width=parametros.get('width', 80),
+            height=parametros.get('height', 20),
+            left_margin=parametros.get('left_margin', 9),
+            point_char=parametros.get('point_char', '*'),
+            line_char=parametros.get('line_char', '-'),
+            title=parametros.get('title'),
+            show_stats=parametros.get('show_stats', True)
         )
+        print(output)
         return None
 
 
@@ -207,7 +230,12 @@ class Visitor(LenguajeDominioEspecificoVisitor):
         return score
 
     def visitGraficarPerdidaMLP(self, ctx):
-        graficar_entrenamiento(self.loss_history)
+        # Graficar el historial de pérdida usando graficar_linea_ascii
+        if self.mlp and self.mlp.loss_history:
+            print("\nHistorial de pérdida del entrenamiento:")
+            graficar_linea_ascii(self.mlp.loss_history, width=60, height=15)
+        else:
+            print("No hay historial de pérdida disponible. Entrena el modelo primero.")
         return None
 
 

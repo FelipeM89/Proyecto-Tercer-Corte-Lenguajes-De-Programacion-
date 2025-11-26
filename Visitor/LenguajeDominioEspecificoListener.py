@@ -89,6 +89,15 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#ExpresionComparacion.
+    def enterExpresionComparacion(self, ctx:LenguajeDominioEspecificoParser.ExpresionComparacionContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#ExpresionComparacion.
+    def exitExpresionComparacion(self, ctx:LenguajeDominioEspecificoParser.ExpresionComparacionContext):
+        pass
+
+
     # Enter a parse tree produced by LenguajeDominioEspecificoParser#OperacionSumaResta.
     def enterOperacionSumaResta(self, ctx:LenguajeDominioEspecificoParser.OperacionSumaRestaContext):
         pass
