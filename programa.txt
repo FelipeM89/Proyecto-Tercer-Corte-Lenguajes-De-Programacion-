@@ -1,4 +1,2 @@
-a = 5
-b = 10
-resultado = a < b
-print("5 < 10:", resultado)
+alumnos = [[1, "Alice", 85.5], [2, "Bob", 92.3], [3, "Carlos", 78.0], [4, "Diana", 88.7]]
+mostrar_tabla(alumnos, headers=["ID", "Nombre", "Nota"], max_rows=10, max_cols=5, max_col_width=20, floatfmt=".1f",show_index=True)

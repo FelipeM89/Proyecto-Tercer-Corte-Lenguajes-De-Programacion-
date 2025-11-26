@@ -350,5 +350,32 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#MostrarTablaASCII.
+    def enterMostrarTablaASCII(self, ctx:LenguajeDominioEspecificoParser.MostrarTablaASCIIContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#MostrarTablaASCII.
+    def exitMostrarTablaASCII(self, ctx:LenguajeDominioEspecificoParser.MostrarTablaASCIIContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#parametrosTabla.
+    def enterParametrosTabla(self, ctx:LenguajeDominioEspecificoParser.ParametrosTablaContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#parametrosTabla.
+    def exitParametrosTabla(self, ctx:LenguajeDominioEspecificoParser.ParametrosTablaContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#parametroTabla.
+    def enterParametroTabla(self, ctx:LenguajeDominioEspecificoParser.ParametroTablaContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#parametroTabla.
+    def exitParametroTabla(self, ctx:LenguajeDominioEspecificoParser.ParametroTablaContext):
+        pass
+
+
 
 del LenguajeDominioEspecificoParser

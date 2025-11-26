@@ -199,5 +199,20 @@ class LenguajeDominioEspecificoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by LenguajeDominioEspecificoParser#MostrarTablaASCII.
+    def visitMostrarTablaASCII(self, ctx:LenguajeDominioEspecificoParser.MostrarTablaASCIIContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeDominioEspecificoParser#parametrosTabla.
+    def visitParametrosTabla(self, ctx:LenguajeDominioEspecificoParser.ParametrosTablaContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeDominioEspecificoParser#parametroTabla.
+    def visitParametroTabla(self, ctx:LenguajeDominioEspecificoParser.ParametroTablaContext):
+        return self.visitChildren(ctx)
+
+
 
 del LenguajeDominioEspecificoParser

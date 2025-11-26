@@ -228,7 +228,49 @@ class Visitor(LenguajeDominioEspecificoVisitor):
         score = self.mlp.score(X, y)
         self.memoria[nombre] = score
         return score
+    def visitMostrarTablaASCII(self, ctx):
+        data = self.visit(ctx.expresion())
+        
+        # Parámetros opcionales con valores por defecto
+        params = {
+            'max_rows': 20,
+            'max_cols': 20,
+            'max_col_width': 30,
+            'floatfmt': '.6g',
+            'show_index': True,
+            'headers': None
+        }
+        
+        if ctx.parametrosTabla():
+            for p in ctx.parametrosTabla().parametroTabla():
+                key = p.getChild(0).getText()
+                val_node = p.getChild(2)
 
+                # Obtener texto del nodo (funciona tanto para terminales como para sub-árboles simples)
+                txt = val_node.getText() if hasattr(val_node, 'getText') else None
+
+                # Manejar diferentes tipos de valores
+                if key in ['max_rows', 'max_cols', 'max_col_width']:
+                    # txt debería ser un número (ej. '10'), convertir a int
+                    try:
+                        params[key] = int(float(txt))
+                    except Exception:
+                        # fallback: intentar evaluar la expresión si es una sub-expresión
+                        val = self.visit(val_node)
+                        if val is not None:
+                            params[key] = int(val)
+                elif key == 'show_index':
+                    params[key] = (txt == 'True')
+                elif key == 'floatfmt':
+                    params[key] = txt.strip('"').strip("'") if txt is not None else self.visit(val_node)
+                elif key == 'headers':
+                    # headers es una lista, usar visit para construirla
+                    params[key] = self.visit(val_node)
+        
+        # Renderizar tabla
+        tabla = ascii_table(data, **params)
+        print(tabla)
+        return None
     def visitGraficarPerdidaMLP(self, ctx):
         # Graficar el historial de pérdida usando graficar_linea_ascii
         if self.mlp and self.mlp.loss_history:

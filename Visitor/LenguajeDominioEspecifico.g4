@@ -13,8 +13,9 @@ instruccion
     | comentario
     | buclefor
     | buclewhile
+    | mostrarTabla
     ;
-    
+
 // buclefor
 
 buclefor: FOR ID IN RANGE '(' NUMBER ',' NUMBER ')' ':' NEWLINE instruccion+;
@@ -119,7 +120,23 @@ impresion
     : PRINT '(' expresion ')'
     | PRINT '(' STRING (',' expresion)* ')'
     ;
-// Tokens léxicos
+
+// Tablas estilo pandas
+mostrarTabla
+    : 'mostrar_tabla' '(' expresion (',' parametrosTabla)? ')'  # MostrarTablaASCII
+    ;
+parametrosTabla
+    : parametroTabla (',' parametroTabla)*
+    ;
+parametroTabla
+    : 'max_rows' '=' NUMBER
+    | 'max_cols' '=' NUMBER
+    | 'max_col_width' '=' NUMBER
+    | 'floatfmt' '=' STRING
+    | 'show_index' '=' (TRUE | FALSE)
+    | 'headers' '=' lista
+    ;
+//  ----------------------------------- Tokens léxicos
 
 // Palabras reservadas 
 MATRIZ: 'matriz';
