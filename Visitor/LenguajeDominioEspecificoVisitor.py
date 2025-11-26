@@ -79,6 +79,11 @@ class LenguajeDominioEspecificoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by LenguajeDominioEspecificoParser#ExpresionOperacion.
+    def visitExpresionOperacion(self, ctx:LenguajeDominioEspecificoParser.ExpresionOperacionContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by LenguajeDominioEspecificoParser#ExpresionMatriz.
     def visitExpresionMatriz(self, ctx:LenguajeDominioEspecificoParser.ExpresionMatrizContext):
         return self.visitChildren(ctx)

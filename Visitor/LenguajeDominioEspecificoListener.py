@@ -134,6 +134,15 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#ExpresionOperacion.
+    def enterExpresionOperacion(self, ctx:LenguajeDominioEspecificoParser.ExpresionOperacionContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#ExpresionOperacion.
+    def exitExpresionOperacion(self, ctx:LenguajeDominioEspecificoParser.ExpresionOperacionContext):
+        pass
+
+
     # Enter a parse tree produced by LenguajeDominioEspecificoParser#ExpresionMatriz.
     def enterExpresionMatriz(self, ctx:LenguajeDominioEspecificoParser.ExpresionMatrizContext):
         pass

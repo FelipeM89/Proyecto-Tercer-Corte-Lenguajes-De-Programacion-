@@ -90,6 +90,9 @@ class Visitor(LenguajeDominioEspecificoVisitor):
     def visitExpresionMatriz(self, ctx):
         return self.visit(ctx.matriz())
 
+    def visitExpresionOperacion(self, ctx):
+        return self.visit(ctx.operaciones())
+
 
     # ----------------------------
     #         MATRICES

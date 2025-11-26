@@ -37,8 +37,8 @@ expresion
     | expresion ('==' | '!=' | '<' | '>' | '<=' | '>=') expresion  # ExpresionComparacion
     | expresion ('+' | '-') expresion          # OperacionSumaResta
     | '(' expresion ')'                        # ExpresionParentesis
-    
     | MATRIZ '.' operacion=('suma' | 'resta' | 'multiplicar' | 'transpuesta' | 'determinante' |'inversa') '(' parametrosMatriz ')'        # OperacionMatrizExpr
+    | operaciones                              # ExpresionOperacion
     | matriz                                   # ExpresionMatriz
     | lista                                    # ExpresionLista
     | NUMBER                                   # ExpresionNumero
