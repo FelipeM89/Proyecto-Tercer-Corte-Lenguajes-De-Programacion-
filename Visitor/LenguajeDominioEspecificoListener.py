@@ -350,6 +350,24 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#operaciones.
+    def enterOperaciones(self, ctx:LenguajeDominioEspecificoParser.OperacionesContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#operaciones.
+    def exitOperaciones(self, ctx:LenguajeDominioEspecificoParser.OperacionesContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#parametrosOp.
+    def enterParametrosOp(self, ctx:LenguajeDominioEspecificoParser.ParametrosOpContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#parametrosOp.
+    def exitParametrosOp(self, ctx:LenguajeDominioEspecificoParser.ParametrosOpContext):
+        pass
+
+
     # Enter a parse tree produced by LenguajeDominioEspecificoParser#MostrarTablaASCII.
     def enterMostrarTablaASCII(self, ctx:LenguajeDominioEspecificoParser.MostrarTablaASCIIContext):
         pass

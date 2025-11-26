@@ -14,11 +14,12 @@ instruccion
     | buclefor
     | buclewhile
     | mostrarTabla
+    | operaciones
     ;
 
 // buclefor
 
-buclefor: FOR ID IN RANGE '(' NUMBER ',' NUMBER ')' ':' NEWLINE (INDENT instruccion+)*;
+buclefor: FOR ID IN RANGE '(' NUMBER ',' NUMBER ')' ':' NEWLINE instruccion+;
 
 //buclewhile
 
@@ -118,8 +119,27 @@ parametroEntrenamiento
 // Impresión
 impresion
     : PRINT '(' expresion ')'
+    | PRINT '(' operaciones ')'
     | PRINT '(' STRING (',' expresion)* ')'
     ;
+// Operaciones Aritmeticas
+operaciones
+    : 'abs' '(' expresion ')'
+    | 'factorial' '(' expresion ')'
+    | 'exp' '(' expresion ')'
+    | 'ln' '(' expresion ')'
+    | 'sqrt' '(' expresion ')'
+    | 'powf' '(' parametrosOp ')'
+    | 'sin' '(' expresion ')'
+    | 'cos' '(' expresion ')'
+    | 'tan' '(' expresion ')'
+    | 'div' '(' parametrosOp ')'
+    | 'mod' '(' parametrosOp ')'
+    ;
+parametrosOp
+    : expresion ',' expresion
+    ;
+
 
 // Tablas estilo pandas
 mostrarTabla
@@ -158,15 +178,14 @@ NUMBER
     : ENTERO
     | DECIMAL
     ;
-ENTERO: [0-9]+;
-DECIMAL: [0-9]+ ('.' [0-9]+)? ([eE] [+-]? [0-9]+)?;
+ENTERO: '-'?[0-9]+;
+DECIMAL: '-'?[0-9]+ ('.' [0-9]+)? ([eE] [+-]? [0-9]+)?;
 
 // Cadenas de texto
 
 STRING: '"' (~["\r\n])* '"' | '\'' (~['\r\n])* '\'';
 
-// Indentacion
-INDENT: '   '
+
 // Comentarios
 COMENTARIO: '#' ~[\r\n]* -> skip;
 

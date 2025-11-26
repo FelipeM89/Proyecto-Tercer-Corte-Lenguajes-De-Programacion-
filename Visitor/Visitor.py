@@ -304,20 +304,105 @@ class Visitor(LenguajeDominioEspecificoVisitor):
             print("No hay historial de pérdida disponible. Entrena el modelo primero.")
         return None
 
+    def visitOperaciones(self, ctx):
+        oper = ctx.getChild(0).getText()
 
+        def eval_expr_node(node):
+            
+            val = self.visit(node)
+            if val is None:
+                raise ValueError("Expresión no evaluable (valor None)")
+            try:
+               
+                return float(val)
+            except Exception:
+                raise ValueError(f"Valor no numérico en expresión: {val}")
+
+        
+        if oper == "abs":
+            val = eval_expr_node(ctx.expresion())
+            return abs(val)
+
+        if oper == "sqrt":
+            val = eval_expr_node(ctx.expresion())
+            if val < 0:
+                raise ValueError(f"sqrt: dominio inválido, se recibió {val}")
+            return sqrt(val)
+
+        if oper == "exp":
+            val = eval_expr_node(ctx.expresion())
+            return exp(val)
+
+        if oper == "ln":
+            val = eval_expr_node(ctx.expresion())
+            if val <= 0:
+                raise ValueError(f"ln: dominio inválido, se recibió {val}")
+            return ln(val)
+
+        if oper == "sin":
+            val = eval_expr_node(ctx.expresion())
+            return sin(val)
+
+        if oper == "cos":
+            val = eval_expr_node(ctx.expresion())
+            return cos(val)
+
+        if oper == "tan":
+            val = eval_expr_node(ctx.expresion())
+            return tan(val)
+
+        if oper == "factorial":
+            val = self.visit(ctx.expresion())  # queremos conservar posible entero
+            if val is None:
+                raise ValueError("factorial: expresión no evaluable")
+            try:
+                f = float(val)
+            except Exception:
+                raise ValueError(f"factorial: valor no numérico {val}")
+            if not f.is_integer():
+                raise ValueError(f"factorial: se requiere entero no negativo, se recibió {f}")
+            n = int(f)
+            return factorial(n)
+
+        # Binarias: powf, div, mod
+        if oper in ("powf", "div", "mod"):
+            params = ctx.parametrosOp()
+            if params is None or len(params.expresion()) < 2:
+                raise ValueError(f"{oper} requiere dos argumentos")
+            a = eval_expr_node(params.expresion(0))
+            b = eval_expr_node(params.expresion(1))
+
+            if oper == "powf":
+                return powf(a, b)
+
+            if oper == "div":
+                return division(a, b)
+
+            if oper == "mod":
+                return modulo(a, b)
+
+        raise ValueError(f"Operación desconocida: {oper}")
     # ----------------------------
     #          PRINT
     # ----------------------------
     def visitImpresion(self, ctx):
-        if ctx.STRING():
-            base = ctx.STRING().getText().strip('"').strip("'")
-            if ctx.expresion():
-                values = [self.visit(e) for e in ctx.expresion()]
-                print(base, *values)
-            else:
-                print(base)
-        else:
-            print(self.visit(ctx.expresion()))
+        try:
+            if ctx.STRING():
+                base = ctx.STRING().getText().strip('"').strip("'")
+                if ctx.expresion():
+                    values = [self.visit(e) for e in ctx.expresion()]
+                    print(base, *values)
+                else:
+                    print(base)
+            elif ctx.operaciones():
+                # Si es una operación aritmética, visitarla
+                resultado = self.visit(ctx.operaciones())
+                print(resultado)
+            elif ctx.expresion():
+                # Si es una expresión normal
+                print(self.visit(ctx.expresion(0)))
+        except Exception as e:
+            print("\n Error de evaluacion:", str(e))
         return None
     # Simbolos de los tokens
     def mostrar_tabla_simbolos(self):

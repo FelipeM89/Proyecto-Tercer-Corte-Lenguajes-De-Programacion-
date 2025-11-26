@@ -1,0 +1,33 @@
+# Pruebas para Visitor.visitOperaciones
+# Sección A: operaciones esperadas válidas
+print(abs(-3))
+print(abs(3))
+print(factorial(5))        # 120
+print(sqrt(4))            # 2.0
+print(sqrt(2))            # ~1.4142
+print(exp(1))             # e ~ 2.718...
+print(ln(2.718281828))    # ~1.0 (aprox)
+print(powf(2,3))          # 8
+print(powf(2,-2))         # 0.25
+print(div(5,2))           # 2.5
+print(mod(5,2))           # 1
+print(sin(3.141592653589793/2))  # ~1.0
+print(cos(0))                    # ~1.0
+print(tan(0.7853981633974483))   # ~1.0
+
+# Sección B: casos que deberían provocar errores (ejecutar individualmente para probar manejo de errores)
+# Descomenta una línea a la vez para no detener la ejecución de todo el script.
+# print(sqrt(-1))         # error: argumento negativo
+# print(ln(0))            # error: ln argumento debe ser > 0
+# print(powf(-2,0.5))     # error: base negativa con exponente no entero
+# print(powf(0,-1))       # error: 0 ** negative
+# print(div(1,0))         # error: division por cero
+# print(mod(1,0))         # error: modulo por cero
+
+# Sección C: combinaciones y bordes
+print(powf(9,0.5))       # 3.0 (si powf soporta raíz cuadrada para base positiva)
+print(factorial(0))       # 1
+print(abs(0))
+print(exp(0))             # 1
+
+# Fin de pruebas
