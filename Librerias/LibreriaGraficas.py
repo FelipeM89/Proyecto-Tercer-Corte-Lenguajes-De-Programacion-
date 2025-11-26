@@ -5,7 +5,7 @@ Gráficas ASCII simples:
  - print_hist(vals, bins)
 """
 
-from LibreriaArchivoGestion import escribir_txt
+from Librerias.LibreriaArchivoGestion import escribir_txt
 
 
 def guardar_puntos(path, xs, ys):

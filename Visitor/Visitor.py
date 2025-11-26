@@ -7,7 +7,6 @@ from Librerias.LibreriasMatrices import *
 from Librerias.LibreriaArchivoGestion import *
 from Librerias.LibreriaFunciones import *
 from Librerias.LibreriaGraficas import *
-from Librerias.LibreriaGraficasTerminal import *
 from Librerias.LibreriaRegresionLineal import *
 from Librerias.LibreriaPerceptronMC import *
 from Librerias.LibreriaTablas import *
