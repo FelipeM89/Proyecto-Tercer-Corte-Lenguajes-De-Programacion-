@@ -1,4 +1,4 @@
-# Generated from ./visitor/LenguajeDominioEspecifico.g4 by ANTLR 4.13.2
+# Generated from LenguajeDominioEspecifico.g4 by ANTLR 4.13.2
 from antlr4 import *
 if "." in __name__:
     from .LenguajeDominioEspecificoParser import LenguajeDominioEspecificoParser
@@ -89,6 +89,11 @@ class LenguajeDominioEspecificoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by LenguajeDominioEspecificoParser#CrearRegresion.
+    def visitCrearRegresion(self, ctx:LenguajeDominioEspecificoParser.CrearRegresionContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by LenguajeDominioEspecificoParser#OperacionMultDiv.
     def visitOperacionMultDiv(self, ctx:LenguajeDominioEspecificoParser.OperacionMultDivContext):
         return self.visitChildren(ctx)
@@ -116,11 +121,6 @@ class LenguajeDominioEspecificoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by LenguajeDominioEspecificoParser#parametrosMatriz.
     def visitParametrosMatriz(self, ctx:LenguajeDominioEspecificoParser.ParametrosMatrizContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by LenguajeDominioEspecificoParser#CrearRegresion.
-    def visitCrearRegresion(self, ctx:LenguajeDominioEspecificoParser.CrearRegresionContext):
         return self.visitChildren(ctx)
 
 
