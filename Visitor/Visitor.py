@@ -37,64 +37,50 @@ class Visitor(LenguajeDominioEspecificoVisitor):
     #  CONDICIONALES IF/ELIF/ELSE
     # ----------------------------
     def visitCondicional(self, ctx):
-        # Contar cuántas expresiones y grupos de instrucciones hay
+        """
+        Maneja estructuras if/elif/else con llaves
+        Sintaxis: if (condicion) { instrucciones } elif (condicion) { instrucciones } else { instrucciones }
+        """
         num_expresiones = len(ctx.expresion())
-        idx_expr = 0
-        idx_instr_block = 0
         
-        # Evaluar IF
-        condicion = self.visit(ctx.expresion(idx_expr))
-        if self._es_verdadero(condicion):
-            # Ejecutar instrucciones del IF
-            start_idx = 0
-            for i, child in enumerate(ctx.children):
-                if child.getText() == ':' and start_idx == 0:
-                    # Encontramos el primer ':'
-                    for j in range(i + 2, len(ctx.children)):  # +2 para saltar ':' y NEWLINE
-                        if ctx.children[j].__class__.__name__ == 'InstruccionContext':
-                            self.visit(ctx.children[j])
-                        elif ctx.children[j].getText() in ['elif', 'else']:
-                            break
+        # Evaluar IF principal
+        condicion_if = self.visit(ctx.expresion(0))
+        if self._es_verdadero(condicion_if):
+            # Ejecutar instrucciones del bloque IF
+            for instr in ctx.instruccion()[:self._contar_instrucciones_bloque(ctx, 0)]:
+                self.visit(instr)
+            return None
+        
+        # Evaluar ELIFs si existen
+        num_elifs = ctx.getChildCount() - len([c for c in ctx.children if hasattr(c, 'symbol') and c.symbol.text in ['if', 'else']])
+        elif_count = sum(1 for i in range(ctx.getChildCount()) if ctx.getChild(i).getText() == 'elif')
+        
+        offset_instr = self._contar_instrucciones_bloque(ctx, 0)
+        for i in range(1, elif_count + 1):
+            if i < num_expresiones:
+                condicion_elif = self.visit(ctx.expresion(i))
+                if self._es_verdadero(condicion_elif):
+                    # Ejecutar instrucciones de este ELIF
+                    num_instr = self._contar_instrucciones_bloque(ctx, i)
+                    for instr in ctx.instruccion()[offset_instr:offset_instr + num_instr]:
+                        self.visit(instr)
                     return None
-        idx_expr += 1
+                offset_instr += num_instr
         
-        # Evaluar ELIFs
-        elif_count = len([c for c in ctx.children if hasattr(c, 'getText') and c.getText() == 'elif'])
-        for _ in range(elif_count):
-            if idx_expr < num_expresiones:
-                condicion = self.visit(ctx.expresion(idx_expr))
-                if self._es_verdadero(condicion):
-                   # Ejecutar instrucciones de este ELIF
-                    in_elif = False
-                    for i, child in enumerate(ctx.children):
-                        if hasattr(child, 'getText'):
-                            if child.getText() == 'elif' and not in_elif:
-                                in_elif = True
-                                continue
-                            if in_elif and child.getText() == ':':
-                                for j in range(i + 2, len(ctx.children)):
-                                    if ctx.children[j].__class__.__name__ == 'InstruccionContext':
-                                        self.visit(ctx.children[j])
-                                    elif hasattr(ctx.children[j], 'getText') and ctx.children[j].getText() in ['elif', 'else']:
-                                        break
-                                return None
-                idx_expr += 1
-        
-        # Ejecutar ELSE si existe
+        # Ejecutar ELSE si existe y no se ejecutó ningún bloque anterior
         if ctx.ELSE():
-            in_else = False
-            for i, child in enumerate(ctx.children):
-                if hasattr(child, 'getText'):
-                    if child.getText() == 'else':
-                        in_else = True
-                        continue
-                    if in_else and child.getText() == ':':
-                        for j in range(i + 2, len(ctx.children)):
-                            if ctx.children[j].__class__.__name__ == 'InstruccionContext':
-                                self.visit(ctx.children[j])
-                        return None
+            for instr in ctx.instruccion()[offset_instr:]:
+                self.visit(instr)
         
         return None
+
+    def _contar_instrucciones_bloque(self, ctx, indice_bloque):
+        """Cuenta las instrucciones dentro de un bloque específico"""
+        # Implementación simple: divide instrucciones por bloques
+        # En una implementación real, deberías analizar la estructura del árbol
+        total_instrucciones = len(ctx.instruccion())
+        num_bloques = 1 + sum(1 for i in range(ctx.getChildCount()) if ctx.getChild(i).getText() in ['elif', 'else'])
+        return total_instrucciones // num_bloques if num_bloques > 0 else total_instrucciones
 
     def _es_verdadero(self, valor):
         """Evalúa si un valor es considerado verdadero"""
@@ -111,9 +97,12 @@ class Visitor(LenguajeDominioEspecificoVisitor):
     #    BUCLES FOR Y WHILE
     # ----------------------------
     def visitBuclefor(self, ctx):
+        """
+        Maneja bucles for con sintaxis: for (i in range(inicio, fin)) { instrucciones }
+        """
         variable = ctx.ID().getText()
-        inicio = int(float(ctx.NUMBER(0).getText()))
-        fin = int(float(ctx.NUMBER(1).getText()))
+        inicio = int(float(self.visit(ctx.expresion(0))))
+        fin = int(float(self.visit(ctx.expresion(1))))
         
         for i in range(inicio, fin):
             self.memoria[variable] = i
@@ -123,6 +112,9 @@ class Visitor(LenguajeDominioEspecificoVisitor):
         return None
 
     def visitBuclewhile(self, ctx):
+        """
+        Maneja bucles while con sintaxis: while (condicion) { instrucciones }
+        """
         while True:
             condicion = self.visit(ctx.expresion())
             if not self._es_verdadero(condicion):
@@ -204,11 +196,30 @@ class Visitor(LenguajeDominioEspecificoVisitor):
     def visitExpresionLista(self, ctx):
         return [self.visit(e) for e in ctx.lista().expresion()]
 
+    def visitLista(self, ctx):
+        """Visita una lista y retorna sus elementos evaluados"""
+        return [self.visit(e) for e in ctx.expresion()]
+
     def visitExpresionMatriz(self, ctx):
         return self.visit(ctx.matriz())
 
     def visitExpresionOperacion(self, ctx):
         return self.visit(ctx.operaciones())
+
+    def visitAccesoCentroides(self, ctx):
+        """Acceso a centroides: kmeans.centroids"""
+        nombre_modelo = ctx.ID().getText()
+        modelo = self.memoria.get(nombre_modelo)
+        if not modelo:
+            raise ValueError(f"Modelo '{nombre_modelo}' no encontrado.")
+        
+        if not hasattr(modelo, 'centroids'):
+            raise ValueError(f"El objeto '{nombre_modelo}' no tiene centroides.")
+        
+        if modelo.centroids is None:
+            raise ValueError("El modelo no ha sido entrenado. Llama a fit() primero.")
+        
+        return modelo.centroids
 
 
     # ----------------------------
@@ -259,13 +270,17 @@ class Visitor(LenguajeDominioEspecificoVisitor):
         modelo.fit(X, y)
         return None
 
-    def visitPredecirRegresion(self, ctx):
+    def visitPredecirModelo(self, ctx):
+        """
+        Predicción genérica que funciona con cualquier modelo (Regresión, MLP, KMeans).
+        Sintaxis: resultado = modelo.predict(datos);
+        """
         target = ctx.target.text
         nombre_modelo = ctx.modelo.text
         modelo = self.memoria.get(nombre_modelo)
         if not modelo:
-            raise ValueError(f"Modelo de regresión '{nombre_modelo}' no encontrado.")
-
+            raise ValueError(f"Modelo '{nombre_modelo}' no encontrado.")
+        
         x = self.visit(ctx.expresion())
         pred = modelo.predict(x)
         self.memoria[target] = pred
@@ -356,20 +371,55 @@ class Visitor(LenguajeDominioEspecificoVisitor):
     #      PERCEPTRÓN MULTICAPA
     # ----------------------------
     def visitCrearMLP(self, ctx):
-        params = {}
+        """
+        Crea un perceptrón multicapa con sintaxis:
+        mlp = PerceptronMulticapa(layers=[2,5,3,1], learning_rate=0.1, seed=42);
+        """
+        nombre = ctx.ID().getText()
+        
+        layers = None
+        learning_rate = 0.1
+        seed = 1234
+        
         for p in ctx.parametrosMLP().parametroMLP():
-            key = p.getChild(0).getText()
-            value = self.visit(p.getChild(2))
-            params[key] = value
-
-        self.mlp = PerceptronMulticapa(**params)
-        return self.mlp
+            # Usar los métodos generados por ANTLR para determinar el tipo
+            if p.lista() is not None:
+                # Es el parámetro layers
+                layers = self.visit(p.lista())
+            elif p.NUMBER() is not None:
+                # Es learning_rate o seed - determinar por el primer hijo
+                key = p.getChild(0).getText()
+                val = float(p.NUMBER().getText())
+                if key == 'learning_rate':
+                    learning_rate = val
+                elif key == 'seed':
+                    seed = int(val)
+        
+        if layers is None:
+            raise ValueError("El parámetro 'layers' es obligatorio para PerceptronMulticapa")
+        
+        # Convertir layers a lista de enteros
+        layers = [int(float(x)) for x in layers]
+        
+        mlp = PerceptronMulticapa(layers, learning_rate, seed)
+        self.memoria[nombre] = mlp
+        
+        return mlp
 
     def visitEntrenarMLP(self, ctx):
+        """
+        Entrena el MLP con sintaxis:
+        mlp.fit(X, y, epochs=100, batch_size=1, verbose=True);
+        """
+        nombre_modelo = ctx.ID().getText()
+        modelo = self.memoria.get(nombre_modelo)
+        if not modelo:
+            raise ValueError(f"Modelo MLP '{nombre_modelo}' no encontrado.")
+        
         X = self.visit(ctx.x)
         y = self.visit(ctx.y)
 
-        # parámetros opcionales
+        # Parámetros opcionales
         epochs = 100
         batch = 1
         verbose = False
@@ -377,31 +427,44 @@ class Visitor(LenguajeDominioEspecificoVisitor):
         if ctx.parametrosEntrenamiento():
             for p in ctx.parametrosEntrenamiento().parametroEntrenamiento():
                 key = p.getChild(0).getText()
-                value = float(p.getChild(2).getText())
-                if key == "epochs": epochs = int(value)
-                elif key == "batch_size": batch = int(value)
-                elif key == "verbose": verbose = (p.getChild(2).getText() == "True")
+                value = p.getChild(2).getText()
+                
+                if key == "epochs":
+                    epochs = int(float(value))
+                elif key == "batch_size":
+                    batch = int(float(value))
+                elif key == "verbose":
+                    verbose = (value == "True")
 
-        self.loss_history = self.mlp.fit(X, y, epochs, batch, verbose)
+        modelo.fit(X, y, epochs, batch, verbose)
         return None
 
-    def visitPredecirMLP(self, ctx):
-        nombre = ctx.ID().getText()
-        x = self.visit(ctx.expresion())
-        pred = self.mlp.predict(x)
-        self.memoria[nombre] = pred
-        return pred
-
     def visitEvaluarMLP(self, ctx):
-        nombre = ctx.ID().getText()
+        """
+        Evalúa el MLP: score = mlp.score(X, y);
+        """
+        target = ctx.target.text
+        nombre_modelo = ctx.modelo.text
+        modelo = self.memoria.get(nombre_modelo)
+        if not modelo:
+            raise ValueError(f"Modelo MLP '{nombre_modelo}' no encontrado.")
+        
         X = self.visit(ctx.x)
         y = self.visit(ctx.y)
-        score = self.mlp.score(X, y)
-        self.memoria[nombre] = score
+        score = modelo.score(X, y)
+        self.memoria[target] = score
         return score
 
     def visitGraficarPerdidaMLP(self, ctx):
-        if not self.mlp or not self.mlp.loss_history:
+        """
+        Grafica la pérdida del MLP: mlp.plot_loss("output.txt");
+        """
+        nombre_modelo = ctx.ID().getText()
+        modelo = self.memoria.get(nombre_modelo)
+        if not modelo:
+            raise ValueError(f"Modelo MLP '{nombre_modelo}' no encontrado.")
+        
+        if not modelo or not modelo.loss_history:
             print("No hay historial de pérdida. Entrena el modelo primero.")
             return None
         
@@ -411,7 +474,7 @@ class Visitor(LenguajeDominioEspecificoVisitor):
         
         # Graficar usando graficar_linea_ascii
         graficar_linea_ascii(
-            self.mlp.loss_history, 
+            modelo.loss_history, 
             width=60, 
             height=15, 
             title="Pérdida del MLP",
@@ -425,9 +488,14 @@ class Visitor(LenguajeDominioEspecificoVisitor):
     #    K-MEANS CLUSTERING
     # ----------------------------
     def visitCrearKMeans(self, ctx):
+        """
+        Crea un modelo K-means: kmeans = KMeans(n_clusters=3, max_iter=100, seed=42);
+        """
+        nombre = ctx.ID().getText()
+        
         n_clusters = 3
         max_iter = 100
-        random_state = None
+        seed = 1234
         
         for p in ctx.parametrosKMeans().parametroKMeans():
             key = p.getChild(0).getText()
@@ -437,51 +505,60 @@ class Visitor(LenguajeDominioEspecificoVisitor):
                 n_clusters = int(value)
             elif key == 'max_iter':
                 max_iter = int(value)
-            elif key == 'random_state':
-                random_state = int(value)
+            elif key == 'seed':
+                seed = int(value)
         
-        self.kmeans = KMeans(n_clusters, max_iter, random_state)
-        nombre = ctx.ID().getText()
-        self.memoria[nombre] = self.kmeans
-        return self.kmeans
+        kmeans = KMeans(n_clusters, max_iter, seed)
+        self.memoria[nombre] = kmeans
+        return kmeans
 
     def visitEntrenarKMeans(self, ctx):
+        """
+        Entrena K-means: kmeans.fit(datos);
+        """
+        nombre_modelo = ctx.ID().getText()
+        modelo = self.memoria.get(nombre_modelo)
+        if not modelo:
+            raise ValueError(f"Modelo K-means '{nombre_modelo}' no encontrado.")
+        
         X = self.visit(ctx.expresion())
-        self.kmeans.fit(X)
-        print(f"K-means entrenado con {self.kmeans.n_clusters} clusters")
+        modelo.fit(X)
+        print(f"✓ K-means entrenado con {modelo.n_clusters} clusters")
         return None
 
-    def visitPredecirKMeans(self, ctx):
-        nombre = ctx.ID().getText()
-        X = self.visit(ctx.expresion())
-        labels = self.kmeans.predict(X)
-        self.memoria[nombre] = labels
-        print(f"Predicción: {labels}")
-        return labels
-
-    def visitObtenerCentroides(self, ctx):
-        nombre = ctx.ID().getText()
-        centroids = self.kmeans.get_centroids()
-        self.memoria[nombre] = centroids
-        print(f"Centroides:\n{centroids}")
-        return centroids
-
     def visitGraficarKMeans(self, ctx):
+        """
+        Grafica los clusters: kmeans.plot(width=80, height=20, output_file="clusters.txt");
+        """
+        nombre_modelo = ctx.ID().getText()
+        modelo = self.memoria.get(nombre_modelo)
+        if not modelo:
+            raise ValueError(f"Modelo K-means '{nombre_modelo}' no encontrado.")
         
-        
+        width = 80
+        height = 20
         output_file = None
-        if ctx.STRING():
-            output_file = ctx.STRING().getText().strip('"').strip("'")
         
-        # Mostrar visualización en consola y opcionalmente guardar
-        if hasattr(self.kmeans, 'labels') and self.kmeans.labels:
-            # Necesitamos los datos originales - los guardamos durante fit
-            # Por ahora solo mostramos los centroides
-            print(f"\nCentroides del K-means:")
-            for i, centroid in enumerate(self.kmeans.centroids):
-                print(f"  Cluster {i}: {centroid}")
+        if ctx.parametrosGraficarKMeans():
+            for p in ctx.parametrosGraficarKMeans().parametroGraficarKMeans():
+                key = p.getChild(0).getText()
+                txt = p.getChild(2).getText()
+                
+                if key == 'width':
+                    width = int(float(txt))
+                elif key == 'height':
+                    height = int(float(txt))
+                elif key == 'output_file':
+                    output_file = txt.strip('"').strip("'")
+        
+        # Generar visualización
+        plot_output = modelo.plot_clusters(width, height)
+        
+        if output_file:
+            escribir_txt(output_file, plot_output)
+            print(f"✓ Gráfica guardada en: {output_file}")
         else:
-            print("Entrena el modelo primero con kmeans.fit()")
+            print(plot_output)
         
         return None
 
@@ -490,13 +567,16 @@ class Visitor(LenguajeDominioEspecificoVisitor):
     #   GRÁFICAS GENERALES
     # ----------------------------
     def visitGraficar(self, ctx):
+        """
+        Grafica puntos: graficar(x, y, width=60, height=20, title="Mi Gráfica", output_file="plot.txt");
+        """
         x = self.visit(ctx.x)
         y = self.visit(ctx.y)
-        archivo = ctx.archivo.text.strip('"').strip("'")
         
         width = 60
         height = 20
         title = None
+        output_file = None
         
         if ctx.parametrosGraficar():
             for p in ctx.parametrosGraficar().parametroGraficar():
@@ -509,9 +589,11 @@ class Visitor(LenguajeDominioEspecificoVisitor):
                     height = int(float(txt))
                 elif key == 'title':
                     title = txt.strip('"').strip("'")
+                elif key == 'output_file':
+                    output_file = txt.strip('"').strip("'")
         
         # Usar graficar_puntos_ascii con guardado automático
-        graficar_puntos_ascii(x, y, width=width, height=height, title=title, archivo=archivo)
+        graficar_puntos_ascii(x, y, width=width, height=height, title=title, archivo=output_file)
         
         return None
 
@@ -597,28 +679,24 @@ class Visitor(LenguajeDominioEspecificoVisitor):
     #          PRINT
     # ----------------------------
     def visitImpresion(self, ctx):
+        """
+        Imprime valores: print(x); o print("mensaje", x, y);
+        """
         try:
-            if ctx.STRING():
-                base = ctx.STRING().getText().strip('"').strip("'")
-                if ctx.expresion():
-                    values = [self.visit(e) for e in ctx.expresion()]
-                    print(base, *values)
-                else:
-                    print(base)
-            elif ctx.operaciones():
-                resultado = self.visit(ctx.operaciones())
-                print(resultado)
-            elif ctx.expresion():
-                print(self.visit(ctx.expresion(0)))
+            if ctx.expresion():
+                # Evaluar todas las expresiones
+                valores = [self.visit(e) for e in ctx.expresion()]
+                # Imprimir separados por espacio
+                print(*valores)
         except Exception as e:
-            print("\nError de evaluación:", str(e))
+            print(f"\n Error de evaluación: {str(e)}")
         return None
 
 
-    # ----------------------------
-    #      TABLAS ASCII
-    # ----------------------------
     def visitMostrarTablaASCII(self, ctx):
+        """
+        Muestra tabla: mostrar_tabla(data, max_rows=20, max_cols=10, show_index=True);
+        """
         data = self.visit(ctx.expresion())
         
         params = {
@@ -659,8 +737,8 @@ class Visitor(LenguajeDominioEspecificoVisitor):
     #    TABLA DE SÍMBOLOS
     # ----------------------------
     def mostrar_tabla_simbolos(self):
-        print("\n=== TABLA DE SÍMBOLOS ===")
-        
+        """Muestra todas las variables almacenadas en memoria"""
+ 
         if not self.memoria:
             print("  (vacía)")
         else:
@@ -674,5 +752,15 @@ class Visitor(LenguajeDominioEspecificoVisitor):
                         print(f"  [{i}] {nombre}: matriz {filas}x{cols}")
                     else:
                         print(f"  [{i}] {nombre}: lista de {len(valor)} elementos")
+                elif isinstance(valor, regresion_lineal_model):
+                    print(f"  [{i}] {nombre}: RegresionLineal(m={valor.m:.4f}, b={valor.b:.4f})")
+                elif isinstance(valor, PerceptronMulticapa):
+                    print(f"  [{i}] {nombre}: PerceptronMulticapa(layers={valor.layers})")
+                elif isinstance(valor, KMeans):
+                    print(f"  [{i}] {nombre}: KMeans(n_clusters={valor.n_clusters})")
                 else:
-                    print(f"  [{i}] {nombre}: {tipo} = {valor}")
+                    valor_str = str(valor)
+                    if len(valor_str) > 50:
+                        valor_str = valor_str[:47] + "..."
+                    print(f"  [{i}] {nombre}: {tipo} = {valor_str}")
+        print()

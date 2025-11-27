@@ -1,41 +1,45 @@
 grammar LenguajeDominioEspecifico;
 
 // Regla principal del programa
-programa: NEWLINE* instruccion (NEWLINE+ instruccion)* NEWLINE* EOF;
-
+programa: instruccion* EOF;
 
 // Instrucciones principales
 instruccion
     : asignacion
     | regresionLineal
     | perceptronMulticapa
+    | prediccionModelo
     | impresion
     | comentario
     | buclefor
     | buclewhile
     | condicional
     | mostrarTabla
-    | operaciones
+    | operaciones ';'
     | kmeans
     | graficar
     ;
 
-// NUEVO: Condicionales IF/ELIF/ELSE (sin indentación compleja)
+// Condicionales IF/ELIF/ELSE con llaves
 condicional
-    : IF expresion ':' NEWLINE instruccion+ (ELIF expresion ':' NEWLINE instruccion+)* (ELSE ':' NEWLINE instruccion+)?
+    : IF '(' expresion ')' '{' instruccion* '}' (ELIF '(' expresion ')' '{' instruccion* '}')* (ELSE '{' instruccion* '}')?
     ;
 
-// buclefor
-buclefor: FOR ID IN RANGE '(' NUMBER ',' NUMBER ')' ':' NEWLINE instruccion+;
+// Bucle for con llaves
+buclefor
+    : FOR '(' ID IN RANGE '(' expresion ',' expresion ')' ')' '{' instruccion* '}'
+    ;
 
-//buclewhile
-buclewhile: WHILE expresion ':' NEWLINE instruccion+;
+// Bucle while con llaves
+buclewhile
+    : WHILE '(' expresion ')' '{' instruccion* '}'
+    ;
 
 // Comentarios
 comentario: COMENTARIO;
 
 // Asignación de variables
-asignacion: ID '=' expresion;
+asignacion: ID '=' expresion ';';
 
 // Expresiones
 expresion
@@ -45,7 +49,8 @@ expresion
     | expresion ('and' | 'or') expresion       # ExpresionLogica
     | 'not' expresion                          # ExpresionNot
     | '(' expresion ')'                        # ExpresionParentesis
-    | MATRIZ '.' operacion=('suma' | 'resta' | 'multiplicar' | 'transpuesta' | 'determinante' |'inversa') '(' parametrosMatriz ')'        # OperacionMatrizExpr
+    | MATRIZ '.' operacion=('suma' | 'resta' | 'multiplicar' | 'transpuesta' | 'determinante' | 'inversa') '(' parametrosMatriz ')'  # OperacionMatrizExpr
+    | ID '.' 'centroids'                       # AccesoCentroides
     | 'RegresionLineal' '(' ')'                # CrearRegresion
     | operaciones                              # ExpresionOperacion
     | matriz                                   # ExpresionMatriz
@@ -68,17 +73,20 @@ fila: '[' expresion (',' expresion)* ']';
 // Listas
 lista: '[' (expresion (',' expresion)*)? ']';
 
-
 parametrosMatriz
     : expresion (',' expresion)*
     ;
 
 // Regresión lineal
 regresionLineal
-    : ID '.' 'fit' '(' x=expresion ',' y=expresion ')'                          # EntrenarRegresion
-    | target=ID '=' modelo=ID '.' 'predict' '(' expresion ')'                   # PredecirRegresion
-    | target=ID '=' modelo=ID '.' metrica=('mse' | 'mae' | 'r2' | 'rmse') '(' ')' # ObtenerMetricaRegresion
-    | ID '.' 'plot' '(' (parametrosPlot)? ')'                                   # GraficarRegresion
+    : ID '.' 'fit' '(' x=expresion ',' y=expresion ')' ';'                     # EntrenarRegresion
+    | target=ID '=' modelo=ID '.' metrica=('mse' | 'mae' | 'r2' | 'rmse') '(' ')' ';' # ObtenerMetricaRegresion
+    | ID '.' 'plot' '(' (parametrosPlot)? ')' ';'                              # GraficarRegresion
+    ;
+
+// Predicción genérica (funciona para regresión, MLP, kmeans)
+prediccionModelo
+    : target=ID '=' modelo=ID '.' 'predict' '(' expresion ')' ';'              # PredecirModelo
     ;
 
 parametrosPlot
@@ -98,11 +106,10 @@ parametroPlot
 
 // Perceptrón multicapa
 perceptronMulticapa
-    : 'mlp' '=' 'PerceptronMulticapa' '(' parametrosMLP ')'                             # CrearMLP
-    | 'mlp' '.' 'fit' '(' x=expresion ',' y=expresion (',' parametrosEntrenamiento)? ')'      # EntrenarMLP
-    | ID '=' 'mlp' '.' 'predict' '(' expresion ')'                                      # PredecirMLP
-    | ID '=' 'mlp' '.' 'score' '(' x=expresion ',' y=expresion ')'                      # EvaluarMLP
-    | 'mlp' '.' 'plot_loss' '(' (STRING)? ')'                                           # GraficarPerdidaMLP
+    : ID '=' 'PerceptronMulticapa' '(' parametrosMLP ')' ';'                        # CrearMLP
+    | ID '.' 'fit' '(' x=expresion ',' y=expresion (',' parametrosEntrenamiento)? ')' ';' # EntrenarMLP
+    | target=ID '=' modelo=ID '.' 'score' '(' x=expresion ',' y=expresion ')' ';'   # EvaluarMLP
+    | ID '.' 'plot_loss' '(' (STRING)? ')' ';'                                      # GraficarPerdidaMLP
     ;
 
 parametrosMLP
@@ -110,11 +117,9 @@ parametrosMLP
     ;
 
 parametroMLP
-    : 'hidden_layers' '=' lista
-    | 'activation' '=' STRING
+    : 'layers' '=' lista
     | 'learning_rate' '=' NUMBER
-    | 'max_iter' '=' NUMBER
-    | 'random_state' '=' NUMBER
+    | 'seed' '=' NUMBER
     ;
 
 parametrosEntrenamiento
@@ -127,13 +132,11 @@ parametroEntrenamiento
     | 'verbose' '=' ('True' | 'False')
     ;
 
-// NUEVO: K-means clustering
+// K-means clustering
 kmeans
-    : ID '=' 'KMeans' '(' parametrosKMeans ')'                                  # CrearKMeans
-    | 'kmeans' '.' 'fit' '(' expresion ')'                                      # EntrenarKMeans
-    | ID '=' 'kmeans' '.' 'predict' '(' expresion ')'                           # PredecirKMeans
-    | ID '=' 'kmeans' '.' 'centroids' '(' ')'                                   # ObtenerCentroides
-    | 'kmeans' '.' 'plot' '(' (STRING)? ')'                                     # GraficarKMeans
+    : ID '=' 'KMeans' '(' parametrosKMeans ')' ';'                             # CrearKMeans
+    | ID '.' 'fit' '(' expresion ')' ';'                                       # EntrenarKMeans
+    | ID '.' 'plot' '(' (parametrosGraficarKMeans)? ')' ';'                    # GraficarKMeans
     ;
 
 parametrosKMeans
@@ -143,12 +146,22 @@ parametrosKMeans
 parametroKMeans
     : 'n_clusters' '=' NUMBER
     | 'max_iter' '=' NUMBER
-    | 'random_state' '=' NUMBER
+    | 'seed' '=' NUMBER
     ;
 
-// NUEVO: Gráficas generales
+parametrosGraficarKMeans
+    : parametroGraficarKMeans (',' parametroGraficarKMeans)*
+    ;
+
+parametroGraficarKMeans
+    : 'width' '=' NUMBER
+    | 'height' '=' NUMBER
+    | 'output_file' '=' STRING
+    ;
+
+// Gráficas generales
 graficar
-    : 'graficar' '(' x=expresion ',' y=expresion ',' archivo=STRING (',' parametrosGraficar)? ')'
+    : 'graficar' '(' x=expresion ',' y=expresion (',' parametrosGraficar)? ')' ';'
     ;
 
 parametrosGraficar
@@ -159,15 +172,15 @@ parametroGraficar
     : 'width' '=' NUMBER
     | 'height' '=' NUMBER
     | 'title' '=' STRING
+    | 'output_file' '=' STRING
     ;
 
 // Impresión
 impresion
-    : PRINT '(' expresion ')'
-    | PRINT '(' operaciones ')'
-    | PRINT '(' STRING (',' expresion)* ')'
+    : PRINT '(' expresion (',' expresion)* ')' ';'
     ;
-// Operaciones Aritmeticas
+
+// Operaciones Aritméticas
 operaciones
     : 'abs' '(' expresion ')'
     | 'factorial' '(' expresion ')'
@@ -181,18 +194,20 @@ operaciones
     | 'div' '(' parametrosOp ')'
     | 'mod' '(' parametrosOp ')'
     ;
+
 parametrosOp
     : expresion ',' expresion
     ;
 
-
 // Tablas estilo pandas
 mostrarTabla
-    : 'mostrar_tabla' '(' expresion (',' parametrosTabla)? ')'  # MostrarTablaASCII
+    : 'mostrar_tabla' '(' expresion (',' parametrosTabla)? ')' ';'  # MostrarTablaASCII
     ;
+
 parametrosTabla
     : parametroTabla (',' parametroTabla)*
     ;
+
 parametroTabla
     : 'max_rows' '=' NUMBER
     | 'max_cols' '=' NUMBER
@@ -201,9 +216,10 @@ parametroTabla
     | 'show_index' '=' (TRUE | FALSE)
     | 'headers' '=' lista
     ;
-//  ----------------------------------- Tokens léxicos
 
-// Palabras reservadas 
+// ----------------------------------- Tokens léxicos
+
+// Palabras reservadas (deben ir ANTES de ID)
 MATRIZ: 'matriz';
 FOR: 'for';
 WHILE: 'while';
@@ -212,31 +228,28 @@ ELIF: 'elif';
 ELSE: 'else';
 IN: 'in';
 RANGE: 'range';
-MLP: 'mlp';
 PRINT: 'print';
 TRUE: 'True';
 FALSE: 'False';
-// Identificadores
+GRAFICAR: 'graficar';
+MOSTRAR_TABLA: 'mostrar_tabla';
+KMEANS: 'KMeans';
+PERCEPTRON: 'PerceptronMulticapa';
+REGRESION: 'RegresionLineal';
+
+// Identificadores (va DESPUÉS de las palabras reservadas)
 ID: [a-zA-Z_][a-zA-Z0-9_]*;
 
 // Números (enteros y flotantes)
-
 NUMBER
-    : ENTERO
-    | DECIMAL
+    : '-'? [0-9]+ ('.' [0-9]+)? ([eE] [+-]? [0-9]+)?
     ;
-ENTERO: '-'?[0-9]+;
-DECIMAL: '-'?[0-9]+ ('.' [0-9]+)? ([eE] [+-]? [0-9]+)?;
 
 // Cadenas de texto
-
 STRING: '"' (~["\r\n])* '"' | '\'' (~['\r\n])* '\'';
-
 
 // Comentarios
 COMENTARIO: '#' ~[\r\n]* -> skip;
 
 // Espacios en blanco
-WS: [ \t]+ -> skip;
-
-NEWLINE: '\r'? '\n';
+WS: [ \t\r\n]+ -> skip;

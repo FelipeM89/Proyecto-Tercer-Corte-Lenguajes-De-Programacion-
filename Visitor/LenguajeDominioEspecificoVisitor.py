@@ -1,4 +1,4 @@
-# Generated from ./Visitor/LenguajeDominioEspecifico.g4 by ANTLR 4.13.2
+# Generated from LenguajeDominioEspecifico.g4 by ANTLR 4.13.2
 from antlr4 import *
 if "." in __name__:
     from .LenguajeDominioEspecificoParser import LenguajeDominioEspecificoParser
@@ -109,6 +109,11 @@ class LenguajeDominioEspecificoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by LenguajeDominioEspecificoParser#AccesoCentroides.
+    def visitAccesoCentroides(self, ctx:LenguajeDominioEspecificoParser.AccesoCentroidesContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by LenguajeDominioEspecificoParser#CrearRegresion.
     def visitCrearRegresion(self, ctx:LenguajeDominioEspecificoParser.CrearRegresionContext):
         return self.visitChildren(ctx)
@@ -149,11 +154,6 @@ class LenguajeDominioEspecificoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by LenguajeDominioEspecificoParser#PredecirRegresion.
-    def visitPredecirRegresion(self, ctx:LenguajeDominioEspecificoParser.PredecirRegresionContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by LenguajeDominioEspecificoParser#ObtenerMetricaRegresion.
     def visitObtenerMetricaRegresion(self, ctx:LenguajeDominioEspecificoParser.ObtenerMetricaRegresionContext):
         return self.visitChildren(ctx)
@@ -161,6 +161,11 @@ class LenguajeDominioEspecificoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by LenguajeDominioEspecificoParser#GraficarRegresion.
     def visitGraficarRegresion(self, ctx:LenguajeDominioEspecificoParser.GraficarRegresionContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeDominioEspecificoParser#PredecirModelo.
+    def visitPredecirModelo(self, ctx:LenguajeDominioEspecificoParser.PredecirModeloContext):
         return self.visitChildren(ctx)
 
 
@@ -181,11 +186,6 @@ class LenguajeDominioEspecificoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by LenguajeDominioEspecificoParser#EntrenarMLP.
     def visitEntrenarMLP(self, ctx:LenguajeDominioEspecificoParser.EntrenarMLPContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by LenguajeDominioEspecificoParser#PredecirMLP.
-    def visitPredecirMLP(self, ctx:LenguajeDominioEspecificoParser.PredecirMLPContext):
         return self.visitChildren(ctx)
 
 
@@ -229,16 +229,6 @@ class LenguajeDominioEspecificoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by LenguajeDominioEspecificoParser#PredecirKMeans.
-    def visitPredecirKMeans(self, ctx:LenguajeDominioEspecificoParser.PredecirKMeansContext):
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by LenguajeDominioEspecificoParser#ObtenerCentroides.
-    def visitObtenerCentroides(self, ctx:LenguajeDominioEspecificoParser.ObtenerCentroidesContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by LenguajeDominioEspecificoParser#GraficarKMeans.
     def visitGraficarKMeans(self, ctx:LenguajeDominioEspecificoParser.GraficarKMeansContext):
         return self.visitChildren(ctx)
@@ -251,6 +241,16 @@ class LenguajeDominioEspecificoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by LenguajeDominioEspecificoParser#parametroKMeans.
     def visitParametroKMeans(self, ctx:LenguajeDominioEspecificoParser.ParametroKMeansContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeDominioEspecificoParser#parametrosGraficarKMeans.
+    def visitParametrosGraficarKMeans(self, ctx:LenguajeDominioEspecificoParser.ParametrosGraficarKMeansContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by LenguajeDominioEspecificoParser#parametroGraficarKMeans.
+    def visitParametroGraficarKMeans(self, ctx:LenguajeDominioEspecificoParser.ParametroGraficarKMeansContext):
         return self.visitChildren(ctx)
 
 

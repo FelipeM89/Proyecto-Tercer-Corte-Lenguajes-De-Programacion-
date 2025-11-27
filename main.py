@@ -28,8 +28,6 @@ if __name__ == '__main__':
         evaluador = Visitor()
         evaluador.visit(tree)
         
-        # Mostrar tabla de símbolos final
-        evaluador.mostrar_tabla_simbolos()
         
     except Exception as e:
         print(f"\n Error de evaluacion: {e}")

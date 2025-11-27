@@ -10,7 +10,6 @@ print("x es mayor que y")
 # Ejemplo 2: IF-ELSE
 if x < y:
 print("x es menor que y")
-
 else:
 print("x NO es menor que y")
 

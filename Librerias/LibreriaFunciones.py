@@ -74,6 +74,11 @@ def r2(y_true, y_pred):
 def regresion_lineal(x, y):
     if not x or not y or len(x) != len(y):
         raise ValueError("regresion_lineal: listas vacías o distintas longitudes")
+    
+    # Handle list of lists for x (take first element)
+    if x and isinstance(x[0], list):
+        x = [xi[0] for xi in x]
+
     n = len(x)
     mx = mean(x)
     my = mean(y)

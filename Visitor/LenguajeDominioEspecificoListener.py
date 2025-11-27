@@ -1,4 +1,4 @@
-# Generated from ./Visitor/LenguajeDominioEspecifico.g4 by ANTLR 4.13.2
+# Generated from LenguajeDominioEspecifico.g4 by ANTLR 4.13.2
 from antlr4 import *
 if "." in __name__:
     from .LenguajeDominioEspecificoParser import LenguajeDominioEspecificoParser
@@ -185,6 +185,15 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
 
     # Exit a parse tree produced by LenguajeDominioEspecificoParser#ExpresionMatriz.
     def exitExpresionMatriz(self, ctx:LenguajeDominioEspecificoParser.ExpresionMatrizContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#AccesoCentroides.
+    def enterAccesoCentroides(self, ctx:LenguajeDominioEspecificoParser.AccesoCentroidesContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#AccesoCentroides.
+    def exitAccesoCentroides(self, ctx:LenguajeDominioEspecificoParser.AccesoCentroidesContext):
         pass
 
 
@@ -413,15 +422,6 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by LenguajeDominioEspecificoParser#ObtenerCentroides.
-    def enterObtenerCentroides(self, ctx:LenguajeDominioEspecificoParser.ObtenerCentroidesContext):
-        pass
-
-    # Exit a parse tree produced by LenguajeDominioEspecificoParser#ObtenerCentroides.
-    def exitObtenerCentroides(self, ctx:LenguajeDominioEspecificoParser.ObtenerCentroidesContext):
-        pass
-
-
     # Enter a parse tree produced by LenguajeDominioEspecificoParser#GraficarKMeans.
     def enterGraficarKMeans(self, ctx:LenguajeDominioEspecificoParser.GraficarKMeansContext):
         pass
@@ -446,6 +446,24 @@ class LenguajeDominioEspecificoListener(ParseTreeListener):
 
     # Exit a parse tree produced by LenguajeDominioEspecificoParser#parametroKMeans.
     def exitParametroKMeans(self, ctx:LenguajeDominioEspecificoParser.ParametroKMeansContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#parametrosGraficarKMeans.
+    def enterParametrosGraficarKMeans(self, ctx:LenguajeDominioEspecificoParser.ParametrosGraficarKMeansContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#parametrosGraficarKMeans.
+    def exitParametrosGraficarKMeans(self, ctx:LenguajeDominioEspecificoParser.ParametrosGraficarKMeansContext):
+        pass
+
+
+    # Enter a parse tree produced by LenguajeDominioEspecificoParser#parametroGraficarKMeans.
+    def enterParametroGraficarKMeans(self, ctx:LenguajeDominioEspecificoParser.ParametroGraficarKMeansContext):
+        pass
+
+    # Exit a parse tree produced by LenguajeDominioEspecificoParser#parametroGraficarKMeans.
+    def exitParametroGraficarKMeans(self, ctx:LenguajeDominioEspecificoParser.ParametroGraficarKMeansContext):
         pass
 
 
