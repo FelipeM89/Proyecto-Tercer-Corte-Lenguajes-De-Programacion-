@@ -1,4 +1,4 @@
-# Ejemplo de uso de K-means para clustering
+# Ejemplo de  de K-means para clustering
 
 # Datos de ejemplo: 3 grupos claramente separados
 # Grupo 1: alrededor de (2, 2)
